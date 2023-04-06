@@ -54,7 +54,7 @@ a:hover {
   flex-direction: column; /* Stack images vertically */
   flex: none;
   padding-left: 20px;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 /* Styling for the image */
