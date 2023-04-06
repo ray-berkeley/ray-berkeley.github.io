@@ -71,7 +71,7 @@ a:hover {
 }
 
 /* Responsive styling for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 625px) {
   .main-content {
     flex-direction: column;
   }
