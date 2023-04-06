@@ -1,17 +1,17 @@
 @font-face {
-  font-family: "Source Sans Pro";
-  src: url("../../SourceSansPro-Light.ttf");
+  font-family: "Source Sans Pro Light";
+  src: url("./fonts/SourceSansPro-Light.ttf");
 }
 
 @font-face {
   font-family: "Source Sans Pro Semibold";
-  src: url("../../SourceSansPro-Semibold.ttf");
+  src: url("./fonts/SourceSansPro-SemiBold.ttf");
 }
 
 body, html {
   /*width: 100vw;
   margin: 1vw;*/
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Source Sans Pro Light", sans-serif;
   font-size: 16px;
   color: #222222;
 }
