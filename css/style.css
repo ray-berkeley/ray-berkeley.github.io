@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Source Sans Pro";
-  src: url("../SourceSansPro-Light.ttf");
+  src: url("../../SourceSansPro-Light.ttf");
 }
 
 @font-face {
   font-family: "Source Sans Pro Semibold";
-  src: url("../SourceSansPro-Semibold.ttf");
+  src: url("../../SourceSansPro-Semibold.ttf");
 }
 
 body, html {
