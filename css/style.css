@@ -8,6 +8,11 @@
   src: url("./fonts/SourceSansPro-SemiBold.ttf");
 }
 
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("./fonts/SourceCodePro-VariableFont_wght.ttf");
+}
+
 body, html {
   /*width: 100vw;
   margin: 1vw;*/
@@ -27,9 +32,50 @@ a:hover {
 
 .header {
   max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: fixed;
+  top: 15px; 
+  left: 0;
+  right: 0;
+  z-index: 100; /* this is important for keeping the header on top */
 }
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* Keep the height to accommodate the gradient */
+  z-index: 99;
+  overflow: hidden;
+}
+
+.header-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px; /* Set the height to cover the first 50px */
+  background-color: rgba(255, 255, 255, 1); /* Set the background to fully opaque */
+  pointer-events: none;
+  z-index: 99;
+}
+
+.header-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50px; /* Start the gradient at 50px from the top */
+  left: 0;
+  right: 0;
+  height: 10px; /* Set the height to create a 10px gradient */
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  pointer-events: none;
+  z-index: 99;
+}
+
+
 
 /* Container for the main content */
 .main-content {
@@ -50,7 +96,7 @@ a:hover {
 
 /* Styling for the image container */
 .main-content .image {
-  display: flex; /* Set the display to flex */
+  display: flex;
   flex-direction: column; /* Stack images vertically */
   flex: none;
   padding-left: 20px;
@@ -70,6 +116,9 @@ a:hover {
   margin-bottom: 0;
 }
 
+.main-content .blog-list{
+  margin-top: 0
+}
 /* Responsive styling for smaller screens */
 @media (max-width: 625px) {
   .main-content {
@@ -93,4 +142,56 @@ a:hover {
 .semibold-italic {
   font-family: 'Source Sans Pro Semibold', sans-serif;
   font-style: italic;
+}
+
+/* Styling for Jupyter Notebook output */
+/* These classes will override Jupyter defaults */
+
+.padding-div {
+  height: 40px; /* a jugaad */
+}
+
+.CodeMirror{
+  font-family: 'Source Code Pro';
+  font-size: 10pt;
+}
+
+.jp-RenderedHTMLCommon {
+  font-family: "Source Sans Pro Light", sans-serif;
+  font-size: 16px;
+  color: #222222;
+}
+
+.jp-RenderedHTMLCommon code {
+  font-family: "Source Code Pro", monospace;
+  font-size: 12px;
+}
+
+.jp-RenderedHTMLCommon pre {
+  font-family: "Source Code Pro", monospace;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+div.jp-RenderedHTMLCommon h1,
+div.jp-RenderedHTMLCommon h2,
+div.jp-RenderedHTMLCommon h3,
+div.jp-RenderedHTMLCommon h4,
+div.jp-RenderedHTMLCommon h5,
+div.jp-RenderedHTMLCommon h6 {
+    font-family: 'Source Sans Pro Semibold', sans-serif;
+    
+    font-weight: 300;
+}
+
+div.jp-RenderedHTMLCommon h1 {
+    font-size: 18pt;
+}
+
+div.jp-RenderedHTMLCommon h2 {
+    font-size: 16pt;
+}
+
+div.jp-RenderedHTMLCommon h3 {
+    font-size: 14pt;
 }
