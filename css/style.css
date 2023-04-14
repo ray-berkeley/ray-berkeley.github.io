@@ -23,6 +23,7 @@ body, html {
 
 a {
   color: #005998;
+  text-decoration: none;
 }
 
 a:hover {
