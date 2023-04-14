@@ -22,12 +22,15 @@ body, html {
 }
 
 a {
-  text-decoration: underline;
   color: #005998;
 }
 
 a:hover {
   color: #a3b8c8;
+}
+
+blockquote {
+  width: auto;
 }
 
 .header {
@@ -156,10 +159,25 @@ a:hover {
   font-size: 10pt;
 }
 
+.jp-Cell {
+  max-width: 1000px;
+  margin: auto;
+}
+
 .jp-RenderedHTMLCommon {
   font-family: "Source Sans Pro Light", sans-serif;
   font-size: 16px;
   color: #222222;
+  line-height: normal;
+}
+
+.jp-RenderedHTMLCommon a {
+  color: #005998;
+}
+
+.jp-RenderedHTMLCommon a:hover {
+  text-decoration: none;
+  color: #a3b8c8;
 }
 
 .jp-RenderedHTMLCommon code {
@@ -180,8 +198,8 @@ div.jp-RenderedHTMLCommon h4,
 div.jp-RenderedHTMLCommon h5,
 div.jp-RenderedHTMLCommon h6 {
     font-family: 'Source Sans Pro Semibold', sans-serif;
-    
     font-weight: 300;
+    scroll-margin-top: 75px;
 }
 
 div.jp-RenderedHTMLCommon h1 {
@@ -194,4 +212,8 @@ div.jp-RenderedHTMLCommon h2 {
 
 div.jp-RenderedHTMLCommon h3 {
     font-size: 14pt;
+}
+
+.jp-InputArea-prompt {
+  color:rgba(255, 255, 255, 1)
 }
