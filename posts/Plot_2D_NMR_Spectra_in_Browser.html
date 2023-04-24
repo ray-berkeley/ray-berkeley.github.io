@@ -14592,8 +14592,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Plot-2D-NMR-Spectra-in-the-Browser-with-nmrglue-and-HoloViews">Plot 2D NMR Spectra in the Browser with nmrglue and HoloViews<a class="anchor-link" href="#Plot-2D-NMR-Spectra-in-the-Browser-with-nmrglue-and-HoloViews">&#182;</a></h1><p>Extracting NMR data from their native format into a more common data type like a numpy array opens up a whole world of possibilities for analyzing and visualizing NMR data. This post will explore a few examples of using nmrglue to parse the two most common biomolecular NMR formats (Bruker and UCSF SPARKY) into an array that we can then plot with HoloViews, a library that provies a (mostly) unified API for calling matplotlib and Bokeh.</p>
-<p>Plotting with HoloViews allows us to generate publication-quality spectra that are superior to those generated natively by TopSpin (Bruker's NMR software) or SPARKY (the most common software for interacting with biomolecular NMR data). I provided examples of plots of the same spectrum generated with TopSpin, SPARKY, and matplotlib back when I originally started using matplotlib to generate contour plots for NMR data:</p>
+<h1 id="Plot-2D-NMR-Spectra-in-the-Browser-with-nmrglue-and-HoloViews">Plot 2D NMR Spectra in the Browser with nmrglue and HoloViews<a class="anchor-link" href="#Plot-2D-NMR-Spectra-in-the-Browser-with-nmrglue-and-HoloViews">&#182;</a></h1><p>Extracting NMR data from their native format into a more common data type like a numpy array opens up a whole world of possibilities for analyzing and visualizing NMR data. This post will explore a few examples of using nmrglue to parse the two most common biomolecular NMR formats (Bruker and UCSF format) into an array that we can then plot with HoloViews, a library that provies a (mostly) unified API for calling matplotlib and Bokeh.</p>
+<p>Plotting with HoloViews allows us to generate publication-quality spectra that are superior to those generated natively by TopSpin (Bruker's NMR software) or <a href="https://sites.google.com/view/pokynmr">POKY</a> (the actively maintained and developed version of SPARKY, the most common software for interacting with biomolecular NMR data). I provided examples of plots of the same spectrum generated with TopSpin, SPARKY, and matplotlib back when I originally started using matplotlib to generate contour plots for NMR data:</p>
 
 </div>
 </div>
@@ -14629,7 +14629,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     </ul>
   </li>
   <li><a href="#Parsing-Bruker-Data-with-nmrglue">Parsing Bruker Data with nmrglue</a></li>
-  <li><a href="#Parsing-UCSF-SPARKY-Data-with-nmrglue">Parsing UCSF SPARKY Data with nmrglue</a></li>
+  <li><a href="#Parsing-UCSF-Data-with-nmrglue">Parsing UCSF Data with nmrglue</a></li>
   <li><a href="#Plotting-Spectra-in-the-Browser">Plotting Spectra in the Browser</a></li>
   <li><a href="#Plotting-Spectra-for-Publication">Plotting Spectra for Publication</a></li>
   </ul>
@@ -16837,7 +16837,7 @@ if (window.Jupyter !== undefined) {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>This leaves us will all of the data necessary to generate and plot contours. Our real data is in an array called <code>bruker_data</code>, our unit conversion information are in our unit conversion dictionary <code>bruker_udic</code>, and our contours are <code>bruker_clevels</code>.</p>
-<h1 id="Parsing-UCSF-SPARKY-Data-with-nmrglue">Parsing UCSF SPARKY Data with nmrglue<a class="anchor-link" href="#Parsing-UCSF-SPARKY-Data-with-nmrglue">&#182;</a></h1><p>Unlike Bruker's approach, all of the necessary information for plotting an NMR spectrum (except for the contour levels) can be parsed a <code>.ucsf</code> file. Let's pull in the same data, this time in UCSF format.</p>
+<h1 id="Parsing-UCSF-Data-with-nmrglue">Parsing UCSF Data with nmrglue<a class="anchor-link" href="#Parsing-UCSF-Data-with-nmrglue">&#182;</a></h1><p>Unlike Bruker's approach, all of the necessary information for plotting an NMR spectrum (except for the contour levels) can be parsed a <code>.ucsf</code> file. Let's pull in the same data, this time in UCSF format. The methods used for parsing data in UCSF format are generally in the `sparky` module.</p>
 
 </div>
 </div>
