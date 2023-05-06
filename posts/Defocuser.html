@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Defocus Generator 🔎</title>
+    <link rel="stylesheet" type="text/css" href="./../css/style.css" />
+
+    <style type="text/css">
+    
+        h2 {
+            font-family: "Source Sans Pro Bold", sans-serif;
+            font-size: 20px;
+            font-style: italic;
+            color: #222222;
+        }
+        body {
+            
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 40px;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 60%;
+        }
+
+        .top-panel {
+            text-align: center;
+            margin-bottom: 10px;
+            }
+
+        .panels-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .left-panel,
+        .right-panel {
+            flex-basis: 45%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .left-panel label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #numberRange {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        #randomNumbers {
+            width: 100%;
+            height: 200px;
+            padding: 8px;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+
+    <script>
+        function generateRandomNumbers(range) {
+            
+            const [min, max] = range.split('-').map(Number);
+            let numbers = '';
+
+            for (let i = 0; i < 10; i++) {
+                const randomNumber = Math.random() * (max - min) + min;
+                const roundedNumber = randomNumber.toFixed(2);
+                numbers += roundedNumber + '\n'; 
+            }
+
+            return numbers.slice(0, -1);
+        }
+
+        // Note that each description is based on the provided range, rather than the actual selected microscope
+        // It would be possible to do this based on microscope but this is fine for now. 
+        function updateRangeDescription(selectedRange) {
+            
+            const rangeDescription = document.getElementById('rangeDescription');
+            let description;
+
+            switch (selectedRange) {
+                case '1-5':
+                    description = 'You have selected microscope A. This scope generates dummy defocus values between 1 and 5.';
+                    break;
+                case '10-100':
+                    description = 'You have selected microscope B. This scope generates dummy defocus values between 10 and 100.';
+                    break;
+                case '2-4':
+                    description = 'You have selected microscope C. This scope generates dummy defocus values between 2 and 4.';
+                    break;
+            }
+
+            rangeDescription.innerText = description;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const numberRange = document.getElementById('numberRange');
+            const randomNumbers = document.getElementById('randomNumbers');
+
+            randomNumbers.value = generateRandomNumbers(numberRange.value);
+            updateRangeDescription(numberRange.value);
+
+            numberRange.addEventListener('change', () => {
+                randomNumbers.value = generateRandomNumbers(numberRange.value);
+                updateRangeDescription(numberRange.value); 
+            });
+        });
+    </script>
+  
+</head>
+
+<!--
+  <header class="header">
+
+      <nav>
+        <a href="index.html" class="nav-item semibold-italic">Ray Berkeley</a> | 
+        <a href="bio.html" class="nav-item">bio</a> |
+        <a href="blog.html" class="nav-item">blog</a> |
+        <a href="http://debelouchinalab.ucsd.edu/team.html" class="nav-item">group</a> |
+        <a href="./Ray_Berkeley_CV.pdf" class="nav-item">cv</a>
+      </nav>
+
+  </header>
+-->
+ 
+
+
+  <body>
+    
+    <div class="container">
+        
+        <div class="top-panel">
+            <h2><b>Defocus Generator 🔎</b></h2>
+            <p>Use this tool to generate dummy defocus values for a given microscope.</p>
+        </div>
+
+        <div class="panels-container">
+            <div class="left-panel">
+                <label for="numberRange">Select Microscope:</label>
+                <select id="numberRange">
+                    <option value="1-5">Microscope A</option>
+                    <option value="10-100">Microscope B</option>
+                    <option value="2-4">Microscope C</option>
+                </select>
+
+                <p id="rangeDescription"></p>
+            </div>
+
+            <div class="right-panel">
+                <textarea id="randomNumbers" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+
+</html>
