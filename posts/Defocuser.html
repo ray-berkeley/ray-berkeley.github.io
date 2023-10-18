@@ -74,7 +74,7 @@
     <script>
         function generateRandomNumbers(range) {
             
-            const [min, max] = range.split('-').map(Number);
+            const [min, max] = range.split('to').map(Number);
             let numbers = '';
 
             for (let i = 0; i < 10; i++) {
@@ -94,14 +94,14 @@
             let description;
 
             switch (selectedRange) {
-                case '1-5':
-                    description = 'You have selected microscope A. This scope generates dummy defocus values between 1 and 5.';
+                case '-1 to -5':
+                    description = 'You have selected microscope A. This scope generates dummy defocus values between -1 and -5.';
                     break;
-                case '10-100':
-                    description = 'You have selected microscope B. This scope generates dummy defocus values between 10 and 100.';
+                case '-10 to -100':
+                    description = 'You have selected microscope B. This scope generates dummy defocus values between -10 and -100.';
                     break;
-                case '2-4':
-                    description = 'You have selected microscope C. This scope generates dummy defocus values between 2 and 4.';
+                case '-2 to -4':
+                    description = 'You have selected microscope C. This scope generates dummy defocus values between -2 and -4.';
                     break;
             }
 
@@ -153,9 +153,9 @@
             <div class="left-panel">
                 <label for="numberRange">Select Microscope:</label>
                 <select id="numberRange">
-                    <option value="1-5">Microscope A</option>
-                    <option value="10-100">Microscope B</option>
-                    <option value="2-4">Microscope C</option>
+                    <option value="-1 to -5">Microscope A</option>
+                    <option value="-10 to -100">Microscope B</option>
+                    <option value="-2 to -4">Microscope C</option>
                 </select>
 
                 <p id="rangeDescription"></p>
