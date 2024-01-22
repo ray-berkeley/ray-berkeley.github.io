@@ -94,14 +94,14 @@
             let description;
 
             switch (selectedRange) {
-                case '-1 to -5':
-                    description = 'You have selected microscope A. This scope generates dummy defocus values between -1 and -5.';
+                case '-0.5 to -3.0':
+                    description = 'The recommended defocus range for the Titan Krios 2 is between -0.5 and -3.';
                     break;
-                case '-10 to -100':
-                    description = 'You have selected microscope B. This scope generates dummy defocus values between -10 and -100.';
+                case '-1 to -10':
+                    description = 'You have selected microscope B, with dummy defocus values between -1 and -10.';
                     break;
                 case '-2 to -4':
-                    description = 'You have selected microscope C. This scope generates dummy defocus values between -2 and -4.';
+                    description = 'You have selected microscope C, with dummy defocus values between -2 and -4.';
                     break;
             }
 
@@ -124,36 +124,20 @@
   
 </head>
 
-<!--
-  <header class="header">
-
-      <nav>
-        <a href="index.html" class="nav-item semibold-italic">Ray Berkeley</a> | 
-        <a href="bio.html" class="nav-item">bio</a> |
-        <a href="blog.html" class="nav-item">blog</a> |
-        <a href="http://debelouchinalab.ucsd.edu/team.html" class="nav-item">group</a> |
-        <a href="./Ray_Berkeley_CV.pdf" class="nav-item">cv</a>
-      </nav>
-
-  </header>
--->
- 
-
-
   <body>
     
     <div class="container">
         
         <div class="top-panel">
             <h2><b>Defocus Generator 🔎</b></h2>
-            <p>Use this tool to generate dummy defocus values for a given microscope.</p>
+            <p>Use this tool to generate dummy defocus values for an electron microscope.</p>
         </div>
 
         <div class="panels-container">
             <div class="left-panel">
                 <label for="numberRange">Select Microscope:</label>
                 <select id="numberRange">
-                    <option value="-1 to -5">Microscope A</option>
+                    <option value="-0.5 to -3.0">Titan 2</option>
                     <option value="-10 to -100">Microscope B</option>
                     <option value="-2 to -4">Microscope C</option>
                 </select>
