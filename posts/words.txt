@@ -6623,7 +6623,6 @@ dichondra
 dichotomy
 dickens
 Dickerson
-dickey
 Dickinson
 Dickson
 dicotyledon
@@ -20389,7 +20388,6 @@ Shirley
 shirt
 shirtmake
 shish
-shitepoke
 shiv
 Shiva
 shiver
