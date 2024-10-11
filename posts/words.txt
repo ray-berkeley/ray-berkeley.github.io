@@ -1746,7 +1746,6 @@ Aztecan
 azure
 babbitt
 babble
-Babcock
 babe
 Babel
 baboon
@@ -4618,19 +4617,6 @@ cochineal
 cochlea
 Cochran
 Cochrane
-cock
-cockatoo
-cockcrow
-cockeye
-cockfight
-cockle
-cocklebur
-cockleshell
-cockpit
-cockroach
-cocksure
-cocktail
-cocky
 coco
 cocoa
 coconut
@@ -9451,7 +9437,6 @@ gambit
 gamble
 gambol
 game
-gamecock
 gamesmanship
 gamete
 gamin
@@ -9475,7 +9460,6 @@ gantry
 Ganymede
 GAO
 gap
-gape
 gar
 garage
 garb
@@ -10291,7 +10275,6 @@ gymnastic
 gyp
 gypsite
 gypsum
-gypsy
 gyrate
 gyrfalcon
 gyro
@@ -10400,7 +10383,6 @@ Hampton
 hamster
 hamstrung
 Han
-Hancock
 hand
 handbag
 handbook
@@ -10966,7 +10948,6 @@ histrionic
 hit
 Hitachi
 hitch
-Hitchcock
 hither
 hitherto
 hive
@@ -16810,7 +16791,6 @@ peacemake
 peacetime
 peach
 Peachtree
-peacock
 peafowl
 peahen
 peak
@@ -20487,7 +20467,6 @@ shutdown
 shutoff
 shutout
 shuttle
-shuttlecock
 shy
 Shylock
 shyly
@@ -21676,7 +21655,6 @@ stool
 stoop
 stop
 stopband
-stopcock
 stopgap
 stopover
 stoppage
@@ -24797,7 +24775,6 @@ Woodard
 Woodbury
 woodcarver
 woodchuck
-woodcock
 woodcut
 wooden
 woodgrain
@@ -24820,7 +24797,6 @@ wool
 woolgather
 Woolworth
 Wooster
-wop
 Worcester
 Worcestershire
 word
