@@ -19884,7 +19884,6 @@ scriptwriter
 scriven
 scroll
 scrooge
-scrotum
 scrounge
 scrub
 scrubby
@@ -22545,9 +22544,6 @@ test
 testament
 testamentary
 testate
-testes
-testicle
-testicular
 testify
 testimonial
 testimony
