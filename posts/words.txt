@@ -8164,9 +8164,6 @@ exogamous
 exogenous
 exonerate
 exorbitant
-exorcise
-exorcism
-exorcist
 exoskeleta
 exoskeleton
 exothermic
@@ -11646,8 +11643,6 @@ incentive
 inception
 inceptor
 incessant
-incest
-incestuous
 inch
 inchoate
 inchworm
@@ -16799,7 +16794,6 @@ pediatrician
 pedigree
 pediment
 Pedro
-pee
 peek
 peel
 peep
@@ -18598,7 +18592,6 @@ Raoul
 rap
 rapacious
 rapacity
-rape
 Raphael
 rapid
 rapier
@@ -18633,7 +18626,6 @@ rattle
 rattlesnake
 raucous
 Raul
-raunchy
 ravage
 rave
 ravel
