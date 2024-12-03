@@ -8164,6 +8164,9 @@ exogamous
 exogenous
 exonerate
 exorbitant
+exorcise
+exorcism
+exorcist
 exoskeleta
 exoskeleton
 exothermic
@@ -17602,7 +17605,6 @@ poodle
 pooh
 pool
 Poole
-poop
 poor
 pop
 pope
@@ -18626,6 +18628,7 @@ rattle
 rattlesnake
 raucous
 Raul
+raunchy
 ravage
 rave
 ravel
