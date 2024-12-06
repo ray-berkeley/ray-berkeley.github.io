@@ -6074,9 +6074,6 @@ dear
 Dearborn
 dearie
 dearth
-death
-deathbed
-deathward
 debacle
 debar
 debarring
@@ -10112,11 +10109,9 @@ groat
 grocer
 grocery
 groggy
-groin
 grommet
 groom
 groove
-grope
 grosbeak
 gross
 Grosset
@@ -12822,9 +12817,6 @@ Kigali
 Kikuyu
 Kilgore
 Kilimanjaro
-kill
-killdeer
-killjoy
 kilohm
 Kim
 Kimball
@@ -13951,8 +13943,6 @@ madstone
 Mae
 maelstrom
 maestro
-Mafia
-Mafioso
 magazine
 Magdalene
 Magellanic
@@ -14139,7 +14129,6 @@ manse
 manservant
 Mansfield
 mansion
-manslaughter
 mantel
 mantelpiece
 mantic
@@ -14190,7 +14179,6 @@ Marianne
 Marie
 Marietta
 marigold
-marijuana
 Marilyn
 marimba
 Marin
@@ -15079,7 +15067,6 @@ Montrachet
 Montreal
 Monty
 monument
-moo
 mooch
 mood
 moody
@@ -15090,7 +15077,6 @@ moonlight
 moonlit
 moor
 Moore
-Moorish
 moose
 moot
 mop
@@ -15191,7 +15177,6 @@ moustache
 mousy
 mouth
 mouthful
-mouthpart
 mouthpiece
 Mouton
 move
@@ -15213,22 +15198,16 @@ muddle
 muddlehead
 muddy
 mudguard
-mudhole
 mudsling
 Mueller
 Muenster
 muezzin
-muff
 muffin
 muffle
-mug
 mugging
 muggy
-mugho
 Muir
 Mukden
-mukluk
-mulatto
 mulberry
 mulch
 mulct
@@ -15255,7 +15234,6 @@ multiplicative
 multiplicity
 multitude
 multitudinous
-mum
 mumble
 Mumford
 mummify
@@ -15272,8 +15250,6 @@ Munson
 muon
 Muong
 mural
-murder
-murderous
 muriatic
 Muriel
 murk
@@ -18998,7 +18974,6 @@ returnee
 Reub
 Reuben
 Reuters
-rev
 revel
 revelation
 revelatory
@@ -19047,7 +19022,6 @@ rhinestone
 rhino
 rhinoceros
 rhizome
-rho
 Rhoda
 Rhode
 Rhodes
@@ -19063,7 +19037,6 @@ rhubarb
 rhyme
 rhythm
 rhythmic
-rib
 ribald
 ribbon
 riboflavin
@@ -19104,7 +19077,6 @@ rifle
 rifleman
 riflemen
 rift
-rig
 Riga
 Rigel
 rigging
@@ -19368,7 +19340,6 @@ ruminant
 ruminate
 rummage
 rummy
-rump
 rumple
 rumpus
 run
@@ -19448,8 +19419,6 @@ sadden
 saddle
 saddlebag
 Sadie
-sadism
-sadist
 Sadler
 safari
 safe
@@ -19900,7 +19869,6 @@ sculptor
 sculptural
 sculpture
 scum
-scurrilous
 scurry
 scurvy
 scuttle
@@ -20416,20 +20384,15 @@ shutdown
 shutoff
 shutout
 shuttle
-shy
-Shylock
 shyly
 sial
 SIAM
 Siamese
 Sian
-sib
 Siberia
 sibilant
 Sibley
 sibling
-sibyl
-sic
 Sicilian
 Sicily
 sick
@@ -20689,9 +20652,6 @@ slash
 slat
 slate
 slater
-slaughter
-slaughterhouse
-Slav
 slave
 slavery
 Slavic
