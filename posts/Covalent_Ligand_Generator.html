@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaFold3 Covalent Ligand Generator</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        textarea, input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        .note {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-left: 4px solid #6c757d;
+            margin-bottom: 20px;
+        }
+        #output {
+            width: 100%;
+            height: 300px;
+            font-family: monospace;
+            white-space: pre;
+            overflow: auto;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../blog.html">Blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>AlphaFold3 Covalent Ligand Generator</h1>
+
+        <div class="note">
+            <p>This tool helps generate JSON input files for AlphaFold3 with covalent ligand-protein interactions.</p>
+        </div>
+
+        <div id="error-container" style="color: red; font-weight: bold; margin-bottom: 15px; display: none;"></div>
+
+        <form id="af3-form">
+            <div class="form-group">
+                <label for="name">Name for this prediction:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="protein_sequence">Protein Sequence:</label>
+                <textarea id="protein_sequence" name="protein_sequence" rows="5" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="dna_sequences">DNA Sequence(s) (one per line):</label>
+                <textarea id="dna_sequences" name="dna_sequences" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="ligand_input_type">Ligand Input Type:</label>
+                <select id="ligand_input_type" name="ligand_input_type" onchange="toggleLigandInput()">
+                    <option value="smiles">SMILES String</option>
+                    <option value="file">Upload File (PDB/SMILES)</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="smiles_input_div">
+                <label for="ligand_smiles">Ligand SMILES:</label>
+                <input type="text" id="ligand_smiles" name="ligand_smiles">
+            </div>
+
+            <div class="form-group" id="file_input_div" style="display:none;">
+                <label for="ligand_file">Ligand File (PDB or SMILES):</label>
+                <input type="file" id="ligand_file" name="ligand_file">
+            </div>
+
+            <div class="form-group">
+                <label for="ligand_name">Ligand Name (3-letter code):</label>
+                <input type="text" id="ligand_name" name="ligand_name" maxlength="3" required>
+            </div>
+
+            <div class="form-group">
+                <label for="protein_residue">Protein Residue Number (for covalent bond):</label>
+                <input type="number" id="protein_residue" name="protein_residue" required>
+            </div>
+
+            <div class="form-group">
+                <label for="protein_atom">Protein Atom (for covalent bond, typically "SG" for Cys):</label>
+                <input type="text" id="protein_atom" name="protein_atom" value="SG" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ligand_atom">Ligand Atom ID (for covalent bond):</label>
+                <input type="text" id="ligand_atom" name="ligand_atom" placeholder="e.g., C11" required>
+                <small>Note: This should match the atom ID in the generated CCD format.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="model_seeds">Model Seeds (comma-separated integers):</label>
+                <input type="text" id="model_seeds" name="model_seeds" value="42" required>
+            </div>
+
+            <button type="button" onclick="generateJSON()">Generate JSON</button>
+        </form>
+
+        <h2>Output JSON:</h2>
+        <pre id="output">JSON will appear here after generation.</pre>
+        <div id="download_container"></div>
+    </main>
+
+    <script>
+        function toggleLigandInput() {
+            const inputType = document.getElementById('ligand_input_type').value;
+            if (inputType === 'smiles') {
+                document.getElementById('smiles_input_div').style.display = 'block';
+                document.getElementById('file_input_div').style.display = 'none';
+            } else {
+                document.getElementById('smiles_input_div').style.display = 'none';
+                document.getElementById('file_input_div').style.display = 'block';
+            }
+        }
+
+        async function generateJSON() {
+            // Clear any previous errors
+            const errorContainer = document.getElementById('error-container');
+            errorContainer.style.display = 'none';
+            errorContainer.textContent = '';
+
+            // Show loading message
+            document.getElementById('output').textContent = 'Processing...';
+
+            const formData = new FormData();
+
+            // Add form fields to FormData
+            formData.append('name', document.getElementById('name').value);
+            formData.append('protein_sequence', document.getElementById('protein_sequence').value);
+            formData.append('dna_sequences', document.getElementById('dna_sequences').value);
+            formData.append('ligand_input_type', document.getElementById('ligand_input_type').value);
+            formData.append('ligand_smiles', document.getElementById('ligand_smiles').value);
+            formData.append('ligand_name', document.getElementById('ligand_name').value);
+            formData.append('protein_residue', document.getElementById('protein_residue').value);
+            formData.append('protein_atom', document.getElementById('protein_atom').value);
+            formData.append('ligand_atom', document.getElementById('ligand_atom').value);
+            formData.append('model_seeds', document.getElementById('model_seeds').value);
+
+            // Add file if selected
+            const fileInput = document.getElementById('ligand_file');
+            if (fileInput.files.length > 0) {
+                formData.append('ligand_file', fileInput.files[0]);
+            }
+
+            try {
+                const response = await fetch('../posts/helpers/covapp.py', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const responseText = await response.text();
+
+                try {
+                    // Try to parse as JSON
+                    const result = JSON.parse(responseText);
+
+                    if (result.error) {
+                        // Show error message
+                        errorContainer.textContent = result.error;
+                        errorContainer.style.display = 'block';
+                        document.getElementById('output').textContent = 'Error occurred. See message above.';
+                        return;
+                    }
+
+                    // Show JSON result
+                    document.getElementById('output').textContent = JSON.stringify(result, null, 2);
+
+                    // Create download link
+                    const downloadContainer = document.getElementById('download_container');
+                    downloadContainer.innerHTML = '';
+
+                    const downloadLink = document.createElement('a');
+                    const blob = new Blob([JSON.stringify(result, null, 2)], {type: 'application/json'});
+                    downloadLink.href = URL.createObjectURL(blob);
+                    downloadLink.download = `${document.getElementById('name').value || 'alphafold3'}.json`;
+                    downloadLink.innerHTML = '<button>Download JSON</button>';
+                    downloadContainer.appendChild(downloadLink);
+
+                } catch (parseError) {
+                    // Not valid JSON
+                    errorContainer.textContent = "Server returned an invalid response. Please check your inputs or try again later.";
+                    errorContainer.style.display = 'block';
+                    document.getElementById('output').textContent = responseText.substring(0, 1000); // Show part of the response for debugging
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                errorContainer.textContent = error.message || "An unknown error occurred";
+                errorContainer.style.display = 'block';
+                document.getElementById('output').textContent = 'Error occurred. See message above.';
+            }
+        }
+    </script>
+</body>
+</html>
