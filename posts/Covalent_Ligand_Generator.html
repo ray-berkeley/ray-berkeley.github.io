@@ -37,7 +37,14 @@
             border: 1px solid #ccc;
             background-color: #f5f5f5;
         }
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
     </style>
+    <!-- Include Smiles Drawer library -->
+    <script src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
 </head>
 <body>
     <header>
@@ -51,15 +58,18 @@
         <h1>AlphaFold3 Covalent Ligand Generator</h1>
 
         <div class="note">
-            <p>This tool helps generate JSON input files for AlphaFold3 with covalent ligand-protein interactions.</p>
+            <p>This tool helps generate JSON input files for AlphaFold3 with covalent ligand-protein interactions.
+               Note: This is a simplified client-side version that creates a template JSON file. For complete
+               functionality including 3D coordinates and proper CCD formatting, you would need to process this
+               with RDKit offline.</p>
         </div>
 
-        <div id="error-container" style="color: red; font-weight: bold; margin-bottom: 15px; display: none;"></div>
+        <div id="error-container" class="error" style="display: none;"></div>
 
         <form id="af3-form">
             <div class="form-group">
                 <label for="name">Name for this prediction:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" value="PROTEIN-LIGAND" required>
             </div>
 
             <div class="form-group">
@@ -73,31 +83,19 @@
             </div>
 
             <div class="form-group">
-                <label for="ligand_input_type">Ligand Input Type:</label>
-                <select id="ligand_input_type" name="ligand_input_type" onchange="toggleLigandInput()">
-                    <option value="smiles">SMILES String</option>
-                    <option value="file">Upload File (PDB/SMILES)</option>
-                </select>
-            </div>
-
-            <div class="form-group" id="smiles_input_div">
                 <label for="ligand_smiles">Ligand SMILES:</label>
-                <input type="text" id="ligand_smiles" name="ligand_smiles">
-            </div>
-
-            <div class="form-group" id="file_input_div" style="display:none;">
-                <label for="ligand_file">Ligand File (PDB or SMILES):</label>
-                <input type="file" id="ligand_file" name="ligand_file">
+                <input type="text" id="ligand_smiles" name="ligand_smiles" required>
+                <div id="structure-container" style="width:100%; height:300px; margin-top:10px; border:1px solid #ccc;"></div>
             </div>
 
             <div class="form-group">
                 <label for="ligand_name">Ligand Name (3-letter code):</label>
-                <input type="text" id="ligand_name" name="ligand_name" maxlength="3" required>
+                <input type="text" id="ligand_name" name="ligand_name" maxlength="3" value="LIG" required>
             </div>
 
             <div class="form-group">
                 <label for="protein_residue">Protein Residue Number (for covalent bond):</label>
-                <input type="number" id="protein_residue" name="protein_residue" required>
+                <input type="number" id="protein_residue" name="protein_residue" value="258" required>
             </div>
 
             <div class="form-group">
@@ -107,8 +105,8 @@
 
             <div class="form-group">
                 <label for="ligand_atom">Ligand Atom ID (for covalent bond):</label>
-                <input type="text" id="ligand_atom" name="ligand_atom" placeholder="e.g., C11" required>
-                <small>Note: This should match the atom ID in the generated CCD format.</small>
+                <input type="text" id="ligand_atom" name="ligand_atom" value="C11" placeholder="e.g., C11" required>
+                <small>Note: This should match the atom ID in the generated CCD format. When processing offline with RDKit, verify the atom IDs.</small>
             </div>
 
             <div class="form-group">
@@ -116,7 +114,7 @@
                 <input type="text" id="model_seeds" name="model_seeds" value="42" required>
             </div>
 
-            <button type="button" onclick="generateJSON()">Generate JSON</button>
+            <button type="button" onclick="generateJSON()">Generate JSON Template</button>
         </form>
 
         <h2>Output JSON:</h2>
@@ -124,87 +122,193 @@
         <div id="download_container"></div>
     </main>
 
+    <footer>
+        <p>&copy; Ray Berkeley. All rights reserved.</p>
+    </footer>
+
     <script>
-        function toggleLigandInput() {
-            const inputType = document.getElementById('ligand_input_type').value;
-            if (inputType === 'smiles') {
-                document.getElementById('smiles_input_div').style.display = 'block';
-                document.getElementById('file_input_div').style.display = 'none';
-            } else {
-                document.getElementById('smiles_input_div').style.display = 'none';
-                document.getElementById('file_input_div').style.display = 'block';
+        // Init the molecule drawer when SMILES is entered
+        document.getElementById('ligand_smiles').addEventListener('input', function() {
+            renderMolecule();
+        });
+
+        function renderMolecule() {
+            const smilesInput = document.getElementById('ligand_smiles').value;
+            if (smilesInput.trim() === '') return;
+
+            try {
+                // Initialize the drawer
+                const options = {width: 600, height: 300};
+                const smilesDrawer = new SmilesDrawer.Drawer(options);
+
+                // Draw the molecule
+                SmilesDrawer.parse(smilesInput, function(tree) {
+                    const container = document.getElementById('structure-container');
+                    container.innerHTML = ''; // Clear previous drawing
+
+                    // Create canvas
+                    const canvas = document.createElement('canvas');
+                    canvas.width = container.clientWidth;
+                    canvas.height = container.clientHeight;
+                    container.appendChild(canvas);
+
+                    smilesDrawer.draw(tree, canvas, 'light', false);
+                }, function(error) {
+                    document.getElementById('structure-container').innerHTML =
+                        '<div class="error">Invalid SMILES: ' + error + '</div>';
+                });
+            } catch (error) {
+                document.getElementById('structure-container').innerHTML =
+                    '<div class="error">Error rendering molecule: ' + error.message + '</div>';
             }
         }
 
-        async function generateJSON() {
+        // Generate a placeholder CCD format for the template
+        function generatePlaceholderCCD(ligandName, smilesString) {
+            // Very simplified CCD format, just for template purposes
+            return `data_${ligandName}
+#
+_chem_comp.id ${ligandName}
+_chem_comp.name "${ligandName}"
+_chem_comp.type non-polymer
+_chem_comp.formula "Unknown"
+_chem_comp.mon_nstd_parent_comp_id ?
+_chem_comp.pdbx_synonyms ?
+_chem_comp.formula_weight 0.000
+#
+loop_
+_chem_comp_atom.comp_id
+_chem_comp_atom.atom_id
+_chem_comp_atom.type_symbol
+_chem_comp_atom.charge
+_chem_comp_atom.pdbx_leaving_atom_flag
+_chem_comp_atom.pdbx_model_Cartn_x_ideal
+_chem_comp_atom.pdbx_model_Cartn_y_ideal
+_chem_comp_atom.pdbx_model_Cartn_z_ideal
+${ligandName} C01 C 0 N 0.000 0.000 0.000
+${ligandName} C02 C 0 N 1.525 0.000 0.000
+${ligandName} C03 C 0 N 2.222 1.334 0.000
+${ligandName} C11 C 0 N 1.877 2.108 1.257
+${ligandName} H01 H 0 N -0.383 -0.513 0.889
+${ligandName} H02 H 0 N -0.383 -0.513 -0.889
+#
+loop_
+_chem_comp_bond.atom_id_1
+_chem_comp_bond.atom_id_2
+_chem_comp_bond.value_order
+_chem_comp_bond.pdbx_aromatic_flag
+C01 C02 SING N
+C02 C03 SING N
+C03 C11 SING N
+C01 H01 SING N
+C01 H02 SING N
+#`;
+        }
+
+        function generateJSON() {
             // Clear any previous errors
             const errorContainer = document.getElementById('error-container');
             errorContainer.style.display = 'none';
             errorContainer.textContent = '';
 
-            // Show loading message
-            document.getElementById('output').textContent = 'Processing...';
-
-            const formData = new FormData();
-
-            // Add form fields to FormData
-            formData.append('name', document.getElementById('name').value);
-            formData.append('protein_sequence', document.getElementById('protein_sequence').value);
-            formData.append('dna_sequences', document.getElementById('dna_sequences').value);
-            formData.append('ligand_input_type', document.getElementById('ligand_input_type').value);
-            formData.append('ligand_smiles', document.getElementById('ligand_smiles').value);
-            formData.append('ligand_name', document.getElementById('ligand_name').value);
-            formData.append('protein_residue', document.getElementById('protein_residue').value);
-            formData.append('protein_atom', document.getElementById('protein_atom').value);
-            formData.append('ligand_atom', document.getElementById('ligand_atom').value);
-            formData.append('model_seeds', document.getElementById('model_seeds').value);
-
-            // Add file if selected
-            const fileInput = document.getElementById('ligand_file');
-            if (fileInput.files.length > 0) {
-                formData.append('ligand_file', fileInput.files[0]);
-            }
-
             try {
-                const response = await fetch('../posts/helpers/covapp.py', {
-                    method: 'POST',
-                    body: formData
+                // Get form values
+                const name = document.getElementById('name').value;
+                const proteinSequence = document.getElementById('protein_sequence').value.trim();
+                const dnaSequencesText = document.getElementById('dna_sequences').value;
+                const ligandSmiles = document.getElementById('ligand_smiles').value.trim();
+                const ligandName = document.getElementById('ligand_name').value.trim();
+                const proteinResidue = parseInt(document.getElementById('protein_residue').value);
+                const proteinAtom = document.getElementById('protein_atom').value.trim();
+                const ligandAtom = document.getElementById('ligand_atom').value.trim();
+                const modelSeedsText = document.getElementById('model_seeds').value;
+
+                // Validation
+                if (!proteinSequence) {
+                    throw new Error("Protein sequence is required");
+                }
+
+                if (!ligandSmiles) {
+                    throw new Error("Ligand SMILES is required");
+                }
+
+                if (!ligandName || ligandName.length > 3) {
+                    throw new Error("Ligand name should be a 1-3 character code");
+                }
+
+                // Parse model seeds
+                const modelSeeds = modelSeedsText.split(',').map(seed => parseInt(seed.trim()));
+
+                // Process DNA sequences
+                const dnaSequences = [];
+                dnaSequencesText.trim().split('\n').forEach((seq, i) => {
+                    if (seq.trim()) {
+                        dnaSequences.push({
+                            "dna": {
+                                "id": String.fromCharCode(66 + i), // B, C, D...
+                                "sequence": seq.trim()
+                            }
+                        });
+                    }
                 });
 
-                const responseText = await response.text();
+                // Generate placeholder CCD content
+                const ccdContent = generatePlaceholderCCD(ligandName, ligandSmiles);
 
-                try {
-                    // Try to parse as JSON
-                    const result = JSON.parse(responseText);
+                // Build the JSON output
+                const jsonOutput = {
+                    "name": name,
+                    "modelSeeds": modelSeeds,
+                    "sequences": [
+                        {
+                            "protein": {
+                                "id": "A",
+                                "sequence": proteinSequence
+                            }
+                        }
+                    ],
+                    "bondedAtomPairs": [
+                        [
+                            ["A", proteinResidue, proteinAtom],
+                            ["D", 1, ligandAtom]
+                        ]
+                    ],
+                    "userCCD": ccdContent,
+                    "dialect": "alphafold3",
+                    "version": 2
+                };
 
-                    if (result.error) {
-                        // Show error message
-                        errorContainer.textContent = result.error;
-                        errorContainer.style.display = 'block';
-                        document.getElementById('output').textContent = 'Error occurred. See message above.';
-                        return;
+                // Add DNA sequences
+                jsonOutput.sequences.push(...dnaSequences);
+
+                // Add ligand entry (always comes last)
+                jsonOutput.sequences.push({
+                    "ligand": {
+                        "id": "D",
+                        "ccdCodes": [ligandName]
                     }
+                });
 
-                    // Show JSON result
-                    document.getElementById('output').textContent = JSON.stringify(result, null, 2);
+                // Show output
+                document.getElementById('output').textContent = JSON.stringify(jsonOutput, null, 2);
 
-                    // Create download link
-                    const downloadContainer = document.getElementById('download_container');
-                    downloadContainer.innerHTML = '';
+                // Create download link
+                const downloadContainer = document.getElementById('download_container');
+                downloadContainer.innerHTML = '';
 
-                    const downloadLink = document.createElement('a');
-                    const blob = new Blob([JSON.stringify(result, null, 2)], {type: 'application/json'});
-                    downloadLink.href = URL.createObjectURL(blob);
-                    downloadLink.download = `${document.getElementById('name').value || 'alphafold3'}.json`;
-                    downloadLink.innerHTML = '<button>Download JSON</button>';
-                    downloadContainer.appendChild(downloadLink);
+                const downloadLink = document.createElement('a');
+                const blob = new Blob([JSON.stringify(jsonOutput, null, 2)], {type: 'application/json'});
+                downloadLink.href = URL.createObjectURL(blob);
+                downloadLink.download = `${name || 'alphafold3'}.json`;
+                downloadLink.innerHTML = '<button>Download JSON</button>';
+                downloadContainer.appendChild(downloadLink);
 
-                } catch (parseError) {
-                    // Not valid JSON
-                    errorContainer.textContent = "Server returned an invalid response. Please check your inputs or try again later.";
-                    errorContainer.style.display = 'block';
-                    document.getElementById('output').textContent = responseText.substring(0, 1000); // Show part of the response for debugging
-                }
+                // Add note about required offline processing
+                const note = document.createElement('p');
+                note.innerHTML = '<strong>Note:</strong> This is a template JSON. For proper 3D coordinates ' +
+                                 'and accurate CCD format, process this file with RDKit offline using the ' +
+                                 'MyCCD tool.';
+                downloadContainer.appendChild(note);
 
             } catch (error) {
                 console.error('Error:', error);
@@ -213,6 +317,13 @@
                 document.getElementById('output').textContent = 'Error occurred. See message above.';
             }
         }
+
+        // Initialize the SMILES drawer if there's an initial value
+        window.onload = function() {
+            if (document.getElementById('ligand_smiles').value) {
+                renderMolecule();
+            }
+        };
     </script>
 </body>
 </html>
