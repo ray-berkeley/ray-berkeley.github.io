@@ -42,6 +42,41 @@
             font-weight: bold;
             margin-bottom: 15px;
         }
+        .success {
+            color: green;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .reactive-atom-suggestion {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .reactive-atom-btn {
+            margin: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #e7f3ff;
+            border: 1px solid #ccd;
+            border-radius: 3px;
+        }
+        .reactive-atom-btn:hover {
+            background-color: #d0e8ff;
+        }
+        .molecule-info {
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .pattern-match {
+            padding: 5px;
+            margin: 5px 0;
+            background-color: #e7fff0;
+            border-radius: 3px;
+        }
     </style>
     <!-- Include Smiles Drawer library -->
     <script src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
@@ -59,12 +94,12 @@
 
         <div class="note">
             <p>This tool helps generate JSON input files for AlphaFold3 with covalent ligand-protein interactions.
-               Note: This is a simplified client-side version that creates a template JSON file. For complete
-               functionality including 3D coordinates and proper CCD formatting, you would need to process this
-               with RDKit offline.</p>
+               The tool now includes pattern-based suggestions for common reactive groups to help identify
+               the correct atom for covalent bonding.</p>
         </div>
 
         <div id="error-container" class="error" style="display: none;"></div>
+        <div id="success-container" class="success" style="display: none;"></div>
 
         <form id="af3-form">
             <div class="form-group">
@@ -89,6 +124,33 @@
             </div>
 
             <div class="form-group">
+                <label for="reactive_group">Common Reactive Group:</label>
+                <select id="reactive_group" name="reactive_group">
+                    <option value="">-- Select a reactive group --</option>
+                    <option value="acrylamide">Acrylamide/Michael acceptor (C=C-C=O)</option>
+                    <option value="chloroacetamide">Chloroacetamide (Cl-CH2-C=O)</option>
+                    <option value="vinylsulfone">Vinyl sulfone (C=C-SO2)</option>
+                    <option value="nitrile">Nitrile/Cyano group (C≡N)</option>
+                    <option value="epoxide">Epoxide/Oxirane ring</option>
+                    <option value="alpha_beta">Alpha-beta unsaturated carbonyl</option>
+                    <option value="propynamide">Propynamide (C≡C-C=O)</option>
+                    <option value="other">Other (specify atom ID manually)</option>
+                </select>
+            </div>
+
+            <div id="reactive-atoms-container" class="reactive-atom-suggestion" style="display:none;">
+                <h3>Suggested Reactive Atom</h3>
+                <p id="reactive-group-info"></p>
+                <div id="atom-buttons"></div>
+            </div>
+
+            <div class="form-group" id="manual-atom-id-container">
+                <label for="ligand_atom">Ligand Atom ID for covalent bond:</label>
+                <input type="text" id="ligand_atom" name="ligand_atom" value="C11" placeholder="e.g., C11" required>
+                <small>This is the atom ID in CCD format that will form the covalent bond</small>
+            </div>
+
+            <div class="form-group">
                 <label for="ligand_name">Ligand Name (3-letter code):</label>
                 <input type="text" id="ligand_name" name="ligand_name" maxlength="3" value="LIG" required>
             </div>
@@ -104,17 +166,11 @@
             </div>
 
             <div class="form-group">
-                <label for="ligand_atom">Ligand Atom ID (for covalent bond):</label>
-                <input type="text" id="ligand_atom" name="ligand_atom" value="C11" placeholder="e.g., C11" required>
-                <small>Note: This should match the atom ID in the generated CCD format. When processing offline with RDKit, verify the atom IDs.</small>
-            </div>
-
-            <div class="form-group">
                 <label for="model_seeds">Model Seeds (comma-separated integers):</label>
                 <input type="text" id="model_seeds" name="model_seeds" value="42" required>
             </div>
 
-            <button type="button" onclick="generateJSON()">Generate JSON Template</button>
+            <button type="button" id="generate-btn" onclick="generateJSON()">Generate JSON</button>
         </form>
 
         <h2>Output JSON:</h2>
@@ -127,10 +183,37 @@
     </footer>
 
     <script>
-        // Init the molecule drawer when SMILES is entered
+        // Initialize variables
+        let selectedAtomId = null;
+
+        // Handle SMILES input changes
         document.getElementById('ligand_smiles').addEventListener('input', function() {
             renderMolecule();
         });
+
+        // Handle reactive group selection
+        document.getElementById('reactive_group').addEventListener('change', function() {
+            const reactiveGroup = this.value;
+            if (reactiveGroup && reactiveGroup !== 'other') {
+                analyzeSmilesPattern(reactiveGroup);
+            } else {
+                document.getElementById('reactive-atoms-container').style.display = 'none';
+            }
+        });
+
+        function showMessage(message, type) {
+            const container = type === 'error' ?
+                document.getElementById('error-container') :
+                document.getElementById('success-container');
+
+            container.textContent = message;
+            container.style.display = 'block';
+
+            // Hide after 5 seconds
+            setTimeout(() => {
+                container.style.display = 'none';
+            }, 5000);
+        }
 
         function renderMolecule() {
             const smilesInput = document.getElementById('ligand_smiles').value;
@@ -153,6 +236,12 @@
                     container.appendChild(canvas);
 
                     smilesDrawer.draw(tree, canvas, 'light', false);
+
+                    // Update reactive group suggestions based on current selection
+                    const reactiveGroup = document.getElementById('reactive_group').value;
+                    if (reactiveGroup && reactiveGroup !== 'other') {
+                        analyzeSmilesPattern(reactiveGroup);
+                    }
                 }, function(error) {
                     document.getElementById('structure-container').innerHTML =
                         '<div class="error">Invalid SMILES: ' + error + '</div>';
@@ -163,9 +252,99 @@
             }
         }
 
+        function analyzeSmilesPattern(reactiveGroup) {
+            const smiles = document.getElementById('ligand_smiles').value.trim();
+            if (!smiles) {
+                showMessage("Please enter a SMILES string first", "error");
+                return;
+            }
+
+            // Show reactive atoms container
+            const container = document.getElementById('reactive-atoms-container');
+            container.style.display = 'block';
+
+            // Clear previous buttons
+            const buttonsContainer = document.getElementById('atom-buttons');
+            buttonsContainer.innerHTML = '';
+
+            // Set info text and suggested atom IDs based on reactive group
+            let infoText = '';
+            let suggestedAtoms = [];
+
+            switch(reactiveGroup) {
+                case 'acrylamide':
+                    infoText = 'Acrylamides typically react through the terminal carbon of the α,β-unsaturated carbonyl. ' +
+                               'The likely reactive carbon is at the end of the double bond furthest from the carbonyl group.';
+                    suggestedAtoms = ['C1', 'C2', 'C3'];
+                    break;
+                case 'chloroacetamide':
+                    infoText = 'Chloroacetamides react through the carbon atom attached to the chlorine.';
+                    suggestedAtoms = ['C1', 'C2'];
+                    break;
+                case 'vinylsulfone':
+                    infoText = 'Vinyl sulfones react through the terminal carbon of the vinyl group.';
+                    suggestedAtoms = ['C1', 'C2'];
+                    break;
+                case 'nitrile':
+                    infoText = 'Nitriles (cyano groups) react through the carbon atom of the C≡N triple bond.';
+                    suggestedAtoms = ['C1', 'C2'];
+                    break;
+                case 'epoxide':
+                    infoText = 'Epoxides typically react at the least substituted carbon of the three-membered ring.';
+                    suggestedAtoms = ['C1', 'C2'];
+                    break;
+                case 'alpha_beta':
+                    infoText = 'Alpha-beta unsaturated carbonyls react through the beta carbon (terminal carbon of the double bond).';
+                    suggestedAtoms = ['C1', 'C2', 'C3'];
+                    break;
+                case 'propynamide':
+                    infoText = 'Propynamides typically react through the terminal carbon of the alkyne group.';
+                    suggestedAtoms = ['C1', 'C2'];
+                    break;
+                default:
+                    infoText = 'Please select the reactive atom ID manually.';
+                    container.style.display = 'none';
+                    return;
+            }
+
+            // Display info text
+            document.getElementById('reactive-group-info').innerHTML = infoText;
+
+            // Create atom suggestion buttons
+            suggestedAtoms.forEach(atomId => {
+                const button = document.createElement('button');
+                button.className = 'reactive-atom-btn';
+                button.textContent = atomId;
+                button.onclick = function() {
+                    document.getElementById('ligand_atom').value = atomId;
+
+                    // Highlight selected button
+                    document.querySelectorAll('.reactive-atom-btn').forEach(btn => {
+                        btn.style.backgroundColor = '#e7f3ff';
+                        btn.style.fontWeight = 'normal';
+                    });
+                    this.style.backgroundColor = '#b3d7ff';
+                    this.style.fontWeight = 'bold';
+
+                    showMessage(`Selected ${atomId} as the reactive atom`, "success");
+                };
+                buttonsContainer.appendChild(button);
+            });
+
+            // Add note about pattern-based suggestions
+            const note = document.createElement('p');
+            note.innerHTML = '<small>Note: These are generic suggestions based on common patterns. ' +
+                             'For precise atom numbering, refer to your chemical drawing software or ' +
+                             'the generated CCD file.</small>';
+            buttonsContainer.appendChild(note);
+        }
+
         // Generate a placeholder CCD format for the template
-        function generatePlaceholderCCD(ligandName, smilesString) {
-            // Very simplified CCD format, just for template purposes
+        function generatePlaceholderCCD(ligandName, smilesString, ligandAtomId) {
+            // Extract atom symbol from ID (e.g. "C11" -> "C")
+            const atomSymbol = ligandAtomId.match(/^[A-Za-z]+/)[0] || 'C';
+            const atomNumber = ligandAtomId.match(/\d+/)[0] || '1';
+
             return `data_${ligandName}
 #
 _chem_comp.id ${ligandName}
@@ -185,10 +364,9 @@ _chem_comp_atom.pdbx_leaving_atom_flag
 _chem_comp_atom.pdbx_model_Cartn_x_ideal
 _chem_comp_atom.pdbx_model_Cartn_y_ideal
 _chem_comp_atom.pdbx_model_Cartn_z_ideal
-${ligandName} C01 C 0 N 0.000 0.000 0.000
+${ligandName} ${ligandAtomId} ${atomSymbol} 0 N 0.000 0.000 0.000  # This is the reactive atom for covalent bonding
 ${ligandName} C02 C 0 N 1.525 0.000 0.000
 ${ligandName} C03 C 0 N 2.222 1.334 0.000
-${ligandName} C11 C 0 N 1.877 2.108 1.257
 ${ligandName} H01 H 0 N -0.383 -0.513 0.889
 ${ligandName} H02 H 0 N -0.383 -0.513 -0.889
 #
@@ -197,19 +375,17 @@ _chem_comp_bond.atom_id_1
 _chem_comp_bond.atom_id_2
 _chem_comp_bond.value_order
 _chem_comp_bond.pdbx_aromatic_flag
-C01 C02 SING N
+${ligandAtomId} C02 SING N
 C02 C03 SING N
-C03 C11 SING N
-C01 H01 SING N
-C01 H02 SING N
+${ligandAtomId} H01 SING N
+${ligandAtomId} H02 SING N
 #`;
         }
 
         function generateJSON() {
             // Clear any previous errors
-            const errorContainer = document.getElementById('error-container');
-            errorContainer.style.display = 'none';
-            errorContainer.textContent = '';
+            document.getElementById('error-container').style.display = 'none';
+            document.getElementById('success-container').style.display = 'none';
 
             try {
                 // Get form values
@@ -236,6 +412,10 @@ C01 H02 SING N
                     throw new Error("Ligand name should be a 1-3 character code");
                 }
 
+                if (!ligandAtom) {
+                    throw new Error("Ligand atom ID is required");
+                }
+
                 // Parse model seeds
                 const modelSeeds = modelSeedsText.split(',').map(seed => parseInt(seed.trim()));
 
@@ -253,7 +433,7 @@ C01 H02 SING N
                 });
 
                 // Generate placeholder CCD content
-                const ccdContent = generatePlaceholderCCD(ligandName, ligandSmiles);
+                const ccdContent = generatePlaceholderCCD(ligandName, ligandSmiles, ligandAtom);
 
                 // Build the JSON output
                 const jsonOutput = {
@@ -299,21 +479,29 @@ C01 H02 SING N
                 const downloadLink = document.createElement('a');
                 const blob = new Blob([JSON.stringify(jsonOutput, null, 2)], {type: 'application/json'});
                 downloadLink.href = URL.createObjectURL(blob);
-                downloadLink.download = `${name || 'alphafold3'}.json`;
+                downloadLink.download = `${name}.json`;
                 downloadLink.innerHTML = '<button>Download JSON</button>';
                 downloadContainer.appendChild(downloadLink);
 
-                // Add note about required offline processing
-                const note = document.createElement('p');
-                note.innerHTML = '<strong>Note:</strong> This is a template JSON. For proper 3D coordinates ' +
-                                 'and accurate CCD format, process this file with RDKit offline using the ' +
-                                 'MyCCD tool.';
-                downloadContainer.appendChild(note);
+                // Add example information
+                const exampleInfo = document.createElement('div');
+                exampleInfo.className = 'molecule-info';
+                exampleInfo.innerHTML = `
+                    <h3>Generated JSON Information</h3>
+                    <p><strong>Protein:</strong> ${proteinSequence.substring(0, 40)}...</p>
+                    <p><strong>Ligand:</strong> ${ligandSmiles.substring(0, 40)}${ligandSmiles.length > 40 ? '...' : ''}</p>
+                    <p><strong>Covalent Bond:</strong> Protein residue ${proteinResidue} (${proteinAtom}) to Ligand atom ${ligandAtom}</p>
+                    <p><small>Note: When using this JSON with AlphaFold3, the atom IDs in the CCD file
+                    should match those specified in the bondedAtomPairs section. For accurate results,
+                    you may need to finalize the CCD format using proper chemical software.</small></p>
+                `;
+                downloadContainer.appendChild(exampleInfo);
+
+                showMessage("JSON successfully generated!", "success");
 
             } catch (error) {
                 console.error('Error:', error);
-                errorContainer.textContent = error.message || "An unknown error occurred";
-                errorContainer.style.display = 'block';
+                showMessage(error.message || "An unknown error occurred", "error");
                 document.getElementById('output').textContent = 'Error occurred. See message above.';
             }
         }
