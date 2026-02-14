@@ -68,14 +68,6 @@ jobs:
               cv_body
           )
 
-          # Wrap leading dates in list items for aligned layout
-          # Dates appear inside <p> tags within <dd> elements
-          cv_body = re.sub(
-              r'(<p[^>]*>)\s*(\d{4}(?:\s*[\u2013\u2014\u2010\u002D]+\s*\d{4})?)\s+',
-              r'\1<span class="item-date">\2</span> ',
-              cv_body
-          )
-
           template = (
               '<!DOCTYPE html>\n'
               '<html lang="en">\n'
@@ -128,15 +120,6 @@ jobs:
               '    .cv-container [class^="cmti-"] {\n'
               '      font-style: italic;\n'
               '    }\n'
-              '    .cv-container p:has(.item-date) {\n'
-              '      padding-left: 7.5em;\n'
-              '      text-indent: -7.5em;\n'
-              '    }\n'
-              '    .item-date {\n'
-              '      display: inline-block;\n'
-              '      width: 7.5em;\n'
-              '      text-indent: 0;\n'
-              '    }\n'
               '  </style>\n'
               '</head>\n'
               '\n'
@@ -147,8 +130,9 @@ jobs:
               '      <a href="index.html" class="nav-item">home</a> |\n'
               '      <!-- <a href="bio.html" class="nav-item">bio</a> | -->\n'
               '      <a href="blog.html" class="nav-item">blog</a> |\n'
-              '      <a href="cv.html" class="nav-item semibold-italic">cv</a> [last updated __BUILD_DATE__]. <a href="./__PDF_NAME__">Download a PDF instead...</a>\n'
+              '      <a href="cv.html" class="nav-item semibold-italic">cv</a>\n'
               '    </nav>\n'
+              '    <div style="text-align: center; margin-top: 4px; font-size: 14px;">[last updated __BUILD_DATE__]. <a href="./__PDF_NAME__">Download a PDF instead...</a></div>\n'
               '</header>\n'
               '\n'
               '<body>\n'

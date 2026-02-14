@@ -27,10 +27,9 @@
 
 % Other Packages
 \usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
-\usepackage{enumitem}[itemsep=4pt]
+\usepackage{enumitem}
+\setlist{itemsep=4pt}
 
-\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
-\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \name{Raymond Berkeley} % Your name
 \address{Department of Chemistry, Scripps Research} % Your address
 \address{10550 N. Torrey Pines Rd., La Jolla, CA 92037}
@@ -43,8 +42,8 @@
 
 \begin{rSection}{Research Experience}
 {\bf Scripps Research, La Jolla, CA} \hfill    February 2025 - Present 
-\\ {\em Advisor: Benjamin F. Cravatt}
-\\ Structural characterization of covalent modulators of protein-protein interactions.\\
+\\ {\em Advisor: Benjamin F. Cravatt III}
+\\ Structural bioinformatic approaches to characterizing the non-orthosteric ligandable proteome; structural and chemical proteomic characterization of covalent modulators of protein-protein interactions.\\
 
 {\bf University of California, San Diego, La Jolla, CA} \hfill    July 2023 - February 2025 
 \\ {\em Advisor: Mark A. Herzik Jr.}
@@ -52,11 +51,11 @@
 
 {\bf University of California, San Diego, La Jolla, CA} \hfill    September 2017 - July 2023 
 \\ {\em Advisor: Galia T. Debelouchina}
-\\ Characterization of the physical and biochemical basis of protein phase transitions using chemical, structural, and computational biology methods\\
+\\ Characterization of the physical and biochemical basis of protein phase transitions using chemical, structural, and computational biology methods.\\
 
 {\bf University of California, Santa Cruz, Santa Cruz, CA} \hfill    August 2012 - November 2015 
 \\ {\em Advisor: R. Scott Lokey}
-\\ Investigation of the chemical basis for the passive permeability of non-Lipinskian cyclic peptide macrocycles; determination of the mechanism of action of a bioactive small molecule by whole genome sequencing of resistant mutants.\\
+\\ Investigation of the chemical basis for the passive permeability of cyclic peptide macrocycles; determination of the mechanism of action of a bioactive small molecule by whole genome sequencing of resistant mutants.\\
 
 {\bf University of Oxford, Oxfordshire, UK} \hfill    January 2015 - March 2015 
 \\ {\em Advisor: Stuart J. Conway}
@@ -69,8 +68,8 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{Professional Experience}
-{\bf Bioinformatics Programmer II } \hfill    July 2023 - Present
-\\ {\bf University of California San Diego, La Jolla, CA} 
+{\bf Bioinformatics Programmer II} \hfill    July 2023 - February 2025
+\\ {\bf University of California, San Diego, La Jolla, CA} 
 \\ {\em Advisor: Mark A. Herzik Jr.}
 \\ Development of machine learning applications for particle curation in cryoEM data.\\
 
@@ -86,11 +85,11 @@
 
 \begin{rSection}{Education}
 
-{\bf University of California San Diego}
+{\bf University of California, San Diego}
 \\Ph.D., Chemical Biology, 2023\\
 
 
-{\bf University of California Santa Cruz}
+{\bf University of California, Santa Cruz}
 \\B.S., Molecular, Cell, \& Developmental Biology with a minor in Bioinformatics, 2015\\
 
 \end{rSection}
@@ -104,33 +103,36 @@
 	\bibliographystyle{apacite}	
 	
 \begin{rSection}{Publications}
+\newcounter{pubcount}
+\setcounter{pubcount}{10}
+\newcommand{\pubitem}{\addtocounter{pubcount}{-1}\item[\thepubcount.]}
 \begin{enumerate}
-\item \bibentry{Hayward2025}
-	(\href{https://www.biorxiv.org/content/10.1101/2025.10.20.683548v1}{link}, \href{https://www.biorxiv.org/content/10.1101/2025.10.20.683548v1.full.pdf}{pdf}) 
+\pubitem \bibentry{Hayward2025}
+	(\href{https://www.biorxiv.org/content/10.1101/2025.10.20.683548v1}{link}, \href{https://www.biorxiv.org/content/10.1101/2025.10.20.683548v1.full.pdf}{pdf})
 
 
-\item \bibentry{Berkeley_Antidote}
-	(\href{https://www.biorxiv.org/content/10.1101/2025.10.06.680814v2}{link}, \href{https://www.biorxiv.org/content/10.1101/2025.10.06.680814v2.full.pdf}{pdf}) 
+\pubitem \bibentry{Berkeley_Antidote}
+	(\href{https://www.biorxiv.org/content/10.1101/2025.10.06.680814v2}{link}, \href{https://www.biorxiv.org/content/10.1101/2025.10.06.680814v2.full.pdf}{pdf})
 
-\item \bibentry{Berkeley_HSPB1}
+\pubitem \bibentry{Berkeley_HSPB1}
     (\href{https://pubs.acs.org/doi/full/10.1021/jacs.4c18668}{link}, \href{https://pubs.acs.org/doi/pdf/10.1021/jacs.4c18668?ref=article_openPDF}{pdf})
 
-\item \bibentry{Berkeley_Frontiers_2024}
+\pubitem \bibentry{Berkeley_Frontiers_2024}
     (\href{https://www.frontiersin.org/journals/molecular-biosciences/articles/10.3389/fmolb.2024.1404885/full}{link})
-\item \bibentry{Berkeley_ChemSci_Review_2022}
-		(\href{https://pubs.rsc.org/en/content/articlelanding/2022/sc/d2sc04907d#cit3}{link},  \href{https://pubs.rsc.org/en/content/articlepdf/2022/sc/d2sc04907d}{pdf})
+\pubitem \bibentry{Berkeley_ChemSci_Review_2022}
+		(\href{https://pubs.rsc.org/en/content/articlelanding/2022/sc/d2sc04907d#cit3}{link}, \href{https://pubs.rsc.org/en/content/articlepdf/2022/sc/d2sc04907d}{pdf})
 
-\item \bibentry{Berkeley_FUS_2021}
+\pubitem \bibentry{Berkeley_FUS_2021}
 		(\href{https://www.sciencedirect.com/science/article/pii/S0006349521001430}{link}, \href{https://ars.els-cdn.com/content/image/1-s2.0-S0006349521001430-mmc2.pdf}{pdf})
-		
-\item \bibentry{Lim_Fused_2019}
+
+\pubitem \bibentry{Lim_Fused_2020}
 		(\href{https://link.springer.com/protocol/10.1007%2F978-1-0716-0434-2_8}{link})
 
-\item \bibentry{schwochert_peptide_2015}
+\pubitem \bibentry{schwochert_peptide_2015}
 		(\href{https://pubs.acs.org/doi/10.1021/acs.orglett.5b01162}{link}, \href{https://pubs.acs.org/doi/pdf/10.1021/acs.orglett.5b01162}{pdf})
-	
-\item \bibentry{a.wride_confirmation_2014}
-    (\href{http://pubs.rsc.org/en/Content/ArticleLanding/2014/MB/C4MB00146J}{link}, \href{https://pubs.rsc.org/en/content/articlepdf/2014/mb/c4mb00146j}{pdf})
+
+\pubitem \bibentry{a.wride_confirmation_2014}
+    (\href{https://pubs.rsc.org/en/Content/ArticleLanding/2014/MB/C4MB00146J}{link}, \href{https://pubs.rsc.org/en/content/articlepdf/2014/mb/c4mb00146j}{pdf})
 
 * equal contribution
 \end{enumerate}
@@ -143,8 +145,10 @@
 \begin{rSection}{Awards and Honors}
 \cvitem{2022}{ACS Graduate Student and Postdoctoral Scholar Recognition Program Award for Leadership in Mentoring}
 \cvitem{2021}{Bruno Zimm Award}
-\cvitem{2019--2020}{San Diego Fellowship}
-\cvitem{2018--2020}{NIH Chemistry-Biology Interface Predoctoral Training Program}
+\cvitem{2019--2020}{San Diego Fellowship*}
+\cvitem{2018--2020}{NIH Chemistry-Biology Interface Predoctoral Training Program*}
+
+* full support
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
