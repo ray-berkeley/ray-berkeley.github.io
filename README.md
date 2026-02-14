@@ -1,4 +1,4 @@
-This repo is the source for [my website](https://rayberkeley.com). I try to keep it fairly static and minimal.
+This repo is the source for [my website](https://rayberkeley.com). I try to keep it fairly static and minimal. It is tested in prod.
 
 ## Blogs
 
