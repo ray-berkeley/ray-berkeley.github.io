@@ -132,7 +132,7 @@ blockquote {
 .main-content {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   max-width: 1000px;
   margin: 0 auto;
   padding: 50px;
