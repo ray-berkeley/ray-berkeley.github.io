@@ -58,7 +58,7 @@
 body, html {
   /*width: 100vw;
   margin: 1vw;*/
-  font-family: "Source Serif 4", serif;
+  font-family: "Source Sans Pro Light", sans-serif;
   font-size: 16px;
   color: #222222;
 }
@@ -186,8 +186,7 @@ blockquote {
 }
 
 .semibold-italic {
-  font-family: "Source Serif 4", serif;
-  font-weight: 600;
+  font-family: 'Source Sans Pro Semibold', sans-serif;
   font-style: italic;
 }
 
@@ -209,7 +208,7 @@ blockquote {
 }
 
 .jp-RenderedHTMLCommon {
-  font-family: "Source Serif 4", serif;
+  font-family: "Source Sans Pro Light", sans-serif;
   font-size: 16px;
   color: #222222;
   line-height: normal;
@@ -241,8 +240,7 @@ div.jp-RenderedHTMLCommon h3,
 div.jp-RenderedHTMLCommon h4,
 div.jp-RenderedHTMLCommon h5,
 div.jp-RenderedHTMLCommon h6 {
-    font-family: "Source Serif 4", serif;
-    font-weight: 600;
+    font-family: 'Source Sans Pro Semibold', sans-serif;
     font-weight: 300;
     scroll-margin-top: 75px;
 }
