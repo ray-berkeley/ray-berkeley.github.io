@@ -118,6 +118,17 @@
   \vspace{0.5em} % Some space after the list of bullet points
 }
 
+%----------------------------------------------------------------------------------------
+%	DATE-ITEM FORMATTING (two-column: date left, description right)
+%----------------------------------------------------------------------------------------
+
+\newcommand{\cvitem}[2]{%
+  \item[]%
+  \begin{tabular}{@{}p{1.8cm}@{\hspace{0.8em}}p{\dimexpr\linewidth-1.8cm-0.8em-2\tabcolsep}@{}}%
+    #1 & #2%
+  \end{tabular}%
+}
+
 % The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
 \def\namesize{\Large} % Size of the name at the top of the document
 \def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
