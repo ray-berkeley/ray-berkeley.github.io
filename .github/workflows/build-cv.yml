@@ -141,7 +141,7 @@ jobs:
               '      <a href="cv.html" class="nav-item semibold-italic">cv</a>\n'
               '    </nav>\n'
               '    <div style="text-align: center; position: fixed; left: 0; right: 0; top: 15px; font-size: 16px; pointer-events: none; z-index: 100;">\n'
-              '      <span style="pointer-events: auto;">last updated __BUILD_DATE__. <a href="./__PDF_NAME__">download a PDF instead.</a></span>\n'
+              '      <span style="pointer-events: auto;">last updated __BUILD_DATE__ | <a href="./__PDF_NAME__">download a PDF instead.</a></span>\n'
               '    </div>\n'
               '</header>\n'
               '\n'
