@@ -1,0 +1,139 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/cv/**'
+      - '.github/workflows/build-cv.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-bibtex-extra texlive-plain-generic texlive-extra-utils
+
+      - name: Set build date
+        run: echo "BUILD_DATE=$(date +%Y-%m-%d)" >> $GITHUB_ENV
+
+      - name: Build PDF
+        working-directory: assets/cv
+        run: |
+          pdflatex -interaction=nonstopmode cv.tex
+          bibtex cv || true
+          pdflatex -interaction=nonstopmode cv.tex
+          pdflatex -interaction=nonstopmode cv.tex
+
+      - name: Copy PDF to root
+        run: cp assets/cv/cv.pdf "RayBerkeley_CV_${BUILD_DATE}.pdf"
+
+      - name: Build HTML with make4ht
+        working-directory: assets/cv
+        run: make4ht -uf html5 -c config.cfg cv.tex
+
+      - name: Assemble cv.html
+        run: |
+          python3 << 'PYEOF'
+          import os, re
+
+          build_date = os.environ['BUILD_DATE']
+          pdf_name = f'RayBerkeley_CV_{build_date}.pdf'
+
+          with open('assets/cv/cv.html') as f:
+              raw_html = f.read()
+
+          css_path = 'assets/cv/cv.css'
+          make4ht_css = ''
+          if os.path.exists(css_path):
+              with open(css_path) as f:
+                  make4ht_css = f.read()
+
+          # Extract body content from make4ht output
+          body_match = re.search(r'<body[^>]*>(.*)</body>', raw_html, re.DOTALL)
+          cv_body = body_match.group(1).strip() if body_match else raw_html
+
+          # Close unclosed .date spans produced by \hfill override
+          cv_body = re.sub(
+              r'<span class="date">([^<]+)',
+              r'<span class="date">\1</span>',
+              cv_body
+          )
+
+          template = (
+              '<!DOCTYPE html>\n'
+              '<html lang="en">\n'
+              '<head>\n'
+              '  <meta charset="utf-8" />\n'
+              '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n'
+              '  <title>Ray Berkeley</title>\n'
+              '  <link rel="stylesheet" type="text/css" href="./css/style.css" />\n'
+              '  <style>\n'
+              '__MAKE4HT_CSS__\n'
+              '    .cv-container {\n'
+              '      max-width: 1000px;\n'
+              '      margin: 0 auto;\n'
+              '      padding: 50px;\n'
+              '      box-sizing: border-box;\n'
+              '    }\n'
+              '    .cv-container .date {\n'
+              '      float: right;\n'
+              '    }\n'
+              '  </style>\n'
+              '</head>\n'
+              '\n'
+              '<div class="header-wrapper"></div>\n'
+              '\n'
+              '<header class="header">\n'
+              '    <nav>\n'
+              '      <a href="index.html" class="nav-item semibold-italic">home</a> |\n'
+              '      <!-- <a href="bio.html" class="nav-item">bio</a> | -->\n'
+              '      <a href="blog.html" class="nav-item">blog</a> |\n'
+              '      <a href="cv.html" class="nav-item">cv</a> [last updated __BUILD_DATE__]. <a href="./__PDF_NAME__">Download a PDF instead...</a>\n'
+              '    </nav>\n'
+              '</header>\n'
+              '\n'
+              '<body>\n'
+              '  <div class="cv-container">\n'
+              '__CV_BODY__\n'
+              '  </div>\n'
+              '</body>\n'
+              '</html>\n'
+          )
+
+          html = (template
+              .replace('__MAKE4HT_CSS__', make4ht_css)
+              .replace('__BUILD_DATE__', build_date)
+              .replace('__PDF_NAME__', pdf_name)
+              .replace('__CV_BODY__', cv_body))
+
+          with open('cv.html', 'w') as f:
+              f.write(html)
+          PYEOF
+
+      - name: Clean up build artifacts
+        run: |
+          rm -f assets/cv/cv.html assets/cv/cv.css
+          rm -f assets/cv/cv.4ct assets/cv/cv.4tc assets/cv/cv.dvi assets/cv/cv.idv assets/cv/cv.lg assets/cv/cv.tmp assets/cv/cv.xref
+          rm -f assets/cv/cv.aux assets/cv/cv.log assets/cv/cv.bbl assets/cv/cv.blg assets/cv/cv.out assets/cv/cv.pdf
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Remove old dated PDFs
+          git ls-files 'RayBerkeley_CV_*.pdf' | while read f; do
+            if [ "$f" != "RayBerkeley_CV_${BUILD_DATE}.pdf" ]; then
+              git rm -f "$f"
+            fi
+          done
+          git add cv.html "RayBerkeley_CV_${BUILD_DATE}.pdf"
+          git diff --cached --quiet || (git commit -m "Build CV (${BUILD_DATE})" && git push)
