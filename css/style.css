@@ -9,6 +9,48 @@
 }
 
 @font-face {
+  font-family: "Source Serif 4";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./fonts/SourceSerif4-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-weight: 400;
+  font-style: italic;
+  src: url("./fonts/SourceSerif4-Italic.ttf");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-weight: 600;
+  font-style: normal;
+  src: url("./fonts/SourceSerif4-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-weight: 600;
+  font-style: italic;
+  src: url("./fonts/SourceSerif4-SemiBoldItalic.ttf");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-weight: 700;
+  font-style: normal;
+  src: url("./fonts/SourceSerif4-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-weight: 700;
+  font-style: italic;
+  src: url("./fonts/SourceSerif4-BoldItalic.ttf");
+}
+
+@font-face {
   font-family: "Source Code Pro";
   src: url("./fonts/SourceCodePro-VariableFont_wght.ttf");
 }
@@ -16,7 +58,7 @@
 body, html {
   /*width: 100vw;
   margin: 1vw;*/
-  font-family: "Source Sans Pro Light", sans-serif;
+  font-family: "Source Serif 4", serif;
   font-size: 16px;
   color: #222222;
 }
@@ -144,7 +186,8 @@ blockquote {
 }
 
 .semibold-italic {
-  font-family: 'Source Sans Pro Semibold', sans-serif;
+  font-family: "Source Serif 4", serif;
+  font-weight: 600;
   font-style: italic;
 }
 
@@ -166,7 +209,7 @@ blockquote {
 }
 
 .jp-RenderedHTMLCommon {
-  font-family: "Source Sans Pro Light", sans-serif;
+  font-family: "Source Serif 4", serif;
   font-size: 16px;
   color: #222222;
   line-height: normal;
@@ -198,7 +241,8 @@ div.jp-RenderedHTMLCommon h3,
 div.jp-RenderedHTMLCommon h4,
 div.jp-RenderedHTMLCommon h5,
 div.jp-RenderedHTMLCommon h6 {
-    font-family: 'Source Sans Pro Semibold', sans-serif;
+    font-family: "Source Serif 4", serif;
+    font-weight: 600;
     font-weight: 300;
     scroll-margin-top: 75px;
 }
