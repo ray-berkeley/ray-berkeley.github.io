@@ -9,10 +9,6 @@
  
 /* start css.sty */
 .cmr-10x-x-109{}
-.cmbx-12x-x-120{font-size:130%; font-weight: bold;}
-.cmbx-12x-x-120{ font-weight: bold;}
-.cmsy-10x-x-109{}
-.cmbx-10x-x-109{ font-weight: bold;}
 .cmbx-10x-x-109{ font-weight: bold;}
 .cmti-10x-x-109{ font-style: italic;}
 p{margin-top:0;margin-bottom:0}
@@ -175,14 +171,56 @@ dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items:
 /* end css.sty */
 
 
+    body { max-width: none; margin: 0; padding: 0; }
     .cv-container {
-      max-width: 1000px;
+      max-width: 1050px;
       margin: 0 auto;
       padding: 50px;
       box-sizing: border-box;
+      font-family: "Source Serif 4", serif;
+    }
+    .cv-name {
+      text-align: center;
+      font-size: 14pt;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .cv-container .center {
+      text-align: center;
     }
     .cv-container .date {
       float: right;
+      font-weight: 600;
+    }
+    .cv-container h2.cv-section {
+      text-transform: uppercase;
+      font-family: "Source Serif 4", serif;
+      font-weight: 600;
+      font-size: 14pt;
+      border-bottom: 1px solid #222;
+      padding-bottom: 4px;
+      margin-top: 1.5em;
+    }
+    .cv-container b,
+    .cv-container .cmbx-10,
+    .cv-container .cmbx-10x-x-109,
+    .cv-container [class^="cmbx-"] {
+      font-weight: 600;
+    }
+    .cv-container em,
+    .cv-container .cmti-10,
+    .cv-container .cmti-10x-x-109,
+    .cv-container [class^="cmti-"] {
+      font-style: italic;
+    }
+    .cv-container p:has(.item-date) {
+      padding-left: 7.5em;
+      text-indent: -7.5em;
+    }
+    .item-date {
+      display: inline-block;
+      width: 7.5em;
+      text-indent: 0;
     }
   </style>
 </head>
@@ -200,63 +238,53 @@ dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items:
 
 <body>
   <div class="cv-container">
-<!--l. 39--><p class="noindent" >                                                                                <span 
-class="cmbx-12x-x-120">RAYMOND</span>
-<span 
-class="cmbx-12x-x-120">BERKELEY</span>
-<div  
-class="centerline">                                        Scripps Research                                        </div>
+<!--l. 38--><p class="noindent" ><div class="cv-name">RAYMOND BERKELEY</div>   <div  
+class="centerline">                                         Scripps Research Department of Chemistry                                         </div>
 <div  
 class="centerline">                           10550 N. Torrey Pines Rd., La Jolla, CA 92037                           </div>
-<div  
-class="centerline">                      +1(408)644-3211 <span 
-class="cmsy-10x-x-109">◇</span> rberkele@ucsd.edu <span 
-class="cmsy-10x-x-109">◇</span> rayberkeley.com                      </div>
-<!--l. 45--><p class="noindent" ><span 
-class="cmbx-10x-x-109">RESEARCH EXPERIENCE</span>
-__________________________________________________________________ <dl class="list1"><dt class="list"><span class="date">
-    </span></dt><dd 
+<!--l. 44--><p class="noindent" ><h2 class="cv-section">RESEARCH EXPERIENCE</h2>
+   <dl class="list1"><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 45--><p class="noindent" ><span 
+   <!--l. 44--><p class="noindent" ><span 
 class="cmbx-10x-x-109">Scripps Research, La Jolla, CA </span><span class="date">February 2025 - Present </span><br 
 class="newline" /><span 
 class="cmti-10x-x-109">Advisor: Benjamin F. Cravatt </span><br 
 class="newline" />Structural characterization of covalent modulators of protein-protein interactions.<br 
 class="newline" />
-     <!--l. 50--><p class="noindent" ><span 
+   <!--l. 49--><p class="noindent" ><span 
 class="cmbx-10x-x-109">University of California, San Diego, La Jolla, CA </span><span class="date">July 2023 - February 2025 </span><br 
 class="newline" /><span 
 class="cmti-10x-x-109">Advisor: Mark A. Herzik Jr. </span><br 
 class="newline" />Development of machine learning applications for particle curation in cryoEM data.<br 
 class="newline" />
-     <!--l. 54--><p class="noindent" ><span 
+   <!--l. 53--><p class="noindent" ><span 
 class="cmbx-10x-x-109">University of California, San Diego, La Jolla, CA </span><span class="date">September 2017 - July 2023 </span><br 
 class="newline" /><span 
 class="cmti-10x-x-109">Advisor: Galia T. Debelouchina </span><br 
 class="newline" />Characterization of the physical and biochemical basis of protein phase transitions using chemical,
-     structural, and computational biology methods<br 
+   structural, and computational biology methods<br 
 class="newline" />
-     <!--l. 58--><p class="noindent" ><span 
+   <!--l. 57--><p class="noindent" ><span 
 class="cmbx-10x-x-109">University of California, Santa Cruz, Santa Cruz, CA </span><span class="date">August 2012 - November 2015 </span><br 
 class="newline" /><span 
 class="cmti-10x-x-109">Advisor: R. Scott Lokey </span><br 
 class="newline" />Investigation  of  the  chemical  basis  for  the  passive  permeability  of  non-Lipinskian  cyclic  peptide
-     macrocycles; determination of the mechanism of action of a bioactive small molecule by whole genome
-     sequencing of resistant mutants.<br 
+   macrocycles; determination of the mechanism of action of a bioactive small molecule by whole genome
+   sequencing of resistant mutants.<br 
 class="newline" />
-     <!--l. 62--><p class="noindent" ><span 
+   <!--l. 61--><p class="noindent" ><span 
 class="cmbx-10x-x-109">University of Oxford, Oxfordshire, UK </span><span class="date">January 2015 - March 2015 </span><br 
 class="newline" /><span 
 class="cmti-10x-x-109">Advisor: Stuart J. Conway </span><br 
 class="newline" />Synthesis of analogs of a dimethylisoxazole-based bromodomain inhibitor.<br 
 class="newline" />
-     </dd></dl>
-<!--l. 72--><p class="noindent" ><span 
-class="cmbx-10x-x-109">PROFESSIONAL EXPERIENCE</span>____________________________________________________________________________
-    <dl class="list1"><dt class="list"><span class="date">
-    </span></dt><dd 
+   </dd></dl>
+<!--l. 71--><p class="noindent" ><h2 class="cv-section">PROFESSIONAL EXPERIENCE</h2>
+   <dl class="list1"><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 72--><p class="noindent" ><span 
+   <!--l. 71--><p class="noindent" ><span 
 class="cmbx-10x-x-109">Bioinformatics Programmer II  </span><span class="date">July 2023 - Present </span><br 
 class="newline" /><span 
 class="cmbx-10x-x-109">University of California San Diego, La Jolla, CA </span><br 
@@ -264,7 +292,7 @@ class="newline" /><span
 class="cmti-10x-x-109">Advisor: Mark A. Herzik Jr. </span><br 
 class="newline" />Development of machine learning applications for particle curation in cryoEM data.<br 
 class="newline" />
-     <!--l. 78--><p class="noindent" ><span 
+   <!--l. 77--><p class="noindent" ><span 
 class="cmbx-10x-x-109">Research Associate, Chemistry </span><span class="date">November 2015 - August 2017 </span><br 
 class="newline" /><span 
 class="cmbx-10x-x-109">Mendel Biological Solutions, Hayward, CA </span><br 
@@ -273,21 +301,22 @@ class="cmti-10x-x-109">Advisors: Peter P. Repetti &#x0026; Joshua I. Armstrong <
 class="newline" />Discovery and development of bioactive natural products for the enhancement of crop performance in
    agriculture.<br 
 class="newline" /></dd></dl>
-<!--l. 88--><p class="noindent" ><span 
-class="cmbx-10x-x-109">EDUCATION</span>
-_________________________________________________________________________________ <dl class="list1"><dt class="list"><span class="date">
-    </span></dt><dd 
+                                                                                                
+                                                                                                
+<!--l. 87--><p class="noindent" ><h2 class="cv-section">EDUCATION</h2>
+   <dl class="list1"><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 88--><p class="noindent" >
-    <!--l. 90--><p class="noindent" ><span 
+   <!--l. 87--><p class="noindent" >
+   <!--l. 89--><p class="noindent" ><span 
 class="cmbx-10x-x-109">University of California San Diego </span><br 
 class="newline" />Ph.D., Chemical Biology, 2023<br 
 class="newline" />
-     <!--l. 94--><p class="noindent" ><span 
+   <!--l. 93--><p class="noindent" ><span 
 class="cmbx-10x-x-109">University of California Santa Cruz </span><br 
 class="newline" />B.S., Molecular, Cell, &#x0026; Developmental Biology with a minor in Bioinformatics, 2015<br 
 class="newline" />
-     </dd></dl>
+   </dd></dl>
 <a 
  id="XHayward2025"></a> <a 
  id="XLim_Fused_2019"></a> <a 
@@ -298,61 +327,58 @@ class="newline" />
  id="XBerkeley_FUS_2021"></a> <a 
  id="XBerkeley_HSPB1"></a> <a 
  id="Xa.wride_confirmation_2014"></a>
-<!--l. 107--><p class="noindent" ><span 
-class="cmbx-10x-x-109">PUBLICATIONS</span>_________________________________________________________________________________________________
-    <dl class="list1"><dt class="list"><span class="date">
-    </span></dt><dd 
+<!--l. 106--><p class="noindent" ><h2 class="cv-section">PUBLICATIONS</h2>
+   <dl class="list1"><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 107--><p class="noindent" >
-          <dl class="enumerate-enumitem"><dt class="enumerate-enumitem"><span class="date">
-      1. </span></dt><dd 
+   <!--l. 106--><p class="noindent" >
+        <dl class="enumerate-enumitem"><dt class="enumerate-enumitem"><span class="date">
+     1. </span></dt><dd 
 class="enumerate-enumitem">Hayward,  R.E.,  <span class="underline">Berkeley,  R.F.</span>,  Gao,  Z.,  Garhammer,  M.,  Morizono,  M.A.,  Njomen,  E.,  …
-           Melillo, B., Cravatt, B.F.  (2025).  Tryptoline stereoprobe elaboration identifies inhibitors of the
-           grpel1-hspa9 chaperone complex. <span 
+        Melillo, B., Cravatt, B.F.  (2025).  Tryptoline stereoprobe elaboration identifies inhibitors of the
+        grpel1-hspa9 chaperone complex. <span 
 class="cmti-10x-x-109">bioRxiv</span>.  ( <a 
 href="https://www.biorxiv.org/content/10.1101/2025.10.20.683548v1" >link</a>,  <a 
 href="https://www.biorxiv.org/content/10.1101/2025.10.20.683548v1.full.pdf" >pdf</a>)
-           </dd><dt class="enumerate-enumitem"><span class="date">
-       2. </span></dt><dd 
+        </dd><dt class="enumerate-enumitem"><span class="date">
+     2. </span></dt><dd 
 class="enumerate-enumitem"><span class="underline">Berkeley, R.F.*</span>, Cook, B.C.*, Ji, D., Foroughi, A., Saladi, A., Bachochin, M., &#x0026; Herzik Jr., M.A. 
-           (2025). Removal of false particle images from cryoEM data using ANTIDOTE: A Neural network
-           Trained In Deleterious ObjecT Elimination. <span 
+        (2025). Removal of false particle images from cryoEM data using ANTIDOTE: A Neural network
+        Trained In Deleterious ObjecT Elimination. <span 
 class="cmti-10x-x-109">bioRxiv</span>.  ( <a 
 href="https://www.biorxiv.org/content/10.1101/2025.10.06.680814v2" >link</a>,  <a 
 href="https://www.biorxiv.org/content/10.1101/2025.10.06.680814v2.full.pdf" >pdf</a>)
-           </dd><dt class="enumerate-enumitem"><span class="date">
-       3. </span></dt><dd 
+        </dd><dt class="enumerate-enumitem"><span class="date">
+     3. </span></dt><dd 
 class="enumerate-enumitem"><span class="underline">Berkeley, R.F.</span>*, Plonski, A.P.*, Phan, T.M.*, Grohe, K., Becker, L., Wegner, S., … Mittal, J.,
-           Debelouchina, G.T.  (2025).  Capturing the conformational heterogeneity of HSPB1 chaperone
-           oligomers at atomic resolution. <span 
+        Debelouchina, G.T.  (2025).  Capturing the conformational heterogeneity of HSPB1 chaperone
+        oligomers at atomic resolution. <span 
 class="cmti-10x-x-109">J. Am. Chem. Soc.</span>, <span 
 class="cmti-10x-x-109">147</span>.  ( <a 
 href="https://pubs.acs.org/doi/full/10.1021/jacs.4c18668" >link</a>,  <a 
 href="https://pubs.acs.org/doi/pdf/10.1021/jacs.4c18668?ref=article_openPDF" >pdf</a>)
-           </dd><dt class="enumerate-enumitem"><span class="date">
-       4. </span></dt><dd 
+        </dd><dt class="enumerate-enumitem"><span class="date">
+     4. </span></dt><dd 
 class="enumerate-enumitem"><span class="underline">Berkeley, R.F.</span>*, Cook, B.C.*, &#x0026; Herzik Jr., M. (2024). Machine learning approaches to density
-           modification improve map quality at the cost of ligand density quality.  <span 
+        modification improve map quality at the cost of ligand density quality.  <span 
 class="cmti-10x-x-109">Front. Mol. Biosci.</span>, <span 
 class="cmti-10x-x-109">11</span>,
-           1404885.  ( <a 
+        1404885.  ( <a 
 href="https://www.frontiersin.org/journals/molecular-biosciences/articles/10.3389/fmolb.2024.1404885/full" >link</a>)
-           </dd><dt class="enumerate-enumitem"><span class="date">
-       5. </span></dt><dd 
+        </dd><dt class="enumerate-enumitem"><span class="date">
+     5. </span></dt><dd 
 class="enumerate-enumitem"><span class="underline">Berkeley,  R.F.</span>, &#x0026;  Debelouchina,  G.T.  (2022).   Chemical  tools  for  study  and  modulation  of
-           biomolecular phase transitions. <span 
+        biomolecular phase transitions. <span 
 class="cmti-10x-x-109">Chem. Sci.</span>.  ( <a 
 href="https://pubs.rsc.org/en/content/articlelanding/2022/sc/d2sc04907d#cit3" >link</a>,  <a 
 href="https://pubs.rsc.org/en/content/articlepdf/2022/sc/d2sc04907d" >pdf</a>)
-           </dd><dt class="enumerate-enumitem"><span class="date">
-       6. </span></dt><dd 
+        </dd><dt class="enumerate-enumitem"><span class="date">
+     6. </span></dt><dd 
 class="enumerate-enumitem"><span class="underline">Berkeley, R.F.</span>, Kashefi, M., &#x0026; Debelouchina, G.T.  (2021).  Real-time observation of structure
-           and dynamics during the liquid-to-solid transition of FUS LC. <span 
+        and dynamics during the liquid-to-solid transition of FUS LC. <span 
 class="cmti-10x-x-109">Biophys. J.</span>.  ( <a 
 href="https://www.sciencedirect.com/science/article/pii/S0006349521001430" >link</a>,  <a 
 href="https://ars.els-cdn.com/content/image/1-s2.0-S0006349521001430-mmc2.pdf" >pdf</a>)
-                                                                                                
-                                                                                                
         </dd><dt class="enumerate-enumitem"><span class="date">
      7. </span></dt><dd 
 class="enumerate-enumitem">Lim, B. J., <span class="underline">Berkeley, R.F.</span>, &#x0026; Debelouchina, G.T. (2019). Fused split inteins: Tools for introducing
@@ -360,6 +386,8 @@ class="enumerate-enumitem">Lim, B. J., <span class="underline">Berkeley, R.F.</
 class="cmti-10x-x-109">Methods mol. biol.</span> (Vol. 2133, pp. 161–181).  New York, NY:
         Humana.  ( <a 
 href="https://link.springer.com/protocol/10.1007%2F978-1-0716-0434-2_8" >link</a>)
+                                                                                                
+                                                                                                
         </dd><dt class="enumerate-enumitem"><span class="date">
      8. </span></dt><dd 
 class="enumerate-enumitem">Schwochert, J., Turner, R., Thang, M., <span class="underline">Berkeley, R.F.</span>, Ponkey, A. R., Rodriguez, K. M., … Lokey,
@@ -378,175 +406,171 @@ class="cmti-10x-x-109">Mol. BioSyst.</span>, <span
 class="cmti-10x-x-109">10</span>(12), 3179–3187.  ( <a 
 href="http://pubs.rsc.org/en/Content/ArticleLanding/2014/MB/C4MB00146J" >link</a>,  <a 
 href="https://pubs.rsc.org/en/content/articlepdf/2014/mb/c4mb00146j" >pdf</a>)
-        <!--l. 136--><p class="noindent" >* equal contribution</dd></dl>
+        <!--l. 135--><p class="noindent" >* equal contribution</dd></dl>
    </dd></dl>
-<!--l. 144--><p class="noindent" ><span 
-class="cmbx-10x-x-109">AWARDS AND HONORS</span>
-____________________________________________________________________ <dl class="list1"><dt class="list"><span class="date">
-    </span></dt><dd 
+<!--l. 143--><p class="noindent" ><h2 class="cv-section">AWARDS AND HONORS</h2>
+   <dl class="list1"><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 144--><p class="noindent" >
-    </dd><dt class="list"><span class="date">
-    </span></dt><dd 
+   <!--l. 143--><p class="noindent" >
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 145--><p class="noindent" >2022 ACS Graduate Student and Postdoctoral Scholar Recognition Program Award for Leadership in
-     Mentoring
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 144--><p class="noindent" ><span class="item-date">2022</span> ACS Graduate Student and Postdoctoral Scholar Recognition Program Award for Leadership in
+   Mentoring
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 146--><p class="noindent" >2021 Bruno Zimm Award
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 145--><p class="noindent" ><span class="item-date">2021</span> Bruno Zimm Award
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 147--><p class="noindent" >2019–2020 San Diego Fellowship
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 146--><p class="noindent" ><span class="item-date">2019–2020</span> San Diego Fellowship
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 148--><p class="noindent" >2018–2020 NIH Chemistry-Biology Interface Predoctoral Training Program </dd></dl>
-<!--l. 155--><p class="noindent" ><span 
-class="cmbx-10x-x-109">SERVICE</span>___________________________________________________________________________________________________________
-    <dl class="list1"><dt class="list"><span class="date">
-    </span></dt><dd 
+   <!--l. 147--><p class="noindent" ><span class="item-date">2018–2020</span> NIH Chemistry-Biology Interface Predoctoral Training Program</dd></dl>
+<!--l. 154--><p class="noindent" ><h2 class="cv-section">SERVICE</h2>
+   <dl class="list1"><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 155--><p class="noindent" >
-    </dd><dt class="list"><span class="date">
-    </span></dt><dd 
+   <!--l. 154--><p class="noindent" >
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 156--><p class="noindent" >2023 Global NMR Twitter Conference Judge
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 155--><p class="noindent" ><span class="item-date">2023</span> Global NMR Twitter Conference Judge
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 157--><p class="noindent" >2022 ACSSA Undergraduate Research Symposium Judge
+   <!--l. 156--><p class="noindent" ><span class="item-date">2022</span> ACSSA Undergraduate Research Symposium Judge
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
+class="list">
+   <!--l. 157--><p class="noindent" ><span class="item-date">2021</span> Debelouchina Lab UCSD Mentor-Mentee Workshop
                                                                                                 
                                                                                                 
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 158--><p class="noindent" >2021 Debelouchina Lab UCSD Mentor-Mentee Workshop
+   <!--l. 158--><p class="noindent" ><span class="item-date">2021</span> Mira Mesa High School ScienceBridge Program Speaker
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 159--><p class="noindent" >2021 Mira Mesa High School ScienceBridge Program Speaker
+   <!--l. 159--><p class="noindent" ><span class="item-date">2021</span> ACSSA Undergraduate Research Symposium Moderator
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 160--><p class="noindent" >2021 ACSSA Undergraduate Research Symposium Moderator
+   <!--l. 160--><p class="noindent" ><span class="item-date">2020</span> UCSD Grad Pals Mentorship Program
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 161--><p class="noindent" >2020 UCSD Grad Pals Mentorship Program
+   <!--l. 161--><p class="noindent" ><span class="item-date">2018–2020</span> ChemPAL Mentorship Program
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 162--><p class="noindent" >2018–2020 ChemPAL Mentorship Program
+   <!--l. 162--><p class="noindent" ><span class="item-date">2012</span> Juvenile Diabetes Research Foundation Counsellor</dd></dl>
+<!--l. 169--><p class="noindent" ><h2 class="cv-section">INVITED AND CONTRIBUTED TALKS</h2>
+   <dl class="list1"><dt class="list"><span class="date">
+   </span></dt><dd 
+class="list">
+   <!--l. 169--><p class="noindent" >
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 163--><p class="noindent" >2012 Juvenile Diabetes Research Foundation Counsellor </dd></dl>
-<!--l. 170--><p class="noindent" ><span 
-class="cmbx-10x-x-109">INVITED AND CONTRIBUTED TALKS</span>
-___________________________________________________ <dl class="list1"><dt class="list"><span class="date">
-    </span></dt><dd 
+   <!--l. 170--><p class="noindent" ><span class="item-date">2023</span> San Diego cryoEM Supergroup, La Jolla, CA
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 170--><p class="noindent" >
-    </dd><dt class="list"><span class="date">
-    </span></dt><dd 
+   <!--l. 171--><p class="noindent" ><span class="item-date">2023</span> Biophysical Society Annual Meeting (IDP subgroup early career speaker), San Diego, CA
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 171--><p class="noindent" >2023 San Diego cryoEM Supergroup, La Jolla, CA
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 172--><p class="noindent" ><span class="item-date">2022</span> UT Southwestern Biophysics Seminar Series (lightning talk), Dallas, TX
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 172--><p class="noindent" >2023 Biophysical Society Annual Meeting (IDP subgroup early career speaker), San Diego, CA
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 173--><p class="noindent" ><span class="item-date">2022</span> International Council on Magnetic Resonance in Biological Systems (lightning talk), Boston, MA
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 173--><p class="noindent" >2022 UT Southwestern Biophysics Seminar Series (lightning talk), Dallas, TX
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 174--><p class="noindent" ><span class="item-date">2021</span> UCSD Graduate Student Seminar Series, Virtual
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 174--><p class="noindent" >2022 International Council on Magnetic Resonance in Biological Systems (lightning talk), Boston, MA
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
-class="list">
-     <!--l. 175--><p class="noindent" >2021 UCSD Graduate Student Seminar Series, Virtual
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 175--><p class="noindent" ><span class="item-date">2021</span> San Diego NMR Supergroup, Virtual
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
                                                                                                 
                                                                                                 
-   <!--l. 176--><p class="noindent" >2021 San Diego NMR Supergroup, Virtual
+   <!--l. 176--><p class="noindent" ><span class="item-date">2021</span> San Diego Python Users Group, Virtual
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 177--><p class="noindent" >2021 San Diego Python Users Group, Virtual
+   <!--l. 177--><p class="noindent" ><span class="item-date">2019</span> Chemistry Biology Interfaces Symposium, UC San Diego, La Jolla, CA
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 178--><p class="noindent" >2019 Chemistry Biology Interfaces Symposium, UC San Diego, La Jolla, CA
+   <!--l. 178--><p class="noindent" ><span class="item-date">2019</span> CBI-CRIN Industry Interaction Day (Lightning Talk), UC San Diego, La Jolla, CA
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 179--><p class="noindent" >2019 CBI-CRIN Industry Interaction Day (Lightning Talk), UC San Diego, La Jolla, CA
+   <!--l. 179--><p class="noindent" ><span class="item-date">2018</span> Chemistry Biology Interfaces Symposium, UC San Diego, La Jolla, CA</dd></dl>
+<!--l. 186--><p class="noindent" ><h2 class="cv-section">OTHER CONFERENCES AND POSTERS</h2>
+   <dl class="list1"><dt class="list"><span class="date">
+   </span></dt><dd 
+class="list">
+   <!--l. 186--><p class="noindent" >
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 180--><p class="noindent" >2018 Chemistry Biology Interfaces Symposium, UC San Diego, La Jolla, CA </dd></dl>
-<!--l. 187--><p class="noindent" ><span 
-class="cmbx-10x-x-109">OTHER CONFERENCES AND POSTERS</span>
-__________________________________________________ <dl class="list1"><dt class="list"><span class="date">
-    </span></dt><dd 
+   <!--l. 187--><p class="noindent" ><span class="item-date">2023</span> SoCal CryoEM Symposium (poster), UC Santa Barbara, Santa Barbara, CA
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 187--><p class="noindent" >
-    </dd><dt class="list"><span class="date">
-    </span></dt><dd 
+   <!--l. 188--><p class="noindent" ><span class="item-date">2023</span> Biophysical Society Annual Meeting (poster), San Diego, CA
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-    <!--l. 188--><p class="noindent" >2023 SoCal CryoEM Symposium (poster), UC Santa Barbara, Santa Barbara, CA
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 189--><p class="noindent" ><span class="item-date">2022</span> International Council on Magnetic Resonance in Biological Systems (poster), Boston, MA
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 189--><p class="noindent" >2023 Biophysical Society Annual Meeting (poster), San Diego, CA
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 190--><p class="noindent" ><span class="item-date">2022</span> Southern California Users of Magnets (poster), UC Santa Barbara, Santa Barbara, CA
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 190--><p class="noindent" >2022 International Council on Magnetic Resonance in Biological Systems (poster), Boston, MA
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 191--><p class="noindent" ><span class="item-date">2021</span> Protein Society Annual Symposium (poster), Virtual
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 191--><p class="noindent" >2022 Southern California Users of Magnets (poster), UC Santa Barbara, Santa Barbara, CA
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 192--><p class="noindent" ><span class="item-date">2021</span> Experimental Nuclear Magnetic Resonance Conference (poster), Virtual
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 192--><p class="noindent" >2021 Protein Society Annual Symposium (poster), Virtual
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
+   <!--l. 193--><p class="noindent" ><span class="item-date">2021</span> UCSD Graduate Student Seminar Series, Virtual
+   </dd><dt class="list"><span class="date">
+   </span></dt><dd 
 class="list">
-     <!--l. 193--><p class="noindent" >2021 Experimental Nuclear Magnetic Resonance Conference (poster), Virtual
-     </dd><dt class="list"><span class="date">
-     </span></dt><dd 
-class="list">
-     <!--l. 194--><p class="noindent" >2021 UCSD Graduate Student Seminar Series, Virtual
+   <!--l. 194--><p class="noindent" ><span class="item-date">2021</span> Biophysical Society Annual Meeting (poster), Virtual
                                                                                                 
                                                                                                 
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 195--><p class="noindent" >2021 Biophysical Society Annual Meeting (poster), Virtual
+   <!--l. 195--><p class="noindent" ><span class="item-date">2020</span> Biomolecular Solid-State NMR Winter School, Stowe, VT
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 196--><p class="noindent" >2020 Biomolecular Solid-State NMR Winter School, Stowe, VT
+   <!--l. 196--><p class="noindent" ><span class="item-date">2016</span> PyData San Francisco, San Francisco, CA
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 197--><p class="noindent" >2016 PyData San Francisco, San Francisco, CA
+   <!--l. 197--><p class="noindent" ><span class="item-date">2016</span> HPLC 2016, San Francisco, CA
    </dd><dt class="list"><span class="date">
    </span></dt><dd 
 class="list">
-   <!--l. 198--><p class="noindent" >2016 HPLC 2016, San Francisco, CA
-   </dd><dt class="list"><span class="date">
-   </span></dt><dd 
-class="list">
-   <!--l. 199--><p class="noindent" >2015 William S. Johnson Symposium (poster), Stanford University, Palo Alto, CA </dd></dl>
+   <!--l. 198--><p class="noindent" ><span class="item-date">2015</span> William S. Johnson Symposium (poster), Stanford University, Palo Alto, CA</dd></dl>
   </div>
 </body>
 </html>
