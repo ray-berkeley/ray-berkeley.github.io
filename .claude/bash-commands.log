@@ -65,3 +65,10 @@ rg -n -F 'year = {Accepted}' assets/cv/cv.bib
 rg -n -F 'journal = {Nat. Chem. Biol.}' assets/cv/cv.bib
 git status --short
 	nl -ba /Users/ray/.codex/memories/MEMORY.md | sed -n '628,640p'
+	sed -n '1,32p' assets/cv/cv.bib
+git diff -- assets/cv/cv.bib
+git status --short
+	git diff --check
+git diff --word-diff=plain -- assets/cv/cv.bib | sed -n '1,100p'
+rg -n -F '{Hayward, R.E.*} and \underline{Berkeley, R.F.*}' assets/cv/cv.bib
+rg -n -F '{Cook, B.C.*} and {Herzik Jr., M.A.*}' assets/cv/cv.bib
