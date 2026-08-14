@@ -1,0 +1,67 @@
+	rg -n "Hayward|Tryptoline|grpel1|GRPEL1" /Users/ray/.codex/memories/MEMORY.md
+	sed -n '620,650p' /Users/ray/.codex/memories/MEMORY.md
+rg --files -g 'AGENTS.md' -g '!node_modules' -g '!vendor' . .. | head -50
+rg -n -i "tryptoline|hayward|grpel1|hspa9" . --glob '!node_modules/**' --glob '!vendor/**'
+	pwd
+ls -la
+find . -maxdepth 2 -type f | sort | sed -n '1,160p'
+git status --short
+sed -n '1,60p' assets/cv/cv.bib
+sed -n '90,125p' assets/cv/cv.tex
+sed -n '315,355p' cv.html
+rg -n "cv\.tex|make4ht|latex|cv\.html" README* Makefile package.json .github 2>/dev/null
+	cat README.md
+sed -n '1,220p' .github/workflows/build-cv.yml
+find assets/cv -maxdepth 2 -type f -print | sort
+sed -n '1,160p' .claude/bash-commands.log
+command -v pdflatex || true
+command -v bibtex || true
+command -v make4ht || true
+git ls-files 'Ray*CV*.pdf' cv.html assets/cv/cv.bib assets/cv/cv.tex
+	rg -n "last updated|RayBerkeley_CV_" cv.html
+sed -n '1,90p' assets/cv/cv.tex
+sed -n '1,120p' assets/cv/config.cfg
+git log -5 --oneline -- assets/cv/cv.bib cv.html
+	command -v tectonic || true
+command -v latexmk || true
+command -v docker || true
+command -v podman || true
+command -v brew || true
+ls /Library/TeX/texbin/pdflatex 2>/dev/null || true
+find /usr/local /opt/homebrew -maxdepth 4 -name pdflatex -type f 2>/dev/null | head
+	git log --oneline --decorate -12
+git log -p -1 -- assets/cv/cv.bib | sed -n '1,160p'
+git status --branch --short
+	git show --stat --oneline 87706c0
+git show --stat --oneline e6d721b
+git show --stat --oneline b83c59a
+git show 87706c0 -- assets/cv/cv.bib cv.html | sed -n '1,200p'
+	git show 87706c0
+sed -n '100,120p' assets/cv/cv.tex
+ls -la .github/workflows
+	sed -n '1,260p' /Users/ray/.codex/plugins/cache/openai-primary-runtime/pdf/26.813.12317/skills/pdf/SKILL.md
+	find /Users/ray/.codex -path '*/container_tools/mark_artifact_operation_started.mjs' -print 2>/dev/null | head -20
+command -v pdftotext || true
+command -v pdftoppm || true
+command -v pdfinfo || true
+python3 - <<'PY'
+import importlib.util
+for name in ['pypdf', 'pdfplumber', 'reportlab']:
+    print(name, bool(importlib.util.find_spec(name)))
+PY
+	brew info tectonic | sed -n '1,80p'
+	brew deps --missing tectonic || true
+brew fetch --dry-run tectonic 2>/dev/null | sed -n '1,80p' || true
+	node /Users/ray/.codex/plugins/cache/openai-primary-runtime/pdf/26.813.12317/skills/pdf/container_tools/mark_artifact_operation_started.mjs --operation-kind edit --expected-output-count 1 --output-format pdf
+	git status --short
+git diff -- assets/cv/cv.bib assets/cv/cv.tex cv.html
+sed -n '1,10p' assets/cv/cv.bib
+rg -n -A6 -B2 "J\. Am\. Chem\. Soc|Front\. Mol" cv.html
+find .agents -maxdepth 1 -type f -print 2>/dev/null || true
+	git diff --check
+rg -n -F 'author = {{Hayward, R.E.} and \underline{Berkeley, R.F.*}' assets/cv/cv.bib
+rg -n -F 'title = {{Tryptoline Stereoprobe Elaboration Identifies Inhibitors of the GRPEL1-HSPA9 Chaperone Complex}}' assets/cv/cv.bib
+rg -n -F 'year = {Accepted}' assets/cv/cv.bib
+rg -n -F 'journal = {Nat. Chem. Biol.}' assets/cv/cv.bib
+git status --short
+	nl -ba /Users/ray/.codex/memories/MEMORY.md | sed -n '628,640p'
