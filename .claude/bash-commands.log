@@ -119,3 +119,67 @@ git status --short
 rg -n -- '--content-width|--content-gutter|^\.header \{|^\.main-content \{|^\.cv-container \{|header-wrapper' css/style.css blog.html index.html cv.html
 git diff --stat -- css/style.css blog.html
 git status --short
+	ls -l js/script.js
+sed -n '1,240p' js/script.js
+rg -n "js/script\.js|<script" --glob '*.html' --glob '!posts/2dmol/**' . | sed -n '1,220p'
+git status --short
+git diff -- css/style.css blog.html | sed -n '1,260p'
+	node --check js/script.js
+git diff --check
+python3 - <<'PY'
+from pathlib import Path
+
+pages = [Path(name) for name in ("index.html", "blog.html", "bio.html", "cv.html")]
+missing = [str(page) for page in pages if './js/script.js' not in page.read_text()]
+if missing:
+    raise SystemExit(f"Missing ambient script: {missing}")
+
+script = Path("js/script.js").read_text()
+checks = {
+    "30-second delay": "}, 30000);",
+    "pointer input": 'addEventListener("pointermove"',
+    "reduced motion": 'prefers-reduced-motion: reduce',
+    "eased movement": "deltaX * 0.045",
+}
+failed = [name for name, needle in checks.items() if needle not in script]
+if failed:
+    raise SystemExit(f"Missing behavior: {failed}")
+
+workflow = Path(".github/workflows/build-cv.yml").read_text()
+if '<script defer src="./js/script.js"></script>' not in workflow:
+    raise SystemExit("CV workflow will not preserve the script tag")
+
+print("Verified:", ", ".join(checks))
+print("Pages:", ", ".join(str(page) for page in pages))
+PY
+ruby -e "require 'yaml'; YAML.load_file('.github/workflows/build-cv.yml'); puts 'Workflow YAML parsed'"
+git diff --stat
+git status --short
+	node <<'JS'
+let timeoutDelay = null;
+let timeoutCallback = null;
+let pointerHandler = null;
+let visible = false;
+
+global.document = {
+  documentElement: { style: { setProperty() {} } },
+  body: { classList: { add(name) { visible = name === 'ambient-gradient-visible'; } } }
+};
+global.window = {
+  innerWidth: 1000,
+  innerHeight: 800,
+  matchMedia() { return { matches: false }; },
+  addEventListener(name, handler) { if (name === 'pointermove') pointerHandler = handler; },
+  requestAnimationFrame() { return 1; },
+  setTimeout(callback, delay) { timeoutCallback = callback; timeoutDelay = delay; }
+};
+
+require('./js/script.js');
+if (timeoutDelay !== 30000 || !pointerHandler || !timeoutCallback) process.exit(1);
+timeoutCallback();
+if (!visible) process.exit(1);
+console.log('Runtime behavior verified');
+JS
+	git diff --check
+git diff -- css/style.css | sed -n '1,120p'
+rg -n -- '--content-gutter' css/style.css
