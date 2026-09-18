@@ -76,6 +76,7 @@ jobs:
               '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n'
               '  <title>Ray Berkeley</title>\n'
               '  <link rel="stylesheet" type="text/css" href="./css/style.css" />\n'
+              '  <script defer src="./js/script.js"></script>\n'
               '  <style>\n'
               '__MAKE4HT_CSS__\n'
               '    body { max-width: none; margin: 0; padding: 0; }\n'
