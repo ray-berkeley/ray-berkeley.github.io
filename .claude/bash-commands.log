@@ -72,3 +72,50 @@ git status --short
 git diff --word-diff=plain -- assets/cv/cv.bib | sed -n '1,100p'
 rg -n -F '{Hayward, R.E.*} and \underline{Berkeley, R.F.*}' assets/cv/cv.bib
 rg -n -F '{Cook, B.C.*} and {Herzik Jr., M.A.*}' assets/cv/cv.bib
+	curl -L --compressed -sS https://solab.org/ | sed -n '1,260p'
+	curl -L --compressed -sS https://solab.org/assets/css/style.css
+curl -L --compressed -sS https://solab.org/assets/js/msa.js
+	curl -L --compressed -sS https://solab.org/assets/js/msa.js | nl -ba | rg -n "initAoeSheep|drawProceduralSheep|aoe-sheep|mutateMsaAt|mutateTextUnder|state =|function fillBand|_msaStream|requestAnimationFrame"
+	curl -L --compressed -sS https://solab.org/assets/js/msa.js | nl -ba | sed -n '1,155p'
+curl -L --compressed -sS https://solab.org/assets/js/msa.js | nl -ba | sed -n '330,580p'
+curl -L --compressed -sS https://solab.org/assets/js/msa.js | nl -ba | sed -n '577,915p'
+	curl -sSI https://solab.org/
+curl -L --compressed -sS https://solab.org/robots.txt
+curl -L --compressed -sS https://solab.org/sitemap.xml | sed -n '1,160p'
+curl -L --compressed -sS https://solab.org/assets/css/style.css | nl -ba | rg -n "site-footer|msa-band|aoe-sheep"
+	curl -L --compressed -sS https://solab.org/assets/css/style.css | nl -ba | sed -n '1348,1395p'
+curl -L --compressed -sS https://solab.org/assets/js/msa.js | nl -ba | sed -n '900,945p'
+	curl -L -sS 'https://api.github.com/users/sokrypton/repos?per_page=100&sort=updated' | jq -r '.[] | [.name,.html_url,.homepage,.updated_at] | @tsv' | rg -i 'site|solab|page|web'
+	curl -L -sS 'https://api.github.com/repos/sokrypton/solab/commits?per_page=100' | jq -r '.[] | [.sha[0:10], .commit.author.date, .commit.author.name, (.commit.message|gsub("\n";" "))] | @tsv'
+curl -L -sS https://raw.githubusercontent.com/sokrypton/solab/main/assets/js/msa.js | nl -ba | sed -n '330,380p'
+	for sha in 244385f285 6da558a7d8 7673190cb5 72897f6313 c9ba91bfb3; do
+  curl -L -sS "https://api.github.com/repos/sokrypton/solab/commits/$sha" | jq -r '[.sha[0:10], .commit.message, .author.login, .committer.login, (.files[]? | .filename)] | @json'
+done
+	curl -L -sS 'https://api.github.com/repos/sokrypton/solab/commits/c090931815' | jq -r '.sha, .html_url, .commit.message'
+curl -L -sS 'https://api.github.com/repos/sokrypton/solab/commits/244385f285' | jq -r '.sha, .html_url, .commit.author.date, .commit.message'
+curl -L -sS 'https://api.github.com/repos/sokrypton/solab/commits/c9ba91bfb3' | jq -r '.sha, .html_url, .commit.author.date, .commit.message'
+	rg -n -i "ray-berkeley|github\.io|css/style|cv-container|header-wrapper" /Users/ray/.codex/memories/MEMORY.md | head -40
+sed -n '1,280p' css/style.css
+sed -n '1,240p' index.html
+sed -n '1,220p' blog.html
+sed -n '1,180p' bio.html
+	python3 -m http.server 8765
+	command -v chromium || true
+command -v chromium-browser || true
+command -v google-chrome || true
+command -v playwright || true
+node -e "try { console.log(require.resolve('playwright')) } catch (_) {}"
+rg -n "main-content|class=\"header\"|class=\"cv-container\"|jp-Cell|padding-div" --glob '*.html' . | sed -n '1,220p'
+sed -n '200,275p' cv.html
+	sed -n '155,230p' cv.html
+sed -n '1,80p' posts/2dmol/index.html
+rg -n "main-content|header \{|cv-container|jp-Cell \{" css/style.css cv.html posts/2dmol/index.html | sed -n '1,160p'
+git status --short
+	git diff --check
+git diff -- css/style.css blog.html
+command -v tidy >/dev/null && tidy -errors -quiet blog.html || true
+git status --short
+	git diff --check
+rg -n -- '--content-width|--content-gutter|^\.header \{|^\.main-content \{|^\.cv-container \{|header-wrapper' css/style.css blog.html index.html cv.html
+git diff --stat -- css/style.css blog.html
+git status --short
