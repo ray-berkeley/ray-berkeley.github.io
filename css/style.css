@@ -60,9 +60,13 @@
   src: url("./fonts/SourceCodePro-VariableFont_wght.ttf");
 }
 
+:root {
+  --content-width: 850px;
+  --content-gutter: clamp(24px, 5vw, 50px);
+}
+
 body, html {
-  /*width: 100vw;
-  margin: 1vw;*/
+  margin: 0;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -83,9 +87,11 @@ blockquote {
 }
 
 .header {
-  max-width: 1400px;
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-inline: var(--content-gutter);
+  box-sizing: border-box;
   position: fixed;
   top: 15px; 
   left: 0;
@@ -133,17 +139,18 @@ blockquote {
 .main-content {
   display: flex;
   justify-content: center;
-  align-items: center;
-  max-width: 1000px;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: var(--content-width);
   margin: 0 auto;
-  padding: 50px;
+  padding: 70px var(--content-gutter) 50px;
   box-sizing: border-box;
 }
 
 /* Styling for the paragraphs container */
 .main-content .text {
   flex: 1;
-  padding-right: 50px;
+  padding: 0;
 }
 
 /* Styling for the image container */
@@ -151,8 +158,15 @@ blockquote {
   display: flex;
   flex-direction: column; /* Stack images vertically */
   flex: none;
-  padding-left: 20px;
-  padding-top: 20px;
+  padding: 0;
+}
+
+.main-content .text > :first-child {
+  margin-top: 0;
+}
+
+.cv-container {
+  padding-inline: var(--content-gutter) !important;
 }
 
 /* Styling for the image */
@@ -175,12 +189,8 @@ blockquote {
 @media (max-width: 625px) {
   .main-content {
     flex-direction: column;
-  }
-
-  .main-content .text,
-  .main-content .image {
-    padding-left: 0;
-    padding-right: 0;
+    gap: 24px;
+    padding-bottom: 32px;
   }
 }
 
