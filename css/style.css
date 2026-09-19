@@ -63,8 +63,6 @@
 :root {
   --content-width: 850px;
   --content-gutter: clamp(16px, 3vw, 32px);
-  --ambient-x: 50%;
-  --ambient-y: 50%;
 }
 
 body, html {
@@ -82,46 +80,29 @@ body {
   background: #ffffff;
 }
 
-body::before {
-  content: "";
+.ambient-contours {
   position: fixed;
-  inset: -20vmax;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
   pointer-events: none;
   opacity: 0;
-  background:
-    radial-gradient(circle at var(--ambient-x) var(--ambient-y), rgba(141, 211, 199, 0.24), transparent 34%),
-    radial-gradient(circle at calc(100% - var(--ambient-x)) calc(100% - var(--ambient-y)), rgba(190, 186, 218, 0.20), transparent 38%),
-    radial-gradient(circle at 42% 72%, rgba(255, 255, 179, 0.16), transparent 36%),
-    radial-gradient(circle at 72% 28%, rgba(251, 128, 114, 0.10), transparent 32%);
-  filter: blur(45px);
-  transform: translate3d(-2%, -1%, 0) scale(1.05);
   transition: opacity 12s ease;
-  animation: ambient-gradient-drift 120s ease-in-out infinite alternate;
 }
 
-body.ambient-gradient-visible::before {
-  opacity: 1;
-}
-
-@keyframes ambient-gradient-drift {
-  from {
-    transform: translate3d(-2%, -1%, 0) scale(1.05) rotate(-1deg);
-  }
-  to {
-    transform: translate3d(2%, 1%, 0) scale(1.1) rotate(1deg);
-  }
+body.ambient-contours-visible .ambient-contours {
+  opacity: 0.62;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before {
-    animation: none;
+  .ambient-contours {
     transition-duration: 1s;
   }
 }
 
 @media print {
-  body::before {
+  .ambient-contours {
     display: none;
   }
 }
