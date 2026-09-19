@@ -34,7 +34,7 @@ jobs:
           pdflatex -interaction=nonstopmode cv.tex
 
       - name: Copy PDF to root
-        run: cp assets/cv/cv.pdf "RayBerkeley_CV_${BUILD_DATE}.pdf"
+        run: cp assets/cv/cv.pdf RayBerkeley_CV.pdf
 
       - name: Build HTML with make4ht
         working-directory: assets/cv
@@ -46,7 +46,7 @@ jobs:
           import os, re
 
           build_date = os.environ['BUILD_DATE']
-          pdf_name = f'RayBerkeley_CV_{build_date}.pdf'
+          pdf_name = 'RayBerkeley_CV.pdf'
 
           with open('assets/cv/cv.html') as f:
               raw_html = f.read()
@@ -67,6 +67,9 @@ jobs:
               r'<span class="date">\1</span>',
               cv_body
           )
+
+          # make4ht inserts whitespace after opening parentheses before links.
+          cv_body = re.sub(r'\(\s+(?=<a\b)', '(', cv_body)
 
           template = (
               '<!DOCTYPE html>\n'
@@ -176,9 +179,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # Remove old dated PDFs
           git ls-files 'RayBerkeley_CV_*.pdf' | while read f; do
-            if [ "$f" != "RayBerkeley_CV_${BUILD_DATE}.pdf" ]; then
-              git rm -f "$f"
-            fi
+            git rm -f "$f"
           done
-          git add cv.html "RayBerkeley_CV_${BUILD_DATE}.pdf"
+          git add cv.html RayBerkeley_CV.pdf
           git diff --cached --quiet || (git commit -m "Build CV (${BUILD_DATE})" && git push)

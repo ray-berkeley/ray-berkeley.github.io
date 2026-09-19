@@ -183,3 +183,169 @@ JS
 	git diff --check
 git diff -- css/style.css | sed -n '1,120p'
 rg -n -- '--content-gutter' css/style.css
+	rg -n -C 3 "Hayward|download a PDF|>link</a>|PDF_NAME|Copy PDF|git add cv" cv.html assets/cv/cv.tex .github/workflows/build-cv.yml
+ls -lh Ray*CV*.pdf
+git ls-files 'Ray*CV*.pdf'
+git status --short
+git log -8 --oneline --decorate --all
+	curl -L -sS https://rayberkeley.com/cv.html | rg -n -C 2 "last updated|download a PDF|Hayward|>link</a>"
+curl -sSI https://rayberkeley.com/RayBerkeley_CV_2026-02-14.pdf | sed -n '1,20p'
+curl -sSI https://rayberkeley.com/RayBerkeley_CV_2026-09-18.pdf | sed -n '1,20p'
+git show --stat --oneline 0b2422e
+git show --stat --oneline 8a8a914
+git show --stat --oneline 4b8b21a
+git show --stat --oneline ab92818
+	curl -L -sS 'https://api.github.com/repos/ray-berkeley/ray-berkeley.github.io/actions/runs?per_page=10' | jq -r '.workflow_runs[] | [.id,.created_at,.status,.conclusion,.head_sha[0:10],.name,.html_url] | @tsv'
+curl -L -sS 'https://api.github.com/repos/ray-berkeley/ray-berkeley.github.io/commits?per_page=10' | jq -r '.[] | [.sha[0:10],.commit.author.date,.commit.message] | @tsv'
+git remote -v
+sed -n '100,140p' assets/cv/cv.tex
+sed -n '1,38p' assets/cv/cv.bib
+sed -n '1,220p' .github/workflows/build-cv.yml
+	curl -L -sS 'https://api.github.com/repos/ray-berkeley/ray-berkeley.github.io/actions/runs/35395326954/jobs' | jq -r '.jobs[] | [.id,.name,.conclusion,.html_url] | @tsv, (.steps[] | ["  ",.number,.name,.conclusion] | @tsv)'
+	curl -L -sS 'https://api.github.com/repos/ray-berkeley/ray-berkeley.github.io/actions/runs/35395326954/jobs' | jq -r '.jobs[] | ([.id,.name,.conclusion,.html_url] | @tsv), (.steps[] | ["step",.number,.name,.conclusion] | @tsv)'
+	curl -L -sS -o /tmp/cv-action-logs.zip -w '%{http_code} %{size_download}\n' 'https://api.github.com/repos/ray-berkeley/ray-berkeley.github.io/actions/runs/35395326954/logs'
+file /tmp/cv-action-logs.zip
+unzip -l /tmp/cv-action-logs.zip | sed -n '1,80p'
+	command -v gh && gh auth status && gh run view 35395326954 --log | rg -n -C 4 "Commit and push|BUILD_DATE|git diff|Build CV|nothing to commit|RayBerkeley"
+	curl -L -sS 'https://api.github.com/repos/ray-berkeley/ray-berkeley.github.io/commits?author=github-actions%5Bbot%5D&per_page=20' | jq -r '.[] | [.sha[0:10],.commit.author.date,.commit.message] | @tsv'
+curl -L -sS 'https://api.github.com/repos/ray-berkeley/ray-berkeley.github.io/events?per_page=30' | jq -r '.[] | select(.type=="PushEvent") | [.created_at,.actor.login,.payload.head[0:10],(.payload.commits|map(.message)|join(" | "))] | @tsv'
+	git diff --check
+ruby -e "require 'yaml'; YAML.load_file('.github/workflows/build-cv.yml'); puts 'Workflow YAML parsed'"
+python3 - <<'PY'
+from pathlib import Path
+import re
+
+html = Path('cv.html').read_text()
+if re.search(r'\(\s+<a\b', html):
+    raise SystemExit('Found whitespace between an opening parenthesis and link')
+
+workflow = Path('.github/workflows/build-cv.yml').read_text()
+required = [
+    "run: cp assets/cv/cv.pdf RayBerkeley_CV.pdf",
+    "pdf_name = 'RayBerkeley_CV.pdf'",
+    "cv_body = re.sub(r'\\(\\s+(?=<a\\b)', '(', cv_body)",
+    "git add cv.html RayBerkeley_CV.pdf",
+]
+missing = [item for item in required if item not in workflow]
+if missing:
+    raise SystemExit(f'Missing workflow behavior: {missing}')
+
+current_pdf = re.search(r'href="\./(RayBerkeley_CV_[^"]+\.pdf)"', html).group(1)
+if not Path(current_pdf).is_file():
+    raise SystemExit(f'Current HTML PDF is missing: {current_pdf}')
+
+print(f'Current HTML PDF exists: {current_pdf}')
+print('Future builds use stable PDF: RayBerkeley_CV.pdf')
+print('Publication link spacing verified')
+PY
+rg -n "pdf_name|Copy PDF|make4ht inserts|git ls-files 'RayBerkeley|git add cv" .github/workflows/build-cv.yml
+rg -n -U "\(\s+<a" cv.html || true
+git status --short
+	test ! -e RayBerkeley_CV.pdf
+mv RayBerkeley_CV_2026-02-14.pdf RayBerkeley_CV.pdf
+	git diff --check
+ruby -e "require 'yaml'; YAML.load_file('.github/workflows/build-cv.yml'); puts 'Workflow YAML parsed'"
+python3 - <<'PY'
+from html.parser import HTMLParser
+from pathlib import Path
+import re
+
+class TextParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.parts = []
+        self.hrefs = []
+
+    def handle_data(self, data):
+        self.parts.append(data)
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            self.hrefs.extend(value for name, value in attrs if name == "href")
+
+html = Path("cv.html").read_text()
+parser = TextParser()
+parser.feed(html)
+text = re.sub(r"\s+", " ", "".join(parser.parts))
+if "( link" in text:
+    raise SystemExit("Whitespace remains after an opening parenthesis")
+if "(link, pdf)" not in text:
+    raise SystemExit("Expected publication link text was not found")
+
+pdf_href = next(href for href in parser.hrefs if href.endswith("RayBerkeley_CV.pdf"))
+pdf_path = Path(pdf_href.removeprefix("./"))
+if not pdf_path.is_file():
+    raise SystemExit(f"PDF target does not exist: {pdf_path}")
+
+print("Rendered link text includes: (link, pdf)")
+print(f"PDF target exists: {pdf_path} ({pdf_path.stat().st_size:,} bytes)")
+PY
+rg -n "download a PDF|pdf_name|make4ht inserts|git add cv" cv.html .github/workflows/build-cv.yml
+git status --short
+	sed -n '55,145p' css/style.css
+sed -n '1,220p' js/script.js
+git status --short
+	node --check js/script.js
+git diff --check
+python3 - <<'PY'
+from pathlib import Path
+
+css = Path('css/style.css').read_text()
+script = Path('js/script.js').read_text()
+
+checks = {
+    'gradient effect removed': 'ambient-gradient' not in css + script,
+    'contour canvas styled': '.ambient-contours {' in css,
+    '30-second reveal': '}, 30000);' in script,
+    'pointer response': 'addEventListener("pointermove"' in script,
+    'reduced motion': 'prefers-reduced-motion: reduce' in script,
+    'frame throttling': 'time - lastFrame < 50' in script,
+    'nested contours': 'context.ellipse(' in script,
+}
+failed = [name for name, passed in checks.items() if not passed]
+if failed:
+    raise SystemExit(f'Failed checks: {failed}')
+print('Verified:', ', '.join(checks))
+PY
+node <<'JS'
+let timeoutDelay = null;
+let timeoutCallback = null;
+let pointerHandler = null;
+let resizeHandler = null;
+let visible = false;
+let prepended = null;
+const context = {
+  setTransform() {}, clearRect() {}, save() {}, translate() {}, rotate() {},
+  beginPath() {}, ellipse() {}, stroke() {}, restore() {},
+  set lineWidth(value) {}, set strokeStyle(value) {}
+};
+const canvas = {
+  className: '', width: 0, height: 0,
+  setAttribute() {}, getContext() { return context; }
+};
+global.document = {
+  body: {
+    prepend(element) { prepended = element; },
+    classList: { add(name) { visible = name === 'ambient-contours-visible'; } }
+  },
+  createElement(name) { if (name !== 'canvas') process.exit(1); return canvas; }
+};
+global.window = {
+  innerWidth: 1000, innerHeight: 800, devicePixelRatio: 2,
+  performance: { now() { return 1000; } },
+  matchMedia() { return { matches: false }; },
+  addEventListener(name, handler) {
+    if (name === 'pointermove') pointerHandler = handler;
+    if (name === 'resize') resizeHandler = handler;
+  },
+  requestAnimationFrame() { return 1; },
+  setTimeout(callback, delay) { timeoutCallback = callback; timeoutDelay = delay; }
+};
+require('./js/script.js');
+if (prepended !== canvas || timeoutDelay !== 30000 || !pointerHandler || !resizeHandler) process.exit(1);
+timeoutCallback();
+if (!visible || canvas.width !== 2000 || canvas.height !== 1600) process.exit(1);
+console.log('Contour runtime behavior verified');
+JS
+rg -n "ambient-contours|body::before|ambient-gradient|radial-gradient" css/style.css js/script.js || true
+git status --short
