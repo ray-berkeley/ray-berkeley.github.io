@@ -4,7 +4,7 @@ from matplotlib.figure import Figure
 from matplotlib import colormaps
 from matplotlib.colors import to_hex
 import numpy as np
-from spectrum import require
+from spectrum import add_contour, require
 
 
 SEQUENTIAL_MAPS = {'Blues', 'Greens', 'Purples', 'Oranges', 'BuPu', 'PuBu', 'GnBu', 'BuGn', 'YlGn', 'YlGnBu', 'YlOrBr', 'YlOrRd', 'PuBuGn', 'viridis', 'plasma', 'inferno', 'magma', 'cividis'}
@@ -68,7 +68,7 @@ def compose(datasets: list[dict], settings: dict) -> dict:
             offset = [reference_offset(item, axis) for axis in ['x', 'y']]
             for sign in ['positive', 'negative']:
                 for index, (segment, color) in enumerate(zip(item['result'][sign], colors[item['id']][sign], strict=True)):
-                    ax.plot(*(np.asarray(segment) + offset).T, color=color, linewidth=float(style['linewidth']), zorder=layer, gid=f"dataset-{item['id']}-{sign}-{index}")
+                    add_contour(ax, np.asarray(segment) + offset, color=color, linewidth=float(style['linewidth']), zorder=layer, gid=f"dataset-{item['id']}-{sign}-{index}")
         else:
             marker = next(marker for marker in markers if marker['id'] == item['id'])
             for index, (x, y, label) in enumerate(marker['points']):

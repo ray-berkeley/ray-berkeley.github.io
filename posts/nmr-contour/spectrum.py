@@ -12,6 +12,8 @@ matplotlib.use('Agg')
 import nmrglue as ng
 import numpy as np
 from matplotlib.figure import Figure
+from matplotlib.patches import PathPatch
+from matplotlib.path import Path as PlotPath
 
 matplotlib.rcParams.update({'svg.fonttype': 'none', 'font.family': 'DejaVu Sans'})
 
@@ -19,6 +21,13 @@ matplotlib.rcParams.update({'svg.fonttype': 'none', 'font.family': 'DejaVu Sans'
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ValueError(message)
+
+
+def add_contour(ax, vertices: np.ndarray, **style) -> None:
+    path = PlotPath(vertices, closed=np.array_equal(vertices[0], vertices[-1]))
+    # Keep every calculated vertex, including in long SVG contour paths.
+    path.should_simplify = False
+    ax.add_patch(PathPatch(path, fill=False, joinstyle='round', capstyle='round', **style))
 
 
 def demo() -> tuple:
@@ -175,7 +184,7 @@ class SpectrumRenderer:
             for segment in segments:
                 if len(segment) >= 2:
                     if export_svg:
-                        ax.plot(segment[:, 0], segment[:, 1], color='#b75442' if level < 0 else color, linewidth=linewidth)
+                        add_contour(ax, segment, color='#b75442' if level < 0 else color, linewidth=linewidth, gid=f'contour-{paths}')
                     (negative if level < 0 else positive).append(segment)
                     (negative_levels if level < 0 else positive_levels).append(float(level))
                     paths += 1

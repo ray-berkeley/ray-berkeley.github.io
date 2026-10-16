@@ -56,7 +56,7 @@ Open **http://127.0.0.1:5050**. Stop with Ctrl+C. This version requires a Python
 - Automatic, manual geometric, or saved contour levels; positive and negative contours.
 - Spectrum size, intensity extrema, and full ppm ranges.
 - Axis limits, additive reference offsets, labels, equal ppm scaling, figure size, line width, font size, and color.
-- SVG export with separate continuous contour paths and editable text. JSON settings include input SHA-256, actual levels, axes, and library versions. Settings import is not implemented.
+- SVG export with one editable path per continuous contour and editable text. All calculated contour vertices are retained without path simplification; closed loops are explicitly closed and strokes use round joins. JSON settings include input SHA-256, actual levels, axes, and library versions. Settings import is not implemented.
 - Uploaded NMR-STAR shift lists to intraresidue atom-pair CSV tables. Choose the shift list by file order and atom names (for example CA/CB, C/CA, or N/H). Entities and assemblies stay separate; duplicate atom assignments fail explicitly. These are candidate correlations, not observed peaks.
 - Murray uniformly labeled + N112 FUS-LC as the starting pair, with FUS LC DARR available as another example. The legacy Flask interface retains its synthetic demo.
 
