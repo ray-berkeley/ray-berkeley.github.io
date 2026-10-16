@@ -1,0 +1,10 @@
+<div class="preview-heading"><div><p class="eyebrow">FIGURE PREVIEW</p><h2>{{ name }}</h2></div><span class="badge">Interactive</span></div>
+<div class="interactive-spectrum">{{ plot_div|safe }}</div>
+{{ plot_script|safe }}
+<p class="hint">Drag to pan. Scroll to zoom, or select box zoom from the toolbar. Reset restores the applied bounds.</p>
+<p id="export-notice" class="hint" hidden>View changed. Click <strong>Update plot</strong> to apply these bounds to the SVG download.</p>
+<div class="stats"><span><strong>{{ shape[0] }} × {{ shape[1] }}</strong> points</span><span><strong>{{ minimum }} / {{ maximum }}</strong> min / max</span><span><strong>{{ base }}</strong> lowest |contour|</span></div>
+{% if paths == 0 %}<p class="error">No contours at these levels. Lower the base intensity.</p>{% endif %}
+<p class="hint">Full referenced axes: X {{ x_range }} ppm · Y {{ y_range }} ppm.</p>
+<div class="downloads"><a class="button" download="Fig1a_spectrum_v1.svg" href="{{ svg }}">Download SVG ↓</a><a download="Fig1a_spectrum_v1_settings.json" href="{{ settings }}">Download settings</a></div>
+<p class="hint">{{ paths }} contour paths. Each continuous contour is a separate editable path. The interactive view and SVG use the same contour coordinates. SVG downloads use the last applied bounds.</p>

@@ -88,7 +88,6 @@ blockquote {
 
 .header {
   width: 100%;
-  max-width: var(--content-width);
   margin: 0 auto;
   padding-inline: var(--content-gutter);
   box-sizing: border-box;

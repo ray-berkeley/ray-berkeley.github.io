@@ -1,0 +1,1512 @@
+data_30304
+
+
+#######################
+#  Entry information  #
+#######################
+save_entry_information
+   _Entry.Sf_category                    entry_information
+   _Entry.Sf_framecode                   entry_information
+   _Entry.ID                             30304
+   _Entry.Title
+;
+Molecular structure of FUS low sequence complexity domain protein fibrils
+;
+   _Entry.Type                           macromolecule
+   _Entry.Version_type                   original
+   _Entry.Submission_date                2017-06-08
+   _Entry.Accession_date                 2017-06-08
+   _Entry.Last_release_date              2017-07-26
+   _Entry.Original_release_date          2017-07-26
+   _Entry.Origination                    author
+   _Entry.Format_name                    .
+   _Entry.NMR_STAR_version               3.2.0.16
+   _Entry.Original_NMR_STAR_version      3.1.2.6
+   _Entry.Experimental_method            NMR
+   _Entry.Experimental_method_subtype    SOLID-STATE
+   _Entry.Source_data_format             .
+   _Entry.Source_data_format_version     .
+   _Entry.Generated_software_name        .
+   _Entry.Generated_software_version     .
+   _Entry.Generated_software_ID          .
+   _Entry.Generated_software_label       .
+   _Entry.Generated_date                 .
+   _Entry.DOI                            .
+   _Entry.UUID                           .
+   _Entry.Related_coordinate_file_name   .
+   _Entry.Details                        .
+   _Entry.BMRB_internal_directory_name   .
+
+   loop_
+      _Entry_author.Ordinal
+      _Entry_author.Given_name
+      _Entry_author.Family_name
+      _Entry_author.First_initial
+      _Entry_author.Middle_initials
+      _Entry_author.Family_title
+      _Entry_author.ORCID
+      _Entry_author.Entry_ID
+
+      1   D.   Murray     D.   T.   .   .   30304
+      2   M.   Kato       M.   .    .   .   30304
+      3   Y.   Lin        Y.   .    .   .   30304
+      4   K.   Thurber    K.   .    .   .   30304
+      5   I.   Hung       I.   .    .   .   30304
+      6   S.   McKnight   S.   .    .   .   30304
+      7   R.   Tycko      R.   .    .   .   30304
+   stop_
+
+   loop_
+      _Struct_keywords.Keywords
+      _Struct_keywords.Text
+      _Struct_keywords.Entry_ID
+
+      'Low complexity sequence domain'     .   30304
+      'PROTEIN FIBRIL'                     .   30304
+      'RNA Granule'                        .   30304
+      'RNA transport'                      .   30304
+      'intrinsically disordered protein'   .   30304
+   stop_
+
+   loop_
+      _Data_set.Type
+      _Data_set.Count
+      _Data_set.Entry_ID
+
+      assigned_chemical_shifts   1   30304
+   stop_
+
+   loop_
+      _Datum.Type
+      _Datum.Count
+      _Datum.Entry_ID
+
+      '13C chemical shifts'   173   30304
+      '15N chemical shifts'   45    30304
+   stop_
+
+   loop_
+      _Release.Release_number
+      _Release.Format_type
+      _Release.Format_version
+      _Release.Date
+      _Release.Submission_date
+      _Release.Type
+      _Release.Author
+      _Release.Detail
+      _Release.Entry_ID
+
+      2   .   .   2018-03-09   2017-06-08   update     BMRB     'update entry citation'   30304
+      1   .   .   2017-09-15   2017-06-08   original   author   'original release'        30304
+   stop_
+
+   loop_
+      _Related_entries.Database_name
+      _Related_entries.Database_accession_code
+      _Related_entries.Relationship
+      _Related_entries.Entry_ID
+
+      PDB   5W3N   'BMRB Entry Tracking System'   30304
+   stop_
+save_
+
+
+###############
+#  Citations  #
+###############
+save_citation_1
+   _Citation.Sf_category                  citations
+   _Citation.Sf_framecode                 citation_1
+   _Citation.Entry_ID                     30304
+   _Citation.ID                           1
+   _Citation.Class                        'entry citation'
+   _Citation.CAS_abstract_code            .
+   _Citation.MEDLINE_UI_code              .
+   _Citation.DOI                          .
+   _Citation.PubMed_ID                    28942918
+   _Citation.Full_citation                .
+   _Citation.Title
+;
+Structure of FUS Protein Fibrils and Its Relevance to Self-Assembly and Phase Separation of Low-Complexity Domains
+;
+   _Citation.Status                       published
+   _Citation.Type                         journal
+   _Citation.Journal_abbrev               Cell
+   _Citation.Journal_name_full            Cell
+   _Citation.Journal_volume               171
+   _Citation.Journal_issue                3
+   _Citation.Journal_ASTM                 .
+   _Citation.Journal_ISSN                 1097-4172
+   _Citation.Journal_CSD                  0353
+   _Citation.Book_title                   .
+   _Citation.Book_chapter_title           .
+   _Citation.Book_volume                  .
+   _Citation.Book_series                  .
+   _Citation.Book_publisher               .
+   _Citation.Book_publisher_city          .
+   _Citation.Book_ISBN                    .
+   _Citation.Conference_title             .
+   _Citation.Conference_site              .
+   _Citation.Conference_state_province    .
+   _Citation.Conference_country           .
+   _Citation.Conference_start_date        .
+   _Citation.Conference_end_date          .
+   _Citation.Conference_abstract_number   .
+   _Citation.Thesis_institution           .
+   _Citation.Thesis_institution_city      .
+   _Citation.Thesis_institution_country   .
+   _Citation.WWW_URL                      .
+   _Citation.Page_first                   615
+   _Citation.Page_last                    627
+   _Citation.Year                         2017
+   _Citation.Details                      .
+
+   loop_
+      _Citation_author.Ordinal
+      _Citation_author.Given_name
+      _Citation_author.Family_name
+      _Citation_author.First_initial
+      _Citation_author.Middle_initials
+      _Citation_author.Family_title
+      _Citation_author.ORCID
+      _Citation_author.Entry_ID
+      _Citation_author.Citation_ID
+
+      1   D.   Murray     D.   T.   .   .   30304   1
+      2   M.   Kato       M.   .    .   .   30304   1
+      3   Y.   Lin        Y.   .    .   .   30304   1
+      4   K.   Thurber    K.   .    .   .   30304   1
+      5   I.   Hung       I.   .    .   .   30304   1
+      6   S.   McKnight   S.   .    .   .   30304   1
+      7   R.   Tycko      R.   .    .   .   30304   1
+   stop_
+save_
+
+
+#############################################
+#  Molecular system (assembly) description  #
+#############################################
+save_assembly
+   _Assembly.Sf_category                       assembly
+   _Assembly.Sf_framecode                      assembly
+   _Assembly.Entry_ID                          30304
+   _Assembly.ID                                1
+   _Assembly.Name                              'RNA-binding protein FUS'
+   _Assembly.BMRB_code                         .
+   _Assembly.Number_of_components              .
+   _Assembly.Organic_ligands                   .
+   _Assembly.Metal_ions                        .
+   _Assembly.Non_standard_bonds                .
+   _Assembly.Ambiguous_conformational_states   .
+   _Assembly.Ambiguous_chem_comp_sites         .
+   _Assembly.Molecules_in_chemical_exchange    .
+   _Assembly.Paramagnetic                      no
+   _Assembly.Thiol_state                       'not present'
+   _Assembly.Molecular_mass                    .
+   _Assembly.Enzyme_commission_number          .
+   _Assembly.Details                           .
+   _Assembly.DB_query_date                     .
+   _Assembly.DB_query_revised_last_date        .
+
+   loop_
+      _Entity_assembly.ID
+      _Entity_assembly.Entity_assembly_name
+      _Entity_assembly.Entity_ID
+      _Entity_assembly.Entity_label
+      _Entity_assembly.Asym_ID
+      _Entity_assembly.PDB_chain_ID
+      _Entity_assembly.Experimental_data_reported
+      _Entity_assembly.Physical_state
+      _Entity_assembly.Conformational_isomer
+      _Entity_assembly.Chemical_exchange_state
+      _Entity_assembly.Magnetic_equivalence_group_code
+      _Entity_assembly.Role
+      _Entity_assembly.Details
+      _Entity_assembly.Entry_ID
+      _Entity_assembly.Assembly_ID
+
+      1   'entity_1, chain 1'   1   $entity_1   A   A   yes   .   .   .   .   .   .   30304   1
+      2   'entity_1, chain 2'   1   $entity_1   B   B   yes   .   .   .   .   .   .   30304   1
+      3   'entity_1, chain 3'   1   $entity_1   C   C   yes   .   .   .   .   .   .   30304   1
+      4   'entity_1, chain 4'   1   $entity_1   D   D   yes   .   .   .   .   .   .   30304   1
+      5   'entity_1, chain 5'   1   $entity_1   E   E   yes   .   .   .   .   .   .   30304   1
+      6   'entity_1, chain 6'   1   $entity_1   F   F   yes   .   .   .   .   .   .   30304   1
+      7   'entity_1, chain 7'   1   $entity_1   G   G   yes   .   .   .   .   .   .   30304   1
+      8   'entity_1, chain 8'   1   $entity_1   H   H   yes   .   .   .   .   .   .   30304   1
+      9   'entity_1, chain 9'   1   $entity_1   I   I   yes   .   .   .   .   .   .   30304   1
+   stop_
+save_
+
+
+    ####################################
+    #  Biological polymers and ligands #
+    ####################################
+save_entity_1
+   _Entity.Sf_category                       entity
+   _Entity.Sf_framecode                      entity_1
+   _Entity.Entry_ID                          30304
+   _Entity.ID                                1
+   _Entity.BMRB_code                         .
+   _Entity.Name                              'RNA-binding protein FUS'
+   _Entity.Type                              polymer
+   _Entity.Polymer_common_type               .
+   _Entity.Polymer_type                      polypeptide(L)
+   _Entity.Polymer_type_details              .
+   _Entity.Polymer_strand_ID                 A-I
+   _Entity.Polymer_seq_one_letter_code_can   .
+   _Entity.Polymer_seq_one_letter_code
+;
+SYSGYSQSTDTSGYGQSSYS
+SYGQSQNTGYGTQSTPQGYG
+STGGYGSSQSSQSSYGQQSS
+Y
+;
+   _Entity.Target_identifier                 .
+   _Entity.Polymer_author_defined_seq        .
+   _Entity.Polymer_author_seq_details        .
+   _Entity.Ambiguous_conformational_states   .
+   _Entity.Ambiguous_chem_comp_sites         .
+   _Entity.Nstd_monomer                      no
+   _Entity.Nstd_chirality                    .
+   _Entity.Nstd_linkage                      no
+   _Entity.Nonpolymer_comp_ID                .
+   _Entity.Nonpolymer_comp_label             .
+   _Entity.Number_of_monomers                61
+   _Entity.Number_of_nonpolymer_components   .
+   _Entity.Paramagnetic                      no
+   _Entity.Thiol_state                       'not present'
+   _Entity.Src_method                        man
+   _Entity.Parent_entity_ID                  1
+   _Entity.Fragment                          'UNP residues 37-97'
+   _Entity.Mutation                          .
+   _Entity.EC_number                         .
+   _Entity.Calc_isoelectric_point            .
+   _Entity.Formula_weight                    6290.144
+   _Entity.Formula_weight_exptl              .
+   _Entity.Formula_weight_exptl_meth         .
+   _Entity.Details                           .
+   _Entity.DB_query_date                     .
+   _Entity.DB_query_revised_last_date        .
+
+   loop_
+      _Entity_common_name.Name
+      _Entity_common_name.Type
+      _Entity_common_name.Entry_ID
+      _Entity_common_name.Entity_ID
+
+      '75 kDa DNA-pairing protein'            na   30304   1
+      'Oncogene FUS'                          na   30304   1
+      'Oncogene TLS'                          na   30304   1
+      POMp75                                  na   30304   1
+      'Translocated in liposarcoma protein'   na   30304   1
+   stop_
+
+   loop_
+      _Entity_comp_index.ID
+      _Entity_comp_index.Auth_seq_ID
+      _Entity_comp_index.Comp_ID
+      _Entity_comp_index.Comp_label
+      _Entity_comp_index.Entry_ID
+      _Entity_comp_index.Entity_ID
+
+      1    37   SER   .   30304   1
+      2    38   TYR   .   30304   1
+      3    39   SER   .   30304   1
+      4    40   GLY   .   30304   1
+      5    41   TYR   .   30304   1
+      6    42   SER   .   30304   1
+      7    43   GLN   .   30304   1
+      8    44   SER   .   30304   1
+      9    45   THR   .   30304   1
+      10   46   ASP   .   30304   1
+      11   47   THR   .   30304   1
+      12   48   SER   .   30304   1
+      13   49   GLY   .   30304   1
+      14   50   TYR   .   30304   1
+      15   51   GLY   .   30304   1
+      16   52   GLN   .   30304   1
+      17   53   SER   .   30304   1
+      18   54   SER   .   30304   1
+      19   55   TYR   .   30304   1
+      20   56   SER   .   30304   1
+      21   57   SER   .   30304   1
+      22   58   TYR   .   30304   1
+      23   59   GLY   .   30304   1
+      24   60   GLN   .   30304   1
+      25   61   SER   .   30304   1
+      26   62   GLN   .   30304   1
+      27   63   ASN   .   30304   1
+      28   64   THR   .   30304   1
+      29   65   GLY   .   30304   1
+      30   66   TYR   .   30304   1
+      31   67   GLY   .   30304   1
+      32   68   THR   .   30304   1
+      33   69   GLN   .   30304   1
+      34   70   SER   .   30304   1
+      35   71   THR   .   30304   1
+      36   72   PRO   .   30304   1
+      37   73   GLN   .   30304   1
+      38   74   GLY   .   30304   1
+      39   75   TYR   .   30304   1
+      40   76   GLY   .   30304   1
+      41   77   SER   .   30304   1
+      42   78   THR   .   30304   1
+      43   79   GLY   .   30304   1
+      44   80   GLY   .   30304   1
+      45   81   TYR   .   30304   1
+      46   82   GLY   .   30304   1
+      47   83   SER   .   30304   1
+      48   84   SER   .   30304   1
+      49   85   GLN   .   30304   1
+      50   86   SER   .   30304   1
+      51   87   SER   .   30304   1
+      52   88   GLN   .   30304   1
+      53   89   SER   .   30304   1
+      54   90   SER   .   30304   1
+      55   91   TYR   .   30304   1
+      56   92   GLY   .   30304   1
+      57   93   GLN   .   30304   1
+      58   94   GLN   .   30304   1
+      59   95   SER   .   30304   1
+      60   96   SER   .   30304   1
+      61   97   TYR   .   30304   1
+   stop_
+
+   loop_
+      _Entity_poly_seq.Hetero
+      _Entity_poly_seq.Mon_ID
+      _Entity_poly_seq.Num
+      _Entity_poly_seq.Comp_index_ID
+      _Entity_poly_seq.Entry_ID
+      _Entity_poly_seq.Entity_ID
+
+      .   SER   1    1    30304   1
+      .   TYR   2    2    30304   1
+      .   SER   3    3    30304   1
+      .   GLY   4    4    30304   1
+      .   TYR   5    5    30304   1
+      .   SER   6    6    30304   1
+      .   GLN   7    7    30304   1
+      .   SER   8    8    30304   1
+      .   THR   9    9    30304   1
+      .   ASP   10   10   30304   1
+      .   THR   11   11   30304   1
+      .   SER   12   12   30304   1
+      .   GLY   13   13   30304   1
+      .   TYR   14   14   30304   1
+      .   GLY   15   15   30304   1
+      .   GLN   16   16   30304   1
+      .   SER   17   17   30304   1
+      .   SER   18   18   30304   1
+      .   TYR   19   19   30304   1
+      .   SER   20   20   30304   1
+      .   SER   21   21   30304   1
+      .   TYR   22   22   30304   1
+      .   GLY   23   23   30304   1
+      .   GLN   24   24   30304   1
+      .   SER   25   25   30304   1
+      .   GLN   26   26   30304   1
+      .   ASN   27   27   30304   1
+      .   THR   28   28   30304   1
+      .   GLY   29   29   30304   1
+      .   TYR   30   30   30304   1
+      .   GLY   31   31   30304   1
+      .   THR   32   32   30304   1
+      .   GLN   33   33   30304   1
+      .   SER   34   34   30304   1
+      .   THR   35   35   30304   1
+      .   PRO   36   36   30304   1
+      .   GLN   37   37   30304   1
+      .   GLY   38   38   30304   1
+      .   TYR   39   39   30304   1
+      .   GLY   40   40   30304   1
+      .   SER   41   41   30304   1
+      .   THR   42   42   30304   1
+      .   GLY   43   43   30304   1
+      .   GLY   44   44   30304   1
+      .   TYR   45   45   30304   1
+      .   GLY   46   46   30304   1
+      .   SER   47   47   30304   1
+      .   SER   48   48   30304   1
+      .   GLN   49   49   30304   1
+      .   SER   50   50   30304   1
+      .   SER   51   51   30304   1
+      .   GLN   52   52   30304   1
+      .   SER   53   53   30304   1
+      .   SER   54   54   30304   1
+      .   TYR   55   55   30304   1
+      .   GLY   56   56   30304   1
+      .   GLN   57   57   30304   1
+      .   GLN   58   58   30304   1
+      .   SER   59   59   30304   1
+      .   SER   60   60   30304   1
+      .   TYR   61   61   30304   1
+   stop_
+save_
+
+
+    ####################
+    #  Natural source  #
+    ####################
+save_natural_source
+   _Entity_natural_src_list.Sf_category    natural_source
+   _Entity_natural_src_list.Sf_framecode   natural_source
+   _Entity_natural_src_list.Entry_ID       30304
+   _Entity_natural_src_list.ID             1
+
+   loop_
+      _Entity_natural_src.ID
+      _Entity_natural_src.Entity_ID
+      _Entity_natural_src.Entity_label
+      _Entity_natural_src.Entity_chimera_segment_ID
+      _Entity_natural_src.NCBI_taxonomy_ID
+      _Entity_natural_src.Type
+      _Entity_natural_src.Common
+      _Entity_natural_src.Organism_name_scientific
+      _Entity_natural_src.Organism_name_common
+      _Entity_natural_src.Organism_acronym
+      _Entity_natural_src.ICTVdb_decimal_code
+      _Entity_natural_src.Superkingdom
+      _Entity_natural_src.Kingdom
+      _Entity_natural_src.Genus
+      _Entity_natural_src.Species
+      _Entity_natural_src.Strain
+      _Entity_natural_src.Variant
+      _Entity_natural_src.Organ
+      _Entity_natural_src.Tissue
+      _Entity_natural_src.Tissue_fraction
+      _Entity_natural_src.Cell_line
+      _Entity_natural_src.Cell_type
+      _Entity_natural_src.ATCC_number
+      _Entity_natural_src.Organelle
+      _Entity_natural_src.Secretion
+      _Entity_natural_src.Plasmid
+      _Entity_natural_src.Gene_mnemonic
+      _Entity_natural_src.Details
+      _Entity_natural_src.Entry_ID
+      _Entity_natural_src.Entity_natural_src_list_ID
+
+      1   1   $entity_1   .   9606   organism   .   'Homo sapiens'   Human   .   .   Eukaryota   Metazoa   Homo   sapiens   .   .   .   .   .   .   .   .   .   .   .   'FUS, TLS'   .   30304   1
+   stop_
+save_
+
+
+    #########################
+    #  Experimental source  #
+    #########################
+save_experimental_source
+   _Entity_experimental_src_list.Sf_category    experimental_source
+   _Entity_experimental_src_list.Sf_framecode   experimental_source
+   _Entity_experimental_src_list.Entry_ID       30304
+   _Entity_experimental_src_list.ID             1
+
+   loop_
+      _Entity_experimental_src.ID
+      _Entity_experimental_src.Entity_ID
+      _Entity_experimental_src.Entity_label
+      _Entity_experimental_src.Entity_chimera_segment_ID
+      _Entity_experimental_src.Production_method
+      _Entity_experimental_src.Host_org_scientific_name
+      _Entity_experimental_src.Host_org_name_common
+      _Entity_experimental_src.Host_org_details
+      _Entity_experimental_src.Host_org_NCBI_taxonomy_ID
+      _Entity_experimental_src.Host_org_genus
+      _Entity_experimental_src.Host_org_species
+      _Entity_experimental_src.Host_org_strain
+      _Entity_experimental_src.Host_org_variant
+      _Entity_experimental_src.Host_org_ATCC_number
+      _Entity_experimental_src.Vector_type
+      _Entity_experimental_src.PDBview_host_org_vector_name
+      _Entity_experimental_src.PDBview_plasmid_name
+      _Entity_experimental_src.Vector_name
+      _Entity_experimental_src.Vector_details
+      _Entity_experimental_src.Vendor_name
+      _Entity_experimental_src.Details
+      _Entity_experimental_src.Entry_ID
+      _Entity_experimental_src.Entity_experimental_src_list_ID
+
+      1   1   $entity_1   .   'recombinant technology'   "Escherichia coli 'BL21-Gold(DE3)pLysS AG'"   .   .   866768   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+   stop_
+save_
+
+
+#####################################
+#  Sample contents and methodology  #
+#####################################
+	 
+    ########################
+    #  Sample description  #
+    ########################
+save_sample_1
+   _Sample.Sf_category                      sample
+   _Sample.Sf_framecode                     sample_1
+   _Sample.Entry_ID                         30304
+   _Sample.ID                               1
+   _Sample.Type                             solid
+   _Sample.Sub_type                         .
+   _Sample.Details                          '0.28 mg/uL [U-99% 13C; U-99% 15N] FUS-LC Fibril, 100% H2O'
+   _Sample.Aggregate_sample_number          .
+   _Sample.Solvent_system                   '100% H2O'
+   _Sample.Preparation_date                 .
+   _Sample.Preparation_expiration_date      .
+   _Sample.Polycrystallization_protocol     .
+   _Sample.Single_crystal_protocol          .
+   _Sample.Crystal_grow_apparatus           .
+   _Sample.Crystal_grow_atmosphere          .
+   _Sample.Crystal_grow_details             .
+   _Sample.Crystal_grow_method              .
+   _Sample.Crystal_grow_method_cit_ID       .
+   _Sample.Crystal_grow_pH                  .
+   _Sample.Crystal_grow_pH_range            .
+   _Sample.Crystal_grow_pressure            .
+   _Sample.Crystal_grow_pressure_esd        .
+   _Sample.Crystal_grow_seeding             .
+   _Sample.Crystal_grow_seeding_cit_ID      .
+   _Sample.Crystal_grow_temp                .
+   _Sample.Crystal_grow_temp_details        .
+   _Sample.Crystal_grow_temp_esd            .
+   _Sample.Crystal_grow_time                .
+   _Sample.Oriented_sample_prep_protocol    .
+   _Sample.Lyophilization_cryo_protectant   .
+   _Sample.Storage_protocol                 .
+
+   loop_
+      _Sample_component.ID
+      _Sample_component.Mol_common_name
+      _Sample_component.Isotopic_labeling
+      _Sample_component.Assembly_ID
+      _Sample_component.Assembly_label
+      _Sample_component.Entity_ID
+      _Sample_component.Entity_label
+      _Sample_component.Product_ID
+      _Sample_component.Type
+      _Sample_component.Concentration_val
+      _Sample_component.Concentration_val_min
+      _Sample_component.Concentration_val_max
+      _Sample_component.Concentration_val_units
+      _Sample_component.Concentration_val_err
+      _Sample_component.Vendor
+      _Sample_component.Vendor_product_name
+      _Sample_component.Vendor_product_code
+      _Sample_component.Entry_ID
+      _Sample_component.Sample_ID
+
+      1   'FUS-LC Fibril'      '[U-99% 13C; U-99% 15N]'   .   .   1   $entity_1   .   .   0.28   .   .   mg/uL   0.03   .   .   .   30304   1
+      2   'soduim phosphate'   'natural abundance'        .   .   .   .           .   .   20     .   .   mM      .      .   .   .   30304   1
+   stop_
+save_
+
+save_sample_2
+   _Sample.Sf_category                      sample
+   _Sample.Sf_framecode                     sample_2
+   _Sample.Entry_ID                         30304
+   _Sample.ID                               2
+   _Sample.Type                             solid
+   _Sample.Sub_type                         .
+   _Sample.Details                          '0.28 mg/uL 99% 15N, 99% 2-13C Glycerol FUS-LC Fibril, 100% H2O'
+   _Sample.Aggregate_sample_number          .
+   _Sample.Solvent_system                   '100% H2O'
+   _Sample.Preparation_date                 .
+   _Sample.Preparation_expiration_date      .
+   _Sample.Polycrystallization_protocol     .
+   _Sample.Single_crystal_protocol          .
+   _Sample.Crystal_grow_apparatus           .
+   _Sample.Crystal_grow_atmosphere          .
+   _Sample.Crystal_grow_details             .
+   _Sample.Crystal_grow_method              .
+   _Sample.Crystal_grow_method_cit_ID       .
+   _Sample.Crystal_grow_pH                  .
+   _Sample.Crystal_grow_pH_range            .
+   _Sample.Crystal_grow_pressure            .
+   _Sample.Crystal_grow_pressure_esd        .
+   _Sample.Crystal_grow_seeding             .
+   _Sample.Crystal_grow_seeding_cit_ID      .
+   _Sample.Crystal_grow_temp                .
+   _Sample.Crystal_grow_temp_details        .
+   _Sample.Crystal_grow_temp_esd            .
+   _Sample.Crystal_grow_time                .
+   _Sample.Oriented_sample_prep_protocol    .
+   _Sample.Lyophilization_cryo_protectant   .
+   _Sample.Storage_protocol                 .
+
+   loop_
+      _Sample_component.ID
+      _Sample_component.Mol_common_name
+      _Sample_component.Isotopic_labeling
+      _Sample_component.Assembly_ID
+      _Sample_component.Assembly_label
+      _Sample_component.Entity_ID
+      _Sample_component.Entity_label
+      _Sample_component.Product_ID
+      _Sample_component.Type
+      _Sample_component.Concentration_val
+      _Sample_component.Concentration_val_min
+      _Sample_component.Concentration_val_max
+      _Sample_component.Concentration_val_units
+      _Sample_component.Concentration_val_err
+      _Sample_component.Vendor
+      _Sample_component.Vendor_product_name
+      _Sample_component.Vendor_product_code
+      _Sample_component.Entry_ID
+      _Sample_component.Sample_ID
+
+      1   'FUS-LC Fibril'      '99% 15N, 99% 2-13C Glycerol'   .   .   1   $entity_1   .   .   0.28   .   .   mg/uL   0.03   .   .   .   30304   2
+      2   'soduim phosphate'   'natural abundance'             .   .   .   .           .   .   20     .   .   mM      .      .   .   .   30304   2
+   stop_
+save_
+
+save_sample_3
+   _Sample.Sf_category                      sample
+   _Sample.Sf_framecode                     sample_3
+   _Sample.Entry_ID                         30304
+   _Sample.ID                               3
+   _Sample.Type                             solid
+   _Sample.Sub_type                         .
+   _Sample.Details                          '0.28 mg/uL 99% 15N, 99% 1,3-13C Glycerol FUS-LC Fibril, 100% H2O'
+   _Sample.Aggregate_sample_number          .
+   _Sample.Solvent_system                   '100% H2O'
+   _Sample.Preparation_date                 .
+   _Sample.Preparation_expiration_date      .
+   _Sample.Polycrystallization_protocol     .
+   _Sample.Single_crystal_protocol          .
+   _Sample.Crystal_grow_apparatus           .
+   _Sample.Crystal_grow_atmosphere          .
+   _Sample.Crystal_grow_details             .
+   _Sample.Crystal_grow_method              .
+   _Sample.Crystal_grow_method_cit_ID       .
+   _Sample.Crystal_grow_pH                  .
+   _Sample.Crystal_grow_pH_range            .
+   _Sample.Crystal_grow_pressure            .
+   _Sample.Crystal_grow_pressure_esd        .
+   _Sample.Crystal_grow_seeding             .
+   _Sample.Crystal_grow_seeding_cit_ID      .
+   _Sample.Crystal_grow_temp                .
+   _Sample.Crystal_grow_temp_details        .
+   _Sample.Crystal_grow_temp_esd            .
+   _Sample.Crystal_grow_time                .
+   _Sample.Oriented_sample_prep_protocol    .
+   _Sample.Lyophilization_cryo_protectant   .
+   _Sample.Storage_protocol                 .
+
+   loop_
+      _Sample_component.ID
+      _Sample_component.Mol_common_name
+      _Sample_component.Isotopic_labeling
+      _Sample_component.Assembly_ID
+      _Sample_component.Assembly_label
+      _Sample_component.Entity_ID
+      _Sample_component.Entity_label
+      _Sample_component.Product_ID
+      _Sample_component.Type
+      _Sample_component.Concentration_val
+      _Sample_component.Concentration_val_min
+      _Sample_component.Concentration_val_max
+      _Sample_component.Concentration_val_units
+      _Sample_component.Concentration_val_err
+      _Sample_component.Vendor
+      _Sample_component.Vendor_product_name
+      _Sample_component.Vendor_product_code
+      _Sample_component.Entry_ID
+      _Sample_component.Sample_ID
+
+      1   'FUS-LC Fibril'      '99% 15N, 99% 1,3-13C Glycerol'   .   .   1   $entity_1   .   .   0.28   .   .   mg/uL   0.03   .   .   .   30304   3
+      2   'soduim phosphate'   'natural abundance'               .   .   .   .           .   .   20     .   .   mM      .      .   .   .   30304   3
+   stop_
+save_
+
+save_sample_4
+   _Sample.Sf_category                      sample
+   _Sample.Sf_framecode                     sample_4
+   _Sample.Entry_ID                         30304
+   _Sample.ID                               4
+   _Sample.Type                             solid
+   _Sample.Sub_type                         .
+   _Sample.Details                          '0.23 mg/uL 99% 1-13C Tyrosine FUS-LC Fibril, 100% H2O'
+   _Sample.Aggregate_sample_number          .
+   _Sample.Solvent_system                   '100% H2O'
+   _Sample.Preparation_date                 .
+   _Sample.Preparation_expiration_date      .
+   _Sample.Polycrystallization_protocol     .
+   _Sample.Single_crystal_protocol          .
+   _Sample.Crystal_grow_apparatus           .
+   _Sample.Crystal_grow_atmosphere          .
+   _Sample.Crystal_grow_details             .
+   _Sample.Crystal_grow_method              .
+   _Sample.Crystal_grow_method_cit_ID       .
+   _Sample.Crystal_grow_pH                  .
+   _Sample.Crystal_grow_pH_range            .
+   _Sample.Crystal_grow_pressure            .
+   _Sample.Crystal_grow_pressure_esd        .
+   _Sample.Crystal_grow_seeding             .
+   _Sample.Crystal_grow_seeding_cit_ID      .
+   _Sample.Crystal_grow_temp                .
+   _Sample.Crystal_grow_temp_details        .
+   _Sample.Crystal_grow_temp_esd            .
+   _Sample.Crystal_grow_time                .
+   _Sample.Oriented_sample_prep_protocol    .
+   _Sample.Lyophilization_cryo_protectant   .
+   _Sample.Storage_protocol                 .
+
+   loop_
+      _Sample_component.ID
+      _Sample_component.Mol_common_name
+      _Sample_component.Isotopic_labeling
+      _Sample_component.Assembly_ID
+      _Sample_component.Assembly_label
+      _Sample_component.Entity_ID
+      _Sample_component.Entity_label
+      _Sample_component.Product_ID
+      _Sample_component.Type
+      _Sample_component.Concentration_val
+      _Sample_component.Concentration_val_min
+      _Sample_component.Concentration_val_max
+      _Sample_component.Concentration_val_units
+      _Sample_component.Concentration_val_err
+      _Sample_component.Vendor
+      _Sample_component.Vendor_product_name
+      _Sample_component.Vendor_product_code
+      _Sample_component.Entry_ID
+      _Sample_component.Sample_ID
+
+      1   'FUS-LC Fibril'      '99% 1-13C Tyrosine'   .   .   1   $entity_1   .   .   0.23   .   .   mg/uL   0.03   .   .   .   30304   4
+      2   'soduim phosphate'   'natural abundance'    .   .   .   .           .   .   20     .   .   mM      .      .   .   .   30304   4
+   stop_
+save_
+
+save_sample_5
+   _Sample.Sf_category                      sample
+   _Sample.Sf_framecode                     sample_5
+   _Sample.Entry_ID                         30304
+   _Sample.ID                               5
+   _Sample.Type                             solid
+   _Sample.Sub_type                         .
+   _Sample.Details                          '0.23 mg/uL 99% 1-13C Threonine FUS-LC Fibril, 100% H2O'
+   _Sample.Aggregate_sample_number          .
+   _Sample.Solvent_system                   '100% H2O'
+   _Sample.Preparation_date                 .
+   _Sample.Preparation_expiration_date      .
+   _Sample.Polycrystallization_protocol     .
+   _Sample.Single_crystal_protocol          .
+   _Sample.Crystal_grow_apparatus           .
+   _Sample.Crystal_grow_atmosphere          .
+   _Sample.Crystal_grow_details             .
+   _Sample.Crystal_grow_method              .
+   _Sample.Crystal_grow_method_cit_ID       .
+   _Sample.Crystal_grow_pH                  .
+   _Sample.Crystal_grow_pH_range            .
+   _Sample.Crystal_grow_pressure            .
+   _Sample.Crystal_grow_pressure_esd        .
+   _Sample.Crystal_grow_seeding             .
+   _Sample.Crystal_grow_seeding_cit_ID      .
+   _Sample.Crystal_grow_temp                .
+   _Sample.Crystal_grow_temp_details        .
+   _Sample.Crystal_grow_temp_esd            .
+   _Sample.Crystal_grow_time                .
+   _Sample.Oriented_sample_prep_protocol    .
+   _Sample.Lyophilization_cryo_protectant   .
+   _Sample.Storage_protocol                 .
+
+   loop_
+      _Sample_component.ID
+      _Sample_component.Mol_common_name
+      _Sample_component.Isotopic_labeling
+      _Sample_component.Assembly_ID
+      _Sample_component.Assembly_label
+      _Sample_component.Entity_ID
+      _Sample_component.Entity_label
+      _Sample_component.Product_ID
+      _Sample_component.Type
+      _Sample_component.Concentration_val
+      _Sample_component.Concentration_val_min
+      _Sample_component.Concentration_val_max
+      _Sample_component.Concentration_val_units
+      _Sample_component.Concentration_val_err
+      _Sample_component.Vendor
+      _Sample_component.Vendor_product_name
+      _Sample_component.Vendor_product_code
+      _Sample_component.Entry_ID
+      _Sample_component.Sample_ID
+
+      1   'FUS-LC Fibril'      '99% 1-13C Threonine'   .   .   1   $entity_1   .   .   0.23   .   .   mg/uL   0.03   .   .   .   30304   5
+      2   'soduim phosphate'   'natural abundance'     .   .   .   .           .   .   20     .   .   mM      .      .   .   .   30304   5
+   stop_
+save_
+
+
+#######################
+#  Sample conditions  #
+#######################
+save_sample_conditions_1
+   _Sample_condition_list.Sf_category    sample_conditions
+   _Sample_condition_list.Sf_framecode   sample_conditions_1
+   _Sample_condition_list.Entry_ID       30304
+   _Sample_condition_list.ID             1
+   _Sample_condition_list.Details        .
+
+   loop_
+      _Sample_condition_variable.Type
+      _Sample_condition_variable.Val
+      _Sample_condition_variable.Val_err
+      _Sample_condition_variable.Val_units
+      _Sample_condition_variable.Entry_ID
+      _Sample_condition_variable.Sample_condition_list_ID
+
+      'ionic strength'   20    .   mM    30304   1
+      pH                 7.4   .   pH    30304   1
+      pressure           1     .   atm   30304   1
+      temperature        298   .   K     30304   1
+   stop_
+save_
+
+
+############################
+#  Computer software used  #
+############################
+save_software_1
+   _Software.Sf_category    software
+   _Software.Sf_framecode   software_1
+   _Software.Entry_ID       30304
+   _Software.ID             1
+   _Software.Type           .
+   _Software.Name           MCASSIGN
+   _Software.Version        2B
+   _Software.DOI            .
+   _Software.Details        .
+
+   loop_
+      _Vendor.Name
+      _Vendor.Address
+      _Vendor.Electronic_address
+      _Vendor.Entry_ID
+      _Vendor.Software_ID
+
+      'Kan-Nian Hu, Wei Qiang, and Robert Tycko'   .   .   30304   1
+   stop_
+
+   loop_
+      _Task.Task
+      _Task.Entry_ID
+      _Task.Software_ID
+
+      'chemical shift assignment'   30304   1
+   stop_
+save_
+
+save_software_2
+   _Software.Sf_category    software
+   _Software.Sf_framecode   software_2
+   _Software.Entry_ID       30304
+   _Software.ID             2
+   _Software.Type           .
+   _Software.Name           NMRPipe
+   _Software.Version        8.9
+   _Software.DOI            .
+   _Software.Details        .
+
+   loop_
+      _Vendor.Name
+      _Vendor.Address
+      _Vendor.Electronic_address
+      _Vendor.Entry_ID
+      _Vendor.Software_ID
+
+      'Delaglio, Grzesiek, Vuister, Zhu, Pfeifer and Bax'   .   .   30304   2
+   stop_
+
+   loop_
+      _Task.Task
+      _Task.Entry_ID
+      _Task.Software_ID
+
+      processing   30304   2
+   stop_
+save_
+
+save_software_3
+   _Software.Sf_category    software
+   _Software.Sf_framecode   software_3
+   _Software.Entry_ID       30304
+   _Software.ID             3
+   _Software.Type           .
+   _Software.Name           SPARKY
+   _Software.Version        .
+   _Software.DOI            .
+   _Software.Details        .
+
+   loop_
+      _Vendor.Name
+      _Vendor.Address
+      _Vendor.Electronic_address
+      _Vendor.Entry_ID
+      _Vendor.Software_ID
+
+      Goddard   .   .   30304   3
+   stop_
+
+   loop_
+      _Task.Task
+      _Task.Entry_ID
+      _Task.Software_ID
+
+      'data analysis'   30304   3
+   stop_
+save_
+
+save_software_4
+   _Software.Sf_category    software
+   _Software.Sf_framecode   software_4
+   _Software.Entry_ID       30304
+   _Software.ID             4
+   _Software.Type           .
+   _Software.Name           'X-PLOR NIH'
+   _Software.Version        2.45
+   _Software.DOI            .
+   _Software.Details        .
+
+   loop_
+      _Vendor.Name
+      _Vendor.Address
+      _Vendor.Electronic_address
+      _Vendor.Entry_ID
+      _Vendor.Software_ID
+
+      'Schwieters, Kuszewski, Tjandra and Clore'   .   .   30304   4
+   stop_
+
+   loop_
+      _Task.Task
+      _Task.Entry_ID
+      _Task.Software_ID
+
+      refinement   30304   4
+   stop_
+save_
+
+
+#########################
+#  Experimental detail  #
+#########################
+
+    ##################################
+    #  NMR Spectrometer definitions  #
+    ##################################
+save_NMR_spectrometer_1
+   _NMR_spectrometer.Sf_category      NMR_spectrometer
+   _NMR_spectrometer.Sf_framecode     NMR_spectrometer_1
+   _NMR_spectrometer.Entry_ID         30304
+   _NMR_spectrometer.ID               1
+   _NMR_spectrometer.Details          .
+   _NMR_spectrometer.Manufacturer     Bruker
+   _NMR_spectrometer.Model            AvanceIII
+   _NMR_spectrometer.Serial_number    .
+   _NMR_spectrometer.Field_strength   895.1
+save_
+
+save_NMR_spectrometer_2
+   _NMR_spectrometer.Sf_category      NMR_spectrometer
+   _NMR_spectrometer.Sf_framecode     NMR_spectrometer_2
+   _NMR_spectrometer.Entry_ID         30304
+   _NMR_spectrometer.ID               2
+   _NMR_spectrometer.Details          .
+   _NMR_spectrometer.Manufacturer     Varian
+   _NMR_spectrometer.Model            Infinity
+   _NMR_spectrometer.Serial_number    .
+   _NMR_spectrometer.Field_strength   746.1
+save_
+
+save_NMR_spectrometer_3
+   _NMR_spectrometer.Sf_category      NMR_spectrometer
+   _NMR_spectrometer.Sf_framecode     NMR_spectrometer_3
+   _NMR_spectrometer.Entry_ID         30304
+   _NMR_spectrometer.ID               3
+   _NMR_spectrometer.Details          .
+   _NMR_spectrometer.Manufacturer     Varian
+   _NMR_spectrometer.Model            InfinityPlus
+   _NMR_spectrometer.Serial_number    .
+   _NMR_spectrometer.Field_strength   599.2
+save_
+
+save_NMR_spectrometer_4
+   _NMR_spectrometer.Sf_category      NMR_spectrometer
+   _NMR_spectrometer.Sf_framecode     NMR_spectrometer_4
+   _NMR_spectrometer.Entry_ID         30304
+   _NMR_spectrometer.ID               4
+   _NMR_spectrometer.Details          .
+   _NMR_spectrometer.Manufacturer     Bruker
+   _NMR_spectrometer.Model            AvanceIII
+   _NMR_spectrometer.Serial_number    .
+   _NMR_spectrometer.Field_strength   400.6
+save_
+
+save_NMR_spectrometer_list
+   _NMR_spectrometer_list.Sf_category    NMR_spectrometer_list
+   _NMR_spectrometer_list.Sf_framecode   NMR_spectrometer_list
+   _NMR_spectrometer_list.Entry_ID       30304
+   _NMR_spectrometer_list.ID             1
+
+   loop_
+      _NMR_spectrometer_view.ID
+      _NMR_spectrometer_view.Name
+      _NMR_spectrometer_view.Manufacturer
+      _NMR_spectrometer_view.Model
+      _NMR_spectrometer_view.Serial_number
+      _NMR_spectrometer_view.Field_strength
+      _NMR_spectrometer_view.Details
+      _NMR_spectrometer_view.Citation_ID
+      _NMR_spectrometer_view.Citation_label
+      _NMR_spectrometer_view.Entry_ID
+      _NMR_spectrometer_view.NMR_spectrometer_list_ID
+
+      1   NMR_spectrometer_1   Bruker   AvanceIII      .   895.1   .   .   .   30304   1
+      2   NMR_spectrometer_2   Varian   Infinity       .   746.1   .   .   .   30304   1
+      3   NMR_spectrometer_3   Varian   InfinityPlus   .   599.2   .   .   .   30304   1
+      4   NMR_spectrometer_4   Bruker   AvanceIII      .   400.6   .   .   .   30304   1
+   stop_
+save_
+
+
+    #############################
+    #  NMR applied experiments  #
+    #############################
+save_experiment_list
+   _Experiment_list.Sf_category    experiment_list
+   _Experiment_list.Sf_framecode   experiment_list
+   _Experiment_list.Entry_ID       30304
+   _Experiment_list.ID             1
+   _Experiment_list.Details        .
+
+   loop_
+      _Experiment.ID
+      _Experiment.Name
+      _Experiment.Raw_data_flag
+      _Experiment.NMR_spec_expt_ID
+      _Experiment.NMR_spec_expt_label
+      _Experiment.MS_expt_ID
+      _Experiment.MS_expt_label
+      _Experiment.SAXS_expt_ID
+      _Experiment.SAXS_expt_label
+      _Experiment.FRET_expt_ID
+      _Experiment.FRET_expt_label
+      _Experiment.EMR_expt_ID
+      _Experiment.EMR_expt_label
+      _Experiment.Sample_ID
+      _Experiment.Sample_label
+      _Experiment.Sample_state
+      _Experiment.Sample_volume
+      _Experiment.Sample_volume_units
+      _Experiment.Sample_condition_list_ID
+      _Experiment.Sample_condition_list_label
+      _Experiment.Sample_spinning_rate
+      _Experiment.Sample_angle
+      _Experiment.NMR_tube_type
+      _Experiment.NMR_spectrometer_ID
+      _Experiment.NMR_spectrometer_label
+      _Experiment.NMR_spectrometer_probe_ID
+      _Experiment.NMR_spectrometer_probe_label
+      _Experiment.NMR_spectral_processing_ID
+      _Experiment.NMR_spectral_processing_label
+      _Experiment.Mass_spectrometer_ID
+      _Experiment.Mass_spectrometer_label
+      _Experiment.Xray_instrument_ID
+      _Experiment.Xray_instrument_label
+      _Experiment.Fluorescence_instrument_ID
+      _Experiment.Fluorescence_instrument_label
+      _Experiment.EMR_instrument_ID
+      _Experiment.EMR_instrument_label
+      _Experiment.Chromatographic_system_ID
+      _Experiment.Chromatographic_system_label
+      _Experiment.Chromatographic_column_ID
+      _Experiment.Chromatographic_column_label
+      _Experiment.Entry_ID
+      _Experiment.Experiment_list_ID
+
+      1    '3D NCACX'              no   .   .   .   .   .   .   .   .   .   .   1   $sample_1   isotropic   .   .   1   $sample_conditions_1   .   .   .   1   $NMR_spectrometer_1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      2    '3D NCOCX'              no   .   .   .   .   .   .   .   .   .   .   1   $sample_1   isotropic   .   .   1   $sample_conditions_1   .   .   .   1   $NMR_spectrometer_1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      3    '3D CONCA'              no   .   .   .   .   .   .   .   .   .   .   1   $sample_1   isotropic   .   .   1   $sample_conditions_1   .   .   .   3   $NMR_spectrometer_3   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      4    '3D CANCX'              no   .   .   .   .   .   .   .   .   .   .   1   $sample_1   isotropic   .   .   1   $sample_conditions_1   .   .   .   3   $NMR_spectrometer_3   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      5    '13C-13C PITHIRDS-CT'   no   .   .   .   .   .   .   .   .   .   .   4   $sample_4   isotropic   .   .   1   $sample_conditions_1   .   .   .   4   $NMR_spectrometer_4   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      6    '13C-13C PITHIRDS-CT'   no   .   .   .   .   .   .   .   .   .   .   5   $sample_5   isotropic   .   .   1   $sample_conditions_1   .   .   .   4   $NMR_spectrometer_4   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      7    '15N-15N BARE'          no   .   .   .   .   .   .   .   .   .   .   1   $sample_1   isotropic   .   .   1   $sample_conditions_1   .   .   .   2   $NMR_spectrometer_2   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      8    '15N-15N BARE'          no   .   .   .   .   .   .   .   .   .   .   2   $sample_2   isotropic   .   .   1   $sample_conditions_1   .   .   .   2   $NMR_spectrometer_2   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      9    '13C-13C DARR'          no   .   .   .   .   .   .   .   .   .   .   2   $sample_2   isotropic   .   .   1   $sample_conditions_1   .   .   .   2   $NMR_spectrometer_2   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      10   '13C-13C DARR'          no   .   .   .   .   .   .   .   .   .   .   3   $sample_3   isotropic   .   .   1   $sample_conditions_1   .   .   .   2   $NMR_spectrometer_2   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      11   '3D NCACX'              no   .   .   .   .   .   .   .   .   .   .   2   $sample_2   isotropic   .   .   1   $sample_conditions_1   .   .   .   1   $NMR_spectrometer_1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+      12   '3D NCOCX'              no   .   .   .   .   .   .   .   .   .   .   3   $sample_3   isotropic   .   .   1   $sample_conditions_1   .   .   .   1   $NMR_spectrometer_1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   30304   1
+   stop_
+save_
+
+
+####################
+#  NMR parameters  #
+####################
+
+    ##############################
+    #  Assigned chemical shifts  #
+    ##############################
+
+	################################
+	#  Chemical shift referencing  #
+	################################
+save_chem_shift_reference_1
+   _Chem_shift_reference.Sf_category    chem_shift_reference
+   _Chem_shift_reference.Sf_framecode   chem_shift_reference_1
+   _Chem_shift_reference.Entry_ID       30304
+   _Chem_shift_reference.ID             1
+   _Chem_shift_reference.Details        'Chemical shift values referenced to DSS scale by measuring the 1-13C chemical shift of L-Alanine powder.'
+
+   loop_
+      _Chem_shift_ref.Atom_type
+      _Chem_shift_ref.Atom_isotope_number
+      _Chem_shift_ref.Mol_common_name
+      _Chem_shift_ref.Atom_group
+      _Chem_shift_ref.Concentration_val
+      _Chem_shift_ref.Concentration_units
+      _Chem_shift_ref.Solvent
+      _Chem_shift_ref.Rank
+      _Chem_shift_ref.Chem_shift_units
+      _Chem_shift_ref.Chem_shift_val
+      _Chem_shift_ref.Ref_method
+      _Chem_shift_ref.Ref_type
+      _Chem_shift_ref.Indirect_shift_ratio
+      _Chem_shift_ref.External_ref_loc
+      _Chem_shift_ref.External_ref_sample_geometry
+      _Chem_shift_ref.External_ref_axis
+      _Chem_shift_ref.Ref_correction_type
+      _Chem_shift_ref.Correction_val
+      _Chem_shift_ref.Entry_ID
+      _Chem_shift_ref.Chem_shift_reference_ID
+
+      C   13   DSS   'methyl protons'   .   .   .   .   ppm   0.000   external   direct     0.25144953   'separate tube (no insert) similar to the experimental sample tube'   cylindrical   parallel   .   .   30304   1
+      N   15   DSS   'methyl protons'   .   .   .   .   ppm   0.000   external   indirect   0.10132912   .                                                                     .             .          .   .   30304   1
+   stop_
+save_
+
+
+     ###################################
+     #  Assigned chemical shift lists  #
+     ###################################
+
+###################################################################
+#       Chemical Shift Ambiguity Index Value Definitions          #
+#                                                                 #
+# The values other than 1 are used for those atoms with different #
+# chemical shifts that cannot be assigned to stereospecific atoms #
+# or to specific residues or chains.                              #
+#                                                                 #
+#   Index Value            Definition                             #
+#                                                                 #
+#      1             Unique (including isolated methyl protons,   #
+#                         geminal atoms, and geminal methyl       #
+#                         groups with identical chemical shifts)  #
+#                         (e.g. ILE HD11, HD12, HD13 protons)     #
+#      2             Ambiguity of geminal atoms or geminal methyl #
+#                         proton groups (e.g. ASP HB2 and HB3     #
+#                         protons, LEU CD1 and CD2 carbons, or    #
+#                         LEU HD11, HD12, HD13 and HD21, HD22,    #
+#                         HD23 methyl protons)                    #
+#      3             Aromatic atoms on opposite sides of          #
+#                         symmetrical rings (e.g. TYR HE1 and HE2 #
+#                         protons)                                #
+#      4             Intraresidue ambiguities (e.g. LYS HG and    #
+#                         HD protons or TRP HZ2 and HZ3 protons)  #
+#      5             Interresidue ambiguities (LYS 12 vs. LYS 27) #
+#      6             Intermolecular ambiguities (e.g. ASP 31 CA   #
+#                         in monomer 1 and ASP 31 CA in monomer 2 #
+#                         of an asymmetrical homodimer, duplex    #
+#                         DNA assignments, or other assignments   #
+#                         that may apply to atoms in one or more  #
+#                         molecule in the molecular assembly)     #
+#      9             Ambiguous, specific ambiguity not defined    #
+#                                                                 #
+###################################################################
+save_assigned_chemical_shifts_1
+   _Assigned_chem_shift_list.Sf_category                   assigned_chemical_shifts
+   _Assigned_chem_shift_list.Sf_framecode                  assigned_chemical_shifts_1
+   _Assigned_chem_shift_list.Entry_ID                      30304
+   _Assigned_chem_shift_list.ID                            1
+   _Assigned_chem_shift_list.Sample_condition_list_ID      1
+   _Assigned_chem_shift_list.Sample_condition_list_label   $sample_conditions_1
+   _Assigned_chem_shift_list.Chem_shift_reference_ID       1
+   _Assigned_chem_shift_list.Chem_shift_reference_label    $chem_shift_reference_1
+   _Assigned_chem_shift_list.Chem_shift_1H_err             .
+   _Assigned_chem_shift_list.Chem_shift_13C_err            .
+   _Assigned_chem_shift_list.Chem_shift_15N_err            .
+   _Assigned_chem_shift_list.Chem_shift_31P_err            .
+   _Assigned_chem_shift_list.Chem_shift_2H_err             .
+   _Assigned_chem_shift_list.Chem_shift_19F_err            .
+   _Assigned_chem_shift_list.Error_derivation_method       .
+   _Assigned_chem_shift_list.Details                       .
+   _Assigned_chem_shift_list.Text_data_format              .
+   _Assigned_chem_shift_list.Text_data                     .
+
+   loop_
+      _Chem_shift_experiment.Experiment_ID
+      _Chem_shift_experiment.Experiment_name
+      _Chem_shift_experiment.Sample_ID
+      _Chem_shift_experiment.Sample_label
+      _Chem_shift_experiment.Sample_state
+      _Chem_shift_experiment.Entry_ID
+      _Chem_shift_experiment.Assigned_chem_shift_list_ID
+
+      1    '3D NCACX'              .   .   .   30304   1
+      2    '3D NCOCX'              .   .   .   30304   1
+      3    '3D CONCA'              .   .   .   30304   1
+      4    '3D CANCX'              .   .   .   30304   1
+      5    '13C-13C PITHIRDS-CT'   .   .   .   30304   1
+      6    '13C-13C PITHIRDS-CT'   .   .   .   30304   1
+      7    '15N-15N BARE'          .   .   .   30304   1
+      8    '15N-15N BARE'          .   .   .   30304   1
+      9    '13C-13C DARR'          .   .   .   30304   1
+      10   '13C-13C DARR'          .   .   .   30304   1
+      11   '3D NCACX'              .   .   .   30304   1
+      12   '3D NCOCX'              .   .   .   30304   1
+   stop_
+
+   loop_
+      _Atom_chem_shift.ID
+      _Atom_chem_shift.Assembly_atom_ID
+      _Atom_chem_shift.Entity_assembly_ID
+      _Atom_chem_shift.Entity_ID
+      _Atom_chem_shift.Comp_index_ID
+      _Atom_chem_shift.Seq_ID
+      _Atom_chem_shift.Comp_ID
+      _Atom_chem_shift.Atom_ID
+      _Atom_chem_shift.Atom_type
+      _Atom_chem_shift.Atom_isotope_number
+      _Atom_chem_shift.Val
+      _Atom_chem_shift.Val_err
+      _Atom_chem_shift.Assign_fig_of_merit
+      _Atom_chem_shift.Ambiguity_code
+      _Atom_chem_shift.Ambiguity_set_ID
+      _Atom_chem_shift.Occupancy
+      _Atom_chem_shift.Resonance_ID
+      _Atom_chem_shift.Auth_entity_assembly_ID
+      _Atom_chem_shift.Auth_asym_ID
+      _Atom_chem_shift.Auth_seq_ID
+      _Atom_chem_shift.Auth_comp_ID
+      _Atom_chem_shift.Auth_atom_ID
+      _Atom_chem_shift.Details
+      _Atom_chem_shift.Entry_ID
+      _Atom_chem_shift.Assigned_chem_shift_list_ID
+
+      1     .   1   1   3    3    SER   C     C   13   174.6   0.1   .   1   .   .   .   .   A   39   SER   C     .   30304   1
+      2     .   1   1   3    3    SER   CA    C   13   57.6    0.1   .   1   .   .   .   .   A   39   SER   CA    .   30304   1
+      3     .   1   1   3    3    SER   CB    C   13   65.6    0.1   .   1   .   .   .   .   A   39   SER   CB    .   30304   1
+      4     .   1   1   3    3    SER   N     N   15   118.5   0.2   .   1   .   .   .   .   A   39   SER   N     .   30304   1
+      5     .   1   1   4    4    GLY   CA    C   13   47.5    0.1   .   1   .   .   .   .   A   40   GLY   CA    .   30304   1
+      6     .   1   1   4    4    GLY   N     N   15   110.6   0.2   .   1   .   .   .   .   A   40   GLY   N     .   30304   1
+      7     .   1   1   8    8    SER   C     C   13   173.2   0.1   .   1   .   .   .   .   A   44   SER   C     .   30304   1
+      8     .   1   1   8    8    SER   CA    C   13   56.8    0.1   .   1   .   .   .   .   A   44   SER   CA    .   30304   1
+      9     .   1   1   8    8    SER   CB    C   13   65.5    0.1   .   1   .   .   .   .   A   44   SER   CB    .   30304   1
+      10    .   1   1   8    8    SER   N     N   15   122.1   0.2   .   1   .   .   .   .   A   44   SER   N     .   30304   1
+      11    .   1   1   9    9    THR   C     C   13   172.9   0.1   .   1   .   .   .   .   A   45   THR   C     .   30304   1
+      12    .   1   1   9    9    THR   CA    C   13   63.1    0.1   .   1   .   .   .   .   A   45   THR   CA    .   30304   1
+      13    .   1   1   9    9    THR   CB    C   13   71.7    0.1   .   1   .   .   .   .   A   45   THR   CB    .   30304   1
+      14    .   1   1   9    9    THR   CG2   C   13   21.9    0.1   .   1   .   .   .   .   A   45   THR   CG2   .   30304   1
+      15    .   1   1   9    9    THR   N     N   15   122.5   0.2   .   1   .   .   .   .   A   45   THR   N     .   30304   1
+      16    .   1   1   10   10   ASP   C     C   13   176.3   0.1   .   1   .   .   .   .   A   46   ASP   C     .   30304   1
+      17    .   1   1   10   10   ASP   CA    C   13   50.7    0.1   .   1   .   .   .   .   A   46   ASP   CA    .   30304   1
+      18    .   1   1   10   10   ASP   CB    C   13   42.9    0.1   .   1   .   .   .   .   A   46   ASP   CB    .   30304   1
+      19    .   1   1   10   10   ASP   CG    C   13   180.9   0.1   .   1   .   .   .   .   A   46   ASP   CG    .   30304   1
+      20    .   1   1   10   10   ASP   N     N   15   127.4   0.2   .   1   .   .   .   .   A   46   ASP   N     .   30304   1
+      21    .   1   1   11   11   THR   C     C   13   173.2   0.1   .   1   .   .   .   .   A   47   THR   C     .   30304   1
+      22    .   1   1   11   11   THR   CA    C   13   63.5    0.1   .   1   .   .   .   .   A   47   THR   CA    .   30304   1
+      23    .   1   1   11   11   THR   CB    C   13   71.5    0.1   .   1   .   .   .   .   A   47   THR   CB    .   30304   1
+      24    .   1   1   11   11   THR   CG2   C   13   21.9    0.1   .   1   .   .   .   .   A   47   THR   CG2   .   30304   1
+      25    .   1   1   11   11   THR   N     N   15   121.8   0.2   .   1   .   .   .   .   A   47   THR   N     .   30304   1
+      26    .   1   1   12   12   SER   C     C   13   176.1   0.1   .   1   .   .   .   .   A   48   SER   C     .   30304   1
+      27    .   1   1   12   12   SER   CA    C   13   59.3    0.1   .   1   .   .   .   .   A   48   SER   CA    .   30304   1
+      28    .   1   1   12   12   SER   CB    C   13   63.4    0.1   .   1   .   .   .   .   A   48   SER   CB    .   30304   1
+      29    .   1   1   12   12   SER   N     N   15   121.4   0.2   .   1   .   .   .   .   A   48   SER   N     .   30304   1
+      30    .   1   1   13   13   GLY   C     C   13   173.4   0.1   .   1   .   .   .   .   A   49   GLY   C     .   30304   1
+      31    .   1   1   13   13   GLY   CA    C   13   44.5    0.1   .   1   .   .   .   .   A   49   GLY   CA    .   30304   1
+      32    .   1   1   13   13   GLY   N     N   15   114.4   0.2   .   1   .   .   .   .   A   49   GLY   N     .   30304   1
+      33    .   1   1   14   14   TYR   C     C   13   173.5   0.1   .   1   .   .   .   .   A   50   TYR   C     .   30304   1
+      34    .   1   1   14   14   TYR   CA    C   13   61.7    0.1   .   1   .   .   .   .   A   50   TYR   CA    .   30304   1
+      35    .   1   1   14   14   TYR   CB    C   13   37.7    0.1   .   1   .   .   .   .   A   50   TYR   CB    .   30304   1
+      36    .   1   1   14   14   TYR   CG    C   13   128.2   0.1   .   1   .   .   .   .   A   50   TYR   CG    .   30304   1
+      37    .   1   1   14   14   TYR   CD1   C   13   131.4   0.1   .   3   .   .   .   .   A   50   TYR   CD1   .   30304   1
+      38    .   1   1   14   14   TYR   CD2   C   13   133.5   0.1   .   3   .   .   .   .   A   50   TYR   CD2   .   30304   1
+      39    .   1   1   14   14   TYR   CE1   C   13   118.8   0.1   .   3   .   .   .   .   A   50   TYR   CE1   .   30304   1
+      40    .   1   1   14   14   TYR   CZ    C   13   157.0   0.1   .   1   .   .   .   .   A   50   TYR   CZ    .   30304   1
+      41    .   1   1   14   14   TYR   N     N   15   104.7   0.2   .   1   .   .   .   .   A   50   TYR   N     .   30304   1
+      42    .   1   1   15   15   GLY   C     C   13   172.1   0.1   .   1   .   .   .   .   A   51   GLY   C     .   30304   1
+      43    .   1   1   15   15   GLY   CA    C   13   42.9    0.1   .   1   .   .   .   .   A   51   GLY   CA    .   30304   1
+      44    .   1   1   15   15   GLY   N     N   15   108.3   0.2   .   1   .   .   .   .   A   51   GLY   N     .   30304   1
+      45    .   1   1   16   16   GLN   C     C   13   176.0   0.1   .   1   .   .   .   .   A   52   GLN   C     .   30304   1
+      46    .   1   1   16   16   GLN   CA    C   13   56.4    0.1   .   1   .   .   .   .   A   52   GLN   CA    .   30304   1
+      47    .   1   1   16   16   GLN   CB    C   13   27.1    0.1   .   1   .   .   .   .   A   52   GLN   CB    .   30304   1
+      48    .   1   1   16   16   GLN   CG    C   13   35.2    0.1   .   1   .   .   .   .   A   52   GLN   CG    .   30304   1
+      49    .   1   1   16   16   GLN   CD    C   13   181.1   0.1   .   1   .   .   .   .   A   52   GLN   CD    .   30304   1
+      50    .   1   1   16   16   GLN   N     N   15   110.3   0.2   .   1   .   .   .   .   A   52   GLN   N     .   30304   1
+      51    .   1   1   17   17   SER   C     C   13   173.0   0.1   .   1   .   .   .   .   A   53   SER   C     .   30304   1
+      52    .   1   1   17   17   SER   CA    C   13   58.0    0.1   .   1   .   .   .   .   A   53   SER   CA    .   30304   1
+      53    .   1   1   17   17   SER   CB    C   13   66.5    0.1   .   1   .   .   .   .   A   53   SER   CB    .   30304   1
+      54    .   1   1   17   17   SER   N     N   15   116.4   0.2   .   1   .   .   .   .   A   53   SER   N     .   30304   1
+      55    .   1   1   18   18   SER   C     C   13   175.0   0.1   .   1   .   .   .   .   A   54   SER   C     .   30304   1
+      56    .   1   1   18   18   SER   CA    C   13   56.1    0.1   .   1   .   .   .   .   A   54   SER   CA    .   30304   1
+      57    .   1   1   18   18   SER   CB    C   13   66.5    0.1   .   1   .   .   .   .   A   54   SER   CB    .   30304   1
+      58    .   1   1   18   18   SER   N     N   15   113.9   0.2   .   1   .   .   .   .   A   54   SER   N     .   30304   1
+      59    .   1   1   27   27   ASN   C     C   13   173.7   0.1   .   1   .   .   .   .   A   63   ASN   C     .   30304   1
+      60    .   1   1   27   27   ASN   CA    C   13   52.4    0.1   .   1   .   .   .   .   A   63   ASN   CA    .   30304   1
+      61    .   1   1   27   27   ASN   CB    C   13   39.9    0.1   .   1   .   .   .   .   A   63   ASN   CB    .   30304   1
+      62    .   1   1   27   27   ASN   CG    C   13   176.4   0.1   .   1   .   .   .   .   A   63   ASN   CG    .   30304   1
+      63    .   1   1   27   27   ASN   N     N   15   126.9   0.2   .   1   .   .   .   .   A   63   ASN   N     .   30304   1
+      64    .   1   1   28   28   THR   C     C   13   173.6   0.1   .   1   .   .   .   .   A   64   THR   C     .   30304   1
+      65    .   1   1   28   28   THR   CA    C   13   61.4    0.1   .   1   .   .   .   .   A   64   THR   CA    .   30304   1
+      66    .   1   1   28   28   THR   CB    C   13   70.6    0.1   .   1   .   .   .   .   A   64   THR   CB    .   30304   1
+      67    .   1   1   28   28   THR   CG2   C   13   21.9    0.1   .   1   .   .   .   .   A   64   THR   CG2   .   30304   1
+      68    .   1   1   28   28   THR   N     N   15   122.9   0.2   .   1   .   .   .   .   A   64   THR   N     .   30304   1
+      69    .   1   1   29   29   GLY   C     C   13   171.1   0.1   .   1   .   .   .   .   A   65   GLY   C     .   30304   1
+      70    .   1   1   29   29   GLY   CA    C   13   45.5    0.1   .   1   .   .   .   .   A   65   GLY   CA    .   30304   1
+      71    .   1   1   29   29   GLY   N     N   15   117.2   0.2   .   1   .   .   .   .   A   65   GLY   N     .   30304   1
+      72    .   1   1   30   30   TYR   C     C   13   177.5   0.1   .   1   .   .   .   .   A   66   TYR   C     .   30304   1
+      73    .   1   1   30   30   TYR   CA    C   13   57.9    0.1   .   1   .   .   .   .   A   66   TYR   CA    .   30304   1
+      74    .   1   1   30   30   TYR   CB    C   13   41.5    0.1   .   1   .   .   .   .   A   66   TYR   CB    .   30304   1
+      75    .   1   1   30   30   TYR   CG    C   13   130.1   0.1   .   1   .   .   .   .   A   66   TYR   CG    .   30304   1
+      76    .   1   1   30   30   TYR   CD1   C   13   132.0   0.1   .   3   .   .   .   .   A   66   TYR   CD1   .   30304   1
+      77    .   1   1   30   30   TYR   CD2   C   13   134.1   0.1   .   3   .   .   .   .   A   66   TYR   CD2   .   30304   1
+      78    .   1   1   30   30   TYR   CE1   C   13   118.8   0.1   .   3   .   .   .   .   A   66   TYR   CE1   .   30304   1
+      79    .   1   1   30   30   TYR   CZ    C   13   156.9   0.1   .   1   .   .   .   .   A   66   TYR   CZ    .   30304   1
+      80    .   1   1   30   30   TYR   N     N   15   122.9   0.2   .   1   .   .   .   .   A   66   TYR   N     .   30304   1
+      81    .   1   1   31   31   GLY   C     C   13   174.0   0.1   .   1   .   .   .   .   A   67   GLY   C     .   30304   1
+      82    .   1   1   31   31   GLY   CA    C   13   47.1    0.1   .   1   .   .   .   .   A   67   GLY   CA    .   30304   1
+      83    .   1   1   31   31   GLY   N     N   15   114.9   0.2   .   1   .   .   .   .   A   67   GLY   N     .   30304   1
+      84    .   1   1   32   32   THR   C     C   13   172.0   0.1   .   1   .   .   .   .   A   68   THR   C     .   30304   1
+      85    .   1   1   32   32   THR   CA    C   13   61.4    0.1   .   1   .   .   .   .   A   68   THR   CA    .   30304   1
+      86    .   1   1   32   32   THR   CB    C   13   70.1    0.1   .   1   .   .   .   .   A   68   THR   CB    .   30304   1
+      87    .   1   1   32   32   THR   N     N   15   115.0   0.2   .   1   .   .   .   .   A   68   THR   N     .   30304   1
+      88    .   1   1   33   33   GLN   C     C   13   173.6   0.1   .   1   .   .   .   .   A   69   GLN   C     .   30304   1
+      89    .   1   1   33   33   GLN   CA    C   13   53.9    0.1   .   1   .   .   .   .   A   69   GLN   CA    .   30304   1
+      90    .   1   1   33   33   GLN   CB    C   13   34.2    0.1   .   1   .   .   .   .   A   69   GLN   CB    .   30304   1
+      91    .   1   1   33   33   GLN   CG    C   13   34.8    0.1   .   1   .   .   .   .   A   69   GLN   CG    .   30304   1
+      92    .   1   1   33   33   GLN   CD    C   13   177.2   0.1   .   1   .   .   .   .   A   69   GLN   CD    .   30304   1
+      93    .   1   1   33   33   GLN   N     N   15   126.8   0.2   .   1   .   .   .   .   A   69   GLN   N     .   30304   1
+      94    .   1   1   34   34   SER   C     C   13   173.7   0.1   .   1   .   .   .   .   A   70   SER   C     .   30304   1
+      95    .   1   1   34   34   SER   CA    C   13   54.8    0.1   .   1   .   .   .   .   A   70   SER   CA    .   30304   1
+      96    .   1   1   34   34   SER   CB    C   13   64.2    0.1   .   1   .   .   .   .   A   70   SER   CB    .   30304   1
+      97    .   1   1   34   34   SER   N     N   15   120.5   0.2   .   1   .   .   .   .   A   70   SER   N     .   30304   1
+      98    .   1   1   35   35   THR   CA    C   13   60.7    0.1   .   1   .   .   .   .   A   71   THR   CA    .   30304   1
+      99    .   1   1   35   35   THR   CB    C   13   70.1    0.1   .   1   .   .   .   .   A   71   THR   CB    .   30304   1
+      100   .   1   1   35   35   THR   CG2   C   13   20.5    0.1   .   1   .   .   .   .   A   71   THR   CG2   .   30304   1
+      101   .   1   1   36   36   PRO   C     C   13   176.6   0.1   .   1   .   .   .   .   A   72   PRO   C     .   30304   1
+      102   .   1   1   36   36   PRO   CA    C   13   62.3    0.1   .   1   .   .   .   .   A   72   PRO   CA    .   30304   1
+      103   .   1   1   36   36   PRO   CB    C   13   32.3    0.1   .   1   .   .   .   .   A   72   PRO   CB    .   30304   1
+      104   .   1   1   36   36   PRO   CG    C   13   28.5    0.1   .   1   .   .   .   .   A   72   PRO   CG    .   30304   1
+      105   .   1   1   36   36   PRO   CD    C   13   47.2    0.1   .   1   .   .   .   .   A   72   PRO   CD    .   30304   1
+      106   .   1   1   36   36   PRO   N     N   15   132.9   0.2   .   1   .   .   .   .   A   72   PRO   N     .   30304   1
+      107   .   1   1   37   37   GLN   C     C   13   175.3   0.1   .   1   .   .   .   .   A   73   GLN   C     .   30304   1
+      108   .   1   1   37   37   GLN   CA    C   13   54.7    0.1   .   1   .   .   .   .   A   73   GLN   CA    .   30304   1
+      109   .   1   1   37   37   GLN   CB    C   13   33.4    0.1   .   1   .   .   .   .   A   73   GLN   CB    .   30304   1
+      110   .   1   1   37   37   GLN   CG    C   13   34.9    0.1   .   1   .   .   .   .   A   73   GLN   CG    .   30304   1
+      111   .   1   1   37   37   GLN   N     N   15   121.8   0.2   .   1   .   .   .   .   A   73   GLN   N     .   30304   1
+      112   .   1   1   38   38   GLY   C     C   13   173.9   0.1   .   1   .   .   .   .   A   74   GLY   C     .   30304   1
+      113   .   1   1   38   38   GLY   CA    C   13   46.2    0.1   .   1   .   .   .   .   A   74   GLY   CA    .   30304   1
+      114   .   1   1   38   38   GLY   N     N   15   110.2   0.2   .   1   .   .   .   .   A   74   GLY   N     .   30304   1
+      115   .   1   1   39   39   TYR   C     C   13   177.6   0.1   .   1   .   .   .   .   A   75   TYR   C     .   30304   1
+      116   .   1   1   39   39   TYR   CA    C   13   59.9    0.1   .   1   .   .   .   .   A   75   TYR   CA    .   30304   1
+      117   .   1   1   39   39   TYR   CB    C   13   39.7    0.1   .   1   .   .   .   .   A   75   TYR   CB    .   30304   1
+      118   .   1   1   39   39   TYR   CG    C   13   129.1   0.1   .   1   .   .   .   .   A   75   TYR   CG    .   30304   1
+      119   .   1   1   39   39   TYR   CD1   C   13   131.2   0.1   .   3   .   .   .   .   A   75   TYR   CD1   .   30304   1
+      120   .   1   1   39   39   TYR   CD2   C   13   133.5   0.1   .   3   .   .   .   .   A   75   TYR   CD2   .   30304   1
+      121   .   1   1   39   39   TYR   CE1   C   13   117.6   0.1   .   3   .   .   .   .   A   75   TYR   CE1   .   30304   1
+      122   .   1   1   39   39   TYR   CE2   C   13   118.6   0.1   .   3   .   .   .   .   A   75   TYR   CE2   .   30304   1
+      123   .   1   1   39   39   TYR   CZ    C   13   157.0   0.1   .   1   .   .   .   .   A   75   TYR   CZ    .   30304   1
+      124   .   1   1   39   39   TYR   N     N   15   126.6   0.2   .   1   .   .   .   .   A   75   TYR   N     .   30304   1
+      125   .   1   1   40   40   GLY   C     C   13   175.8   0.1   .   1   .   .   .   .   A   76   GLY   C     .   30304   1
+      126   .   1   1   40   40   GLY   CA    C   13   45.7    0.1   .   1   .   .   .   .   A   76   GLY   CA    .   30304   1
+      127   .   1   1   40   40   GLY   N     N   15   103.3   0.2   .   1   .   .   .   .   A   76   GLY   N     .   30304   1
+      128   .   1   1   41   41   SER   C     C   13   174.7   0.1   .   1   .   .   .   .   A   77   SER   C     .   30304   1
+      129   .   1   1   41   41   SER   CA    C   13   58.6    0.1   .   1   .   .   .   .   A   77   SER   CA    .   30304   1
+      130   .   1   1   41   41   SER   CB    C   13   65.2    0.1   .   1   .   .   .   .   A   77   SER   CB    .   30304   1
+      131   .   1   1   41   41   SER   N     N   15   119.1   0.2   .   1   .   .   .   .   A   77   SER   N     .   30304   1
+      132   .   1   1   42   42   THR   C     C   13   173.1   0.1   .   1   .   .   .   .   A   78   THR   C     .   30304   1
+      133   .   1   1   42   42   THR   CA    C   13   62.6    0.1   .   1   .   .   .   .   A   78   THR   CA    .   30304   1
+      134   .   1   1   42   42   THR   CB    C   13   69.9    0.1   .   1   .   .   .   .   A   78   THR   CB    .   30304   1
+      135   .   1   1   42   42   THR   CG2   C   13   19.8    0.1   .   1   .   .   .   .   A   78   THR   CG2   .   30304   1
+      136   .   1   1   42   42   THR   N     N   15   123.4   0.2   .   1   .   .   .   .   A   78   THR   N     .   30304   1
+      137   .   1   1   43   43   GLY   C     C   13   172.1   0.1   .   1   .   .   .   .   A   79   GLY   C     .   30304   1
+      138   .   1   1   43   43   GLY   CA    C   13   43.6    0.1   .   1   .   .   .   .   A   79   GLY   CA    .   30304   1
+      139   .   1   1   43   43   GLY   N     N   15   116.4   0.2   .   1   .   .   .   .   A   79   GLY   N     .   30304   1
+      140   .   1   1   44   44   GLY   C     C   13   171.6   0.1   .   1   .   .   .   .   A   80   GLY   C     .   30304   1
+      141   .   1   1   44   44   GLY   CA    C   13   43.6    0.1   .   1   .   .   .   .   A   80   GLY   CA    .   30304   1
+      142   .   1   1   44   44   GLY   N     N   15   109.9   0.2   .   1   .   .   .   .   A   80   GLY   N     .   30304   1
+      143   .   1   1   45   45   TYR   C     C   13   177.1   0.1   .   1   .   .   .   .   A   81   TYR   C     .   30304   1
+      144   .   1   1   45   45   TYR   CA    C   13   61.6    0.1   .   1   .   .   .   .   A   81   TYR   CA    .   30304   1
+      145   .   1   1   45   45   TYR   CB    C   13   39.6    0.1   .   1   .   .   .   .   A   81   TYR   CB    .   30304   1
+      146   .   1   1   45   45   TYR   CG    C   13   131.1   0.1   .   1   .   .   .   .   A   81   TYR   CG    .   30304   1
+      147   .   1   1   45   45   TYR   CD1   C   13   131.7   0.1   .   3   .   .   .   .   A   81   TYR   CD1   .   30304   1
+      148   .   1   1   45   45   TYR   CD2   C   13   131.7   0.1   .   3   .   .   .   .   A   81   TYR   CD2   .   30304   1
+      149   .   1   1   45   45   TYR   CE1   C   13   117.4   0.1   .   3   .   .   .   .   A   81   TYR   CE1   .   30304   1
+      150   .   1   1   45   45   TYR   CE2   C   13   117.7   0.1   .   3   .   .   .   .   A   81   TYR   CE2   .   30304   1
+      151   .   1   1   45   45   TYR   CZ    C   13   157.7   0.1   .   1   .   .   .   .   A   81   TYR   CZ    .   30304   1
+      152   .   1   1   45   45   TYR   N     N   15   122.0   0.2   .   1   .   .   .   .   A   81   TYR   N     .   30304   1
+      153   .   1   1   46   46   GLY   C     C   13   174.9   0.1   .   1   .   .   .   .   A   82   GLY   C     .   30304   1
+      154   .   1   1   46   46   GLY   CA    C   13   48.7    0.1   .   1   .   .   .   .   A   82   GLY   CA    .   30304   1
+      155   .   1   1   46   46   GLY   N     N   15   110.1   0.2   .   1   .   .   .   .   A   82   GLY   N     .   30304   1
+      156   .   1   1   47   47   SER   C     C   13   172.5   0.1   .   1   .   .   .   .   A   83   SER   C     .   30304   1
+      157   .   1   1   47   47   SER   CA    C   13   57.5    0.1   .   1   .   .   .   .   A   83   SER   CA    .   30304   1
+      158   .   1   1   47   47   SER   CB    C   13   66.0    0.1   .   1   .   .   .   .   A   83   SER   CB    .   30304   1
+      159   .   1   1   47   47   SER   N     N   15   109.7   0.2   .   1   .   .   .   .   A   83   SER   N     .   30304   1
+      160   .   1   1   48   48   SER   C     C   13   175.0   0.1   .   1   .   .   .   .   A   84   SER   C     .   30304   1
+      161   .   1   1   48   48   SER   CA    C   13   55.9    0.1   .   1   .   .   .   .   A   84   SER   CA    .   30304   1
+      162   .   1   1   48   48   SER   CB    C   13   67.6    0.1   .   1   .   .   .   .   A   84   SER   CB    .   30304   1
+      163   .   1   1   48   48   SER   N     N   15   116.5   0.2   .   1   .   .   .   .   A   84   SER   N     .   30304   1
+      164   .   1   1   49   49   GLN   C     C   13   172.3   0.1   .   1   .   .   .   .   A   85   GLN   C     .   30304   1
+      165   .   1   1   49   49   GLN   CA    C   13   54.7    0.1   .   1   .   .   .   .   A   85   GLN   CA    .   30304   1
+      166   .   1   1   49   49   GLN   CB    C   13   33.4    0.1   .   1   .   .   .   .   A   85   GLN   CB    .   30304   1
+      167   .   1   1   49   49   GLN   CG    C   13   34.1    0.1   .   1   .   .   .   .   A   85   GLN   CG    .   30304   1
+      168   .   1   1   49   49   GLN   CD    C   13   180.3   0.1   .   1   .   .   .   .   A   85   GLN   CD    .   30304   1
+      169   .   1   1   49   49   GLN   N     N   15   128.4   0.2   .   1   .   .   .   .   A   85   GLN   N     .   30304   1
+      170   .   1   1   50   50   SER   C     C   13   174.0   0.1   .   1   .   .   .   .   A   86   SER   C     .   30304   1
+      171   .   1   1   50   50   SER   CA    C   13   56.0    0.1   .   1   .   .   .   .   A   86   SER   CA    .   30304   1
+      172   .   1   1   50   50   SER   CB    C   13   67.0    0.1   .   1   .   .   .   .   A   86   SER   CB    .   30304   1
+      173   .   1   1   50   50   SER   N     N   15   120.9   0.2   .   1   .   .   .   .   A   86   SER   N     .   30304   1
+      174   .   1   1   51   51   SER   C     C   13   172.9   0.1   .   1   .   .   .   .   A   87   SER   C     .   30304   1
+      175   .   1   1   51   51   SER   CA    C   13   58.9    0.1   .   1   .   .   .   .   A   87   SER   CA    .   30304   1
+      176   .   1   1   51   51   SER   CB    C   13   65.2    0.1   .   1   .   .   .   .   A   87   SER   CB    .   30304   1
+      177   .   1   1   51   51   SER   N     N   15   113.0   0.2   .   1   .   .   .   .   A   87   SER   N     .   30304   1
+      178   .   1   1   52   52   GLN   C     C   13   176.4   0.1   .   1   .   .   .   .   A   88   GLN   C     .   30304   1
+      179   .   1   1   52   52   GLN   CA    C   13   56.4    0.1   .   1   .   .   .   .   A   88   GLN   CA    .   30304   1
+      180   .   1   1   52   52   GLN   CB    C   13   31.9    0.1   .   1   .   .   .   .   A   88   GLN   CB    .   30304   1
+      181   .   1   1   52   52   GLN   CG    C   13   34.1    0.1   .   1   .   .   .   .   A   88   GLN   CG    .   30304   1
+      182   .   1   1   52   52   GLN   CD    C   13   179.0   0.1   .   1   .   .   .   .   A   88   GLN   CD    .   30304   1
+      183   .   1   1   52   52   GLN   N     N   15   120.2   0.2   .   1   .   .   .   .   A   88   GLN   N     .   30304   1
+      184   .   1   1   53   53   SER   C     C   13   173.4   0.1   .   1   .   .   .   .   A   89   SER   C     .   30304   1
+      185   .   1   1   53   53   SER   CA    C   13   56.6    0.1   .   1   .   .   .   .   A   89   SER   CA    .   30304   1
+      186   .   1   1   53   53   SER   CB    C   13   66.0    0.1   .   1   .   .   .   .   A   89   SER   CB    .   30304   1
+      187   .   1   1   53   53   SER   N     N   15   117.1   0.2   .   1   .   .   .   .   A   89   SER   N     .   30304   1
+      188   .   1   1   54   54   SER   C     C   13   173.1   0.1   .   1   .   .   .   .   A   90   SER   C     .   30304   1
+      189   .   1   1   54   54   SER   CA    C   13   54.6    0.1   .   1   .   .   .   .   A   90   SER   CA    .   30304   1
+      190   .   1   1   54   54   SER   CB    C   13   64.4    0.1   .   1   .   .   .   .   A   90   SER   CB    .   30304   1
+      191   .   1   1   54   54   SER   N     N   15   118.2   0.2   .   1   .   .   .   .   A   90   SER   N     .   30304   1
+      192   .   1   1   55   55   TYR   C     C   13   175.8   0.1   .   1   .   .   .   .   A   91   TYR   C     .   30304   1
+      193   .   1   1   55   55   TYR   CA    C   13   55.2    0.1   .   1   .   .   .   .   A   91   TYR   CA    .   30304   1
+      194   .   1   1   55   55   TYR   CB    C   13   39.2    0.1   .   1   .   .   .   .   A   91   TYR   CB    .   30304   1
+      195   .   1   1   55   55   TYR   CG    C   13   129.1   0.1   .   1   .   .   .   .   A   91   TYR   CG    .   30304   1
+      196   .   1   1   55   55   TYR   CD1   C   13   132.6   0.1   .   3   .   .   .   .   A   91   TYR   CD1   .   30304   1
+      197   .   1   1   55   55   TYR   CD2   C   13   133.4   0.1   .   3   .   .   .   .   A   91   TYR   CD2   .   30304   1
+      198   .   1   1   55   55   TYR   CE1   C   13   117.1   0.1   .   3   .   .   .   .   A   91   TYR   CE1   .   30304   1
+      199   .   1   1   55   55   TYR   CZ    C   13   157.8   0.1   .   1   .   .   .   .   A   91   TYR   CZ    .   30304   1
+      200   .   1   1   55   55   TYR   N     N   15   123.7   0.2   .   1   .   .   .   .   A   91   TYR   N     .   30304   1
+      201   .   1   1   56   56   GLY   C     C   13   174.4   0.1   .   1   .   .   .   .   A   92   GLY   C     .   30304   1
+      202   .   1   1   56   56   GLY   CA    C   13   46.6    0.1   .   1   .   .   .   .   A   92   GLY   CA    .   30304   1
+      203   .   1   1   56   56   GLY   N     N   15   100.3   0.2   .   1   .   .   .   .   A   92   GLY   N     .   30304   1
+      204   .   1   1   57   57   GLN   C     C   13   175.6   0.1   .   1   .   .   .   .   A   93   GLN   C     .   30304   1
+      205   .   1   1   57   57   GLN   CA    C   13   58.3    0.1   .   1   .   .   .   .   A   93   GLN   CA    .   30304   1
+      206   .   1   1   57   57   GLN   CB    C   13   28.7    0.1   .   1   .   .   .   .   A   93   GLN   CB    .   30304   1
+      207   .   1   1   57   57   GLN   CG    C   13   36.0    0.1   .   1   .   .   .   .   A   93   GLN   CG    .   30304   1
+      208   .   1   1   57   57   GLN   CD    C   13   177.2   0.1   .   1   .   .   .   .   A   93   GLN   CD    .   30304   1
+      209   .   1   1   57   57   GLN   N     N   15   116.2   0.2   .   1   .   .   .   .   A   93   GLN   N     .   30304   1
+      210   .   1   1   58   58   GLN   C     C   13   175.6   0.1   .   1   .   .   .   .   A   94   GLN   C     .   30304   1
+      211   .   1   1   58   58   GLN   CA    C   13   54.8    0.1   .   1   .   .   .   .   A   94   GLN   CA    .   30304   1
+      212   .   1   1   58   58   GLN   CB    C   13   34.2    0.1   .   1   .   .   .   .   A   94   GLN   CB    .   30304   1
+      213   .   1   1   58   58   GLN   CD    C   13   177.7   0.1   .   1   .   .   .   .   A   94   GLN   CD    .   30304   1
+      214   .   1   1   58   58   GLN   N     N   15   117.5   0.2   .   1   .   .   .   .   A   94   GLN   N     .   30304   1
+      215   .   1   1   59   59   SER   C     C   13   173.8   0.1   .   1   .   .   .   .   A   95   SER   C     .   30304   1
+      216   .   1   1   59   59   SER   CA    C   13   56.2    0.1   .   1   .   .   .   .   A   95   SER   CA    .   30304   1
+      217   .   1   1   59   59   SER   CB    C   13   65.2    0.1   .   1   .   .   .   .   A   95   SER   CB    .   30304   1
+      218   .   1   1   59   59   SER   N     N   15   121.7   0.2   .   1   .   .   .   .   A   95   SER   N     .   30304   1
+   stop_
+save_
+

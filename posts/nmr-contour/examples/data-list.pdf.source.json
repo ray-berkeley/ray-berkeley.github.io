@@ -1,0 +1,18 @@
+{
+  "filename": "data-list.pdf",
+  "id": "b59f88bb-b29e-4d87-85ba-6aa742a078ff",
+  "description": "",
+  "content_details": {
+    "id": "942499f6-56bf-4c52-b173-d9b67b1ed24d",
+    "sha256_hash": "03c861d400c1f05327cc6118e8c7ca15dc96f551362f2b3972ab51e05bfa6964",
+    "content_type": "application/pdf",
+    "size": 83030,
+    "created_date": "2017-06-09T00:00:00Z",
+    "download_url": "https://data.mendeley.com/public-files/datasets/rxbh442x2g/files/b59f88bb-b29e-4d87-85ba-6aa742a078ff/file_downloaded",
+    "view_url": "https://data.mendeley.com/public-files/datasets/rxbh442x2g/files/b59f88bb-b29e-4d87-85ba-6aa742a078ff/file_viewed",
+    "download_expiry_time": "2126-10-15T22:24:20.226180738Z"
+  },
+  "size": 83030,
+  "last_modified_date": "2017-06-09T00:00:00Z",
+  "status": "COMPLETED"
+}

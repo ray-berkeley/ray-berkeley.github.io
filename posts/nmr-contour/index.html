@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NMR Contour</title>
+  
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="browser.css">
+  <script src="static/bokeh.min.js" defer></script>
+  <script src="static/bokeh-api.min.js" defer></script>
+  <script src="browser.js" type="module"></script>
+
+</head>
+<body>
+<main class="contour-content">
+  <div class="intro"><h1>NMR Contour</h1><p>Plot processed 2D NMR spectra and export editable SVG figures.</p></div>
+  <div class="workspace">
+    <form id="spectrum-form" class="controls">
+      <fieldset><legend>Datasets</legend>
+        <div id="dropzone"><ol id="dataset-list" aria-label="Datasets, top layer first"></ol><label>Drop spectra or assignments here<input id="files" type="file" multiple accept=".ucsf,.zip,.str,.star,.txt"></label><p id="layer-hint" class="hint" hidden>Top file = top layer. Drag the handle or use the arrows to reorder.</p></div>
+        <p class="hint">UCSF, Bruker ZIP (2rr, procs, proc2s), or NMR-STAR assignments. <a id="reload-example" href="./">Reload Murray et al. 2017 example data.</a></p>
+        <p id="dataset-announcement" class="visually-hidden" role="status"></p>
+        <label>Dataset name<input name="name" maxlength="160"></label>
+        <input name="colormap" type="hidden" value="solid">
+        <details id="color-picker" class="color-picker">
+          <summary><span>Color</span><span id="color-current-swatch" aria-hidden="true"></span><span id="color-current-label">Select a file</span></summary>
+          <div class="color-menu">
+            <div class="color-section-title"><span>Fixed colors</span><label class="visually-hidden" for="fixed-palette">ColorBrewer palette</label><select id="fixed-palette"></select></div>
+            <div id="fixed-swatches" class="fixed-swatches" role="group" aria-label="Fixed color swatches"></div>
+            <p class="color-section-title">Sequential gradients</p>
+            <div id="gradient-swatches" class="gradient-swatches" role="group" aria-label="Sequential gradient swatches"></div>
+            <p id="gradient-note" class="hint">Low → high positive contour levels</p>
+            <label id="reverse-gradient" class="check" hidden><input name="reverse_colormap" type="checkbox"> Reverse gradient</label>
+            <div class="custom-color"><label>Custom color<input name="color" type="color" value="#005998"></label><label>Hex<input id="custom-hex" type="text" value="#005998" maxlength="7" spellcheck="false" autocomplete="off" placeholder="#005998" aria-invalid="false"></label></div>
+          </div>
+        </details>
+      </fieldset>
+      <fieldset id="assignment-controls"><legend>Assignment markers</legend>
+        <label>Shift list number<input name="loop" type="number" value="1" min="1" step="1" required></label>
+        <div class="pair"><label>Direct atom<input name="direct" value="CA" required></label><label>Indirect atom<input name="indirect" value="CB" required></label></div>
+        <label class="check"><input name="labels" type="checkbox" checked> Residue labels</label>
+        <label class="check"><input name="mirror" type="checkbox"> Mirror across diagonal</label>
+        <p class="hint">Pairs are within each residue. Markers show candidate positions, not detected peaks. Mirror only for spectra with the same nucleus on both axes.</p>
+        <a id="star-download" hidden>Download assignment CSV</a>
+      </fieldset>
+      <details id="contour-controls"><summary>Contours</summary>
+        <label>Level source<select name="levels"><option value="auto">Automatic starting point</option><option value="manual">Manual base intensity</option><option value="saved">Bruker clevels file</option></select></label>
+        <label>Base intensity<input name="base" type="number" step="any" min="1e-30" placeholder="Required for manual mode"></label>
+        <div class="pair"><label>Levels<input name="count" type="number" value="12" min="1" max="40"></label><label>Multiplier<input name="factor" type="number" value="1.4" min="1.001" max="10" step="any"></label></div>
+        <label class="check"><input name="negative" type="checkbox"> Include negative contours</label>
+        <p class="hint">Automatic base = median + 1.5 × standard deviation. A display starting point, not a noise estimate. Saved levels retain their original signs.</p>
+        <label>Negative contour color<input name="negative_color" type="color" value="#b75442"></label>
+        <label>Line width (pt)<input name="linewidth" type="number" value=".6" min=".1" max="3" step=".1"></label>
+      </details>
+      <details><summary>Axes & referencing</summary><p class="hint">X is the direct dimension. Blank limits fit all visible datasets. Both axes run from high to low ppm.</p>
+        
+        <div class="pair"><label>X min (ppm)<input name="xmin" type="number" step="any"></label><label>X max (ppm)<input name="xmax" type="number" step="any"></label></div>
+        
+        <label>X label<input name="xlabel" placeholder="From spectrum metadata" maxlength="100"></label>
+        
+        <div class="pair"><label>Y min (ppm)<input name="ymin" type="number" step="any"></label><label>Y max (ppm)<input name="ymax" type="number" step="any"></label></div>
+        
+        <label>Y label<input name="ylabel" placeholder="From spectrum metadata" maxlength="100"></label>
+        
+        <label class="check"><input name="equal" type="checkbox"> Equal ppm scale on both axes</label>
+        <label>X reference offset (ppm)<input name="xoffset" type="number" step="any" value="0"></label>
+        <label>Y reference offset (ppm)<input name="yoffset" type="number" step="any" value="0"></label>
+      </details>
+      <details><summary>Figure style</summary>
+        <label>Title<input name="title" placeholder="Spectrum filename" maxlength="160"></label>
+        <div class="pair"><label>Width (in)<input name="width" type="number" value="6" min="2" max="16" step=".1"></label><label>Height (in)<input name="height" type="number" value="6" min="2" max="16" step=".1"></label></div>
+        <div class="pair"><label>Font size (pt)<input name="fontsize" type="number" value="10" min="5" max="24"></label></div>
+        <p class="hint">SVG text remains editable.</p>
+      </details>
+      <div class="actions"><button id="restart" type="button">Restart calculation</button><p id="status" role="status">Loading plot…</p></div>
+    </form>
+    <section id="preview" class="preview" aria-live="polite">
+      <h2 id="spectrum-name">FUS-LC: uniformly labeled + N112 (Murray et al.)</h2>
+      <p id="error" class="error" role="alert" hidden></p>
+      <div id="plot" class="interactive-spectrum"></div>
+      <p id="stats" class="hint"></p>
+      
+      <div id="downloads" class="downloads" hidden><button id="svg-download" type="button">Download SVG</button><a id="settings-download">Download settings (JSON)</a></div>
+    </section>
+  </div>
+</main>
+<footer>Based on <a href="https://ray-berkeley.github.io/posts/Plot_2D_NMR_Spectra_in_Browser.html">the 2D NMR plotting post</a> and <a href="https://github.com/ray-berkeley/nmrlib">nmrlib</a>. Spectra are processed in this browser and are not uploaded.</footer>
+</body></html>

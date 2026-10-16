@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NMR Contour</title>
+  {{ bokeh_resources|safe }}
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/htmx.min.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="/">NMR / Contour</a><span class="badge">Local draft · 0.1</span></header>
+<main>
+  <div class="intro"><p class="eyebrow">FROM SPECTRUM TO FIGURE</p><h1>Give your spectra a clean finish.</h1><p>Plot processed 2D NMR data. Adjust the contours. Export an editable SVG.</p></div>
+  <div class="workspace">
+    <form hx-post="/plot" hx-encoding="multipart/form-data" hx-target="#preview" hx-indicator="#plot-progress" hx-disabled-elt="find button" class="controls">
+      <fieldset><legend><span>01</span> Spectrum</legend>
+        <label>Data format<select name="source"><option value="demo">Synthetic demonstration</option><option value="ucsf">UCSF / SPARKY (.ucsf)</option><option value="bruker">Processed Bruker (.zip)</option></select></label>
+        <label>Upload spectrum<input name="spectrum" type="file" accept=".ucsf,.zip"></label>
+        <p class="hint">Bruker ZIP: one processing folder with 2rr, procs, proc2s, and optional clevels. Up to 64 MB.</p>
+      </fieldset>
+      <fieldset><legend><span>02</span> Contours</legend>
+        <label>Level source<select name="levels"><option value="auto">Automatic starting point</option><option value="manual">Manual base intensity</option><option value="saved">Bruker clevels file</option></select></label>
+        <label>Base intensity<input name="base" type="number" step="any" min="1e-30" placeholder="Required for manual mode"></label>
+        <div class="pair"><label>Levels<input name="count" type="number" value="12" min="1" max="40"></label><label>Multiplier<input name="factor" type="number" value="1.4" min="1.001" max="10" step="any"></label></div>
+        <label class="check"><input name="negative" type="checkbox" checked> Include negative contours</label>
+        <p class="hint">Automatic base = median + 1.5 × standard deviation. A display starting point, not a noise estimate. Saved levels retain their original signs.</p>
+      </fieldset>
+      <details><summary>Axes & referencing</summary><p class="hint">X is the direct dimension. Blank limits use the full spectrum. Both axes run from high to low ppm.</p>
+        {% for axis in ['x', 'y'] %}
+        <div class="pair"><label>{{ axis|upper }} min (ppm)<input name="{{ axis }}min" type="number" step="any"></label><label>{{ axis|upper }} max (ppm)<input name="{{ axis }}max" type="number" step="any"></label></div>
+        <label>{{ axis|upper }} reference offset (ppm)<input name="{{ axis }}offset" type="number" step="any" value="0"></label>
+        <label>{{ axis|upper }} label<input name="{{ axis }}label" placeholder="From spectrum metadata" maxlength="100"></label>
+        {% endfor %}
+        <label class="check"><input name="equal" type="checkbox"> Equal ppm scale on both axes</label>
+      </details>
+      <details><summary>Figure style</summary>
+        <label>Title<input name="title" placeholder="Spectrum filename" maxlength="160"></label>
+        <div class="pair"><label>Width (in)<input name="width" type="number" value="6" min="2" max="16" step=".1"></label><label>Height (in)<input name="height" type="number" value="6" min="2" max="16" step=".1"></label></div>
+        <div class="pair"><label>Line width (pt)<input name="linewidth" type="number" value="0.6" min=".1" max="3" step=".1"></label><label>Font size (pt)<input name="fontsize" type="number" value="10" min="5" max="24"></label></div>
+        <label>Positive contour color<input name="color" type="color" value="#214f55"></label><p class="hint">Negative contours use rust red. SVG text remains editable.</p>
+      </details>
+      <button type="submit">Update plot <span aria-hidden="true">↗</span></button><span id="plot-progress" class="htmx-indicator" role="status">Rendering contours…</span>
+    </form>
+    <section id="preview" class="preview" aria-live="polite">{{ initial|safe }}</section>
+  </div>
+  <details class="bmrb"><summary>Assignment tools <span>NMR-STAR → crosspeak table</span></summary>
+    <p>Build candidate intraresidue correlations from assigned chemical shifts. These are expected positions, not observed peaks or predicted intensities.</p>
+    <form hx-post="/crosspeaks" hx-encoding="multipart/form-data" hx-target="#crosspeaks" hx-disabled-elt="find button" hx-indicator="#star-progress">
+      <div class="star-fields"><label>NMR-STAR file<input type="file" name="star" accept=".str,.star,.txt" required></label><label>Shift list number<input type="number" name="loop" value="1" min="1" required></label><label>Direct atom<input name="direct" value="CA" required></label><label>Indirect atom<input name="indirect" value="CB" required></label></div>
+      <p class="hint">List number follows file order. Entities stay separate; duplicate atom assignments must be resolved first.</p>
+      <button type="submit">Build crosspeak table</button><span id="star-progress" class="htmx-indicator" role="status">Reading assignments…</span>
+    </form><div id="crosspeaks" aria-live="polite"></div>
+  </details>
+</main>
+<footer>Based on <a href="https://ray-berkeley.github.io/posts/Plot_2D_NMR_Spectra_in_Browser.html">the 2D NMR plotting post</a> and <a href="https://github.com/ray-berkeley/nmrlib">nmrlib</a>. Files are processed by your local server and removed after each request.</footer>
+</body></html>
